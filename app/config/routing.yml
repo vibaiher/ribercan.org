@@ -1,7 +1,7 @@
+ribercan_app:
+    resource: "@RibercanAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ribercan_dog:
     resource: "@RibercanDogBundle/Resources/config/routing.yml"
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
