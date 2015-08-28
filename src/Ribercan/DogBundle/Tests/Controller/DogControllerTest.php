@@ -6,7 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DogControllerTest extends WebTestCase
 {
-    public function testDogsPage()
+    /**
+     * @test
+     */
+    public function dogsPageExists()
     {
         $client = static::createClient();
 
