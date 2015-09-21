@@ -1,0 +1,18 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Install vim
+      apt: pkg=vim state=latest
+    - name: Install tmux
+      apt: pkg=tmux state=latest
+    - name: Install mysql
+      apt: pkg=mysql-server-5.5 state=latest
+    - name: Install nginx
+      apt: pkg=nginx-full state=latest
+    - name: Install php5
+      apt: pkg=php5 state=latest
+    - name: Install php5-fpm
+      apt: pkg=php5-fpm state=latest
+    - name: Install php5-mysql
+      apt: pkg=php5-mysql state=latest

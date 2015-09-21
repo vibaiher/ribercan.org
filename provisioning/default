@@ -1,0 +1,4 @@
+# file: default.inventory
+
+[ribercan]
+192.168.33.11
