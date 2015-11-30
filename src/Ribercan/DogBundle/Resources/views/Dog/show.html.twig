@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+  <article class="animal">
+    <a href="/dogs/{{ dog.id }}">
+      <figure class="pic">
+        <img src="http://www.ribercan.org/timthumb.php?src=animales/1375/principal.jpg&amp;w=200">
+      </figure>
+      <div class="main">
+        <p class="name" data-title="Nombre">♂ {{ dog.name }}</p>
+        <ul class="metadata">
+          <li class="age" data-title="Edad">4 años</li>
+          <li class="size" data-title="Tamaño">{{ dog.size }}</li>
+          <li class="sterilized" datat-title="Esterilizado">X</li>
+        </ul>
+      </div>
+    </a>
+  </article>
+{% endblock %}

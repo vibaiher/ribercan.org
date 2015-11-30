@@ -5,7 +5,13 @@
     <div class="l__wrapper">
       <h2>Dogs waiting for adoption</h2>
       <form class="form-search"></form>
-      <ul class="List--animals"></ul>
+      <ul class="List--animals">
+        {% for dog in dogs %}
+          <li class="ListItem">
+            {{ include('RibercanDogBundle:Dog:index-dog.html.twig', { 'dog': dog }) }}
+          </li>
+        {% endfor %}
+      </ul>
       <div class="pager-wrapper"></div>
     </div>
   </section>

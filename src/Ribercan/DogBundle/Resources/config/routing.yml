@@ -1,3 +1,7 @@
 ribercan_dog_index:
     path:     /dogs
     defaults: { _controller: RibercanDogBundle:Dog:index }
+
+ribercan_dog_show:
+    path:     /dogs/{id}
+    defaults: { _controller: RibercanDogBundle:Dog:show }
