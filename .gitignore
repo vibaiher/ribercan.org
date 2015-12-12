@@ -11,3 +11,4 @@
 /web/bundles/
 .vagrant/
 *.swp
+.DS_Store
