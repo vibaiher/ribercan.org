@@ -1,15 +1,7 @@
 {% extends '::base.html.twig' %}
 
+{% block section_title %}Añadir perro en adopción{% endblock %}
+
 {% block body -%}
-    <h1>Dog creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('dog') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+  {{ form(dog_form) }}
 {% endblock %}

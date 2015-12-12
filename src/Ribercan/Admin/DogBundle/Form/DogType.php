@@ -16,16 +16,52 @@ class DogType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('sex')
-            ->add('birthday')
-            ->add('joinDate')
-            ->add('health')
-            ->add('godfather')
-            ->add('description')
-            ->add('size')
+            ->add(
+                'sex',
+                'choice',
+                array(
+                    'choices' => array(
+                        'Macho' => false,
+                        'Hembra' => true
+                    ),
+                    'choices_as_values' => true
+                )
+            )
+            ->add('birthday', 'date')
+            ->add('joinDate', 'date')
+            ->add(
+                'health',
+                'choice',
+                array(
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array(
+                        'Esterilizado' => "Se entrega esterilizado",
+                        'Con compromiso de esterilización' => "Se entrega con compromiso de esterilización"
+                    ),
+                    'choices_as_values' => true
+                )
+            )
+            ->add('godfather', 'text', array('required' => false, 'empty_data' => null))
+            ->add('description', 'text', array('required' => false, 'empty_data' => null))
+            ->add(
+                'size',
+                'choice',
+                array(
+                    'expanded' => true,
+                    'multiple' => false,
+                    'choices' => array(
+                        'Cachorro' => "Cachorro",
+                        'Pequeño' => "Pequeño",
+                        'Mediano' => "Mediano",
+                        'Grande' => "Grande",
+                    ),
+                    'choices_as_values' => true
+                )
+            )
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

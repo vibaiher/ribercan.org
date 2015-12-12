@@ -59,14 +59,14 @@ class Dog
     /**
      * @var string
      *
-     * @ORM\Column(name="godfather", type="string", length=255)
+     * @ORM\Column(name="godfather", type="string", length=255, nullable=true)
      */
     private $godfather;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -81,7 +81,7 @@ class Dog
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -104,7 +104,7 @@ class Dog
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -127,7 +127,7 @@ class Dog
     /**
      * Get sex
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getSex()
     {
@@ -150,7 +150,7 @@ class Dog
     /**
      * Get birthday
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBirthday()
     {
@@ -173,7 +173,7 @@ class Dog
     /**
      * Get joinDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getJoinDate()
     {
@@ -196,7 +196,7 @@ class Dog
     /**
      * Get health
      *
-     * @return string 
+     * @return string
      */
     public function getHealth()
     {
@@ -219,7 +219,7 @@ class Dog
     /**
      * Get godfather
      *
-     * @return string 
+     * @return string
      */
     public function getGodfather()
     {
@@ -242,7 +242,7 @@ class Dog
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -265,7 +265,7 @@ class Dog
     /**
      * Get size
      *
-     * @return string 
+     * @return string
      */
     public function getSize()
     {

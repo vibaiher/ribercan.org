@@ -92,11 +92,11 @@ class DogController extends Controller
     public function newAction()
     {
         $entity = new Dog();
-        $form   = $this->createCreateForm($entity);
+        $dog_form   = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'dog_form'   => $dog_form->createView(),
         );
     }
 
