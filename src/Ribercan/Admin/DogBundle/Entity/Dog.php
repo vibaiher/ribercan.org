@@ -31,7 +31,7 @@ class Dog
     /**
      * @var boolean
      *
-     * @ORM\Column(name="sex", type="boolean")
+     * @ORM\Column(name="sex", type="boolean", options={"default":false})
      */
     private $sex;
 
