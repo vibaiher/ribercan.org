@@ -59,6 +59,7 @@ class DogType extends AbstractType
                     'choices_as_values' => true
                 )
             )
+            ->add('urgent')
         ;
     }
 

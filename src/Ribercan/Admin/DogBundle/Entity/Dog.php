@@ -77,6 +77,13 @@ class Dog
      */
     private $size;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="urgent", type="boolean", options={"default":false})
+     */
+    private $urgent;
+
 
     /**
      * Get id
@@ -270,5 +277,28 @@ class Dog
     public function getSize()
     {
         return $this->size;
+    }
+
+    /**
+     * Set urgent
+     *
+     * @param string $urgent
+     * @return Dog
+     */
+    public function setUrgent($urgent)
+    {
+        $this->urgent = $urgent;
+
+        return $this;
+    }
+
+    /**
+     * Get urgent
+     *
+     * @return string
+     */
+    public function getUrgent()
+    {
+        return $this->urgent;
     }
 }
