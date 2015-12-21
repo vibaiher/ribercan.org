@@ -14,12 +14,27 @@ class DogControllerTest extends WebTestCase
         // Create a new entry in the database
         $crawler = $client->request('GET', '/admin/dog/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/dog/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->click($crawler->selectLink('Añadir perro en adopción')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'ribercan_admin_dogbundle_dog[field_name]'  => 'Test',
-            // ... other fields to fill
+            'ribercan_admin_dogbundle_dog[name]'  => 'Test',
+            'ribercan_admin_dogbundle_dog[sex]'  => 0,
+            'ribercan_admin_dogbundle_dog[birthday]'  => array(
+                'year' => 2010,
+                'month' => 1,
+                'day' => 1
+            ),
+            'ribercan_admin_dogbundle_dog[joinDate]'  => array(
+                'year' => 2010,
+                'month' => 1,
+                'day' => 1
+            ),
+            'ribercan_admin_dogbundle_dog[health]'  => 0,
+            'ribercan_admin_dogbundle_dog[godfather]'  => '',
+            'ribercan_admin_dogbundle_dog[description]'  => 'Custom description',
+            'ribercan_admin_dogbundle_dog[size]'  => 0,
+            'ribercan_admin_dogbundle_dog[urgent]'  => false
         ));
 
         $client->submit($form);
@@ -32,8 +47,8 @@ class DogControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'ribercan_admin_dogbundle_dog[field_name]'  => 'Foo',
-            // ... other fields to fill
+            'ribercan_admin_dogbundle_dog[name]'  => 'Foo',
+            'ribercan_admin_dogbundle_dog[urgent]'  => true
         ));
 
         $client->submit($form);
