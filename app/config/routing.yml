@@ -10,9 +10,3 @@ ribercan_admin_dog:
     resource: "@RibercanAdminDogBundle/Controller/"
     type:     annotation
     prefix:   /admin
-
-ribercan_admin_news:
-    resource: "@RibercanAdminNewsBundle/Controller/"
-    type:     annotation
-    prefix:   /admin
-

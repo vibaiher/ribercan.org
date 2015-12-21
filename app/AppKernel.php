@@ -18,8 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Ribercan\AppBundle\RibercanAppBundle(),
             new Ribercan\DogBundle\RibercanDogBundle(),
-            new Ribercan\Admin\DogBundle\RibercanAdminDogBundle(),
-            new Ribercan\Admin\NewsBundle\RibercanAdminNewsBundle(),
+            new Ribercan\Admin\DogBundle\RibercanAdminDogBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
