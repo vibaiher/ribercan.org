@@ -21,13 +21,13 @@ class DogType extends AbstractType
                 'choice',
                 array(
                     'choices' => array(
-                        'Macho' => false,
-                        'Hembra' => true
+                        'Macho' => "0",
+                        'Hembra' => "1"
                     ),
                     'choices_as_values' => true
                 )
             )
-            ->add('birthday', 'date')
+            ->add('birthday', 'birthday')
             ->add('joinDate', 'date')
             ->add(
                 'health',
