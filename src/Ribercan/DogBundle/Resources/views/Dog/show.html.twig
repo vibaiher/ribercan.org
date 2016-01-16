@@ -7,19 +7,22 @@
   </header>
   <div class="main">
     <div class="animal-adopt">
-      <h1 class="name"><span class="male">♂</span> {{ dog.name }}</h1>
+      <h1 class="name">{{ dog.sex ? '<span class="female">♀</span>' : '<span class="male">♂</span>' }} {{ dog.name }}</h1>
       <p>
         <a href="#" class="btn btn-primary" role="button">Adóptame</a> <a href="#" class="btn btn-default" role="button">Apadríname</a>
       </p>
     </div><!-- .animal-adopt -->
-    <p class="animal-entry">Entrada en la protectora <time>17/05/2013</time></p>
+    <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate.format("d/m/Y") }}</time></p>
     <ul class="List--metadata">
-      <li class="ListItem"><time>4 años</time></li>
-      <li class="ListItem">Tamaño pequeño</li>
-      <li class="ListItem">Esterilizado</li>
-      <li class="ListItem">Apadrinado por Ana Alabor</li>
+      <li class="ListItem"><time>{{ dog.birthday.format("d/m/Y") }}</time></li>
+      <li class="ListItem">Tamaño {{ dog.size }}</li>
+      <li class="ListItem">{{ dog.health }}</li>
+      {% if dog.godfather %}<li class="ListItem">Apadrinado por {{ dog.godfather }}</li>{% endif %}
     </ul>
     <p>{{ dog.description }}</p>
+    <h2>Video presentación</h2>
+    <iframe src="{{ dog.video }}"></iframe>
+    <p>Insertar aquí código de youtube</p>
     <ul class="List--thumbs">
       <li class="ListItem">
         <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/1069314_10153346751365392_1652044460_n.jpg&amp;w=150">

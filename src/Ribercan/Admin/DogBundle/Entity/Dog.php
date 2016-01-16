@@ -84,6 +84,13 @@ class Dog
      */
     private $urgent;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="video", type="string", length=255, nullable=true)
+     */
+    private $video;
+
 
     /**
      * Get id
@@ -300,5 +307,28 @@ class Dog
     public function getUrgent()
     {
         return $this->urgent;
+    }
+
+    /**
+     * Set video
+     *
+     * @param string $video
+     * @return Dog
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }

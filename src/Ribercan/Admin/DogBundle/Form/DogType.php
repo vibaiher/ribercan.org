@@ -60,6 +60,7 @@ class DogType extends AbstractType
                 )
             )
             ->add('urgent')
+            ->add('video')
         ;
     }
 
