@@ -7,11 +7,22 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Dog
  *
- * @ORM\Table()
+ * @ORM\Table(name="dogs")
  * @ORM\Entity(repositoryClass="Ribercan\Admin\DogBundle\Entity\DogRepository")
  */
 class Dog
 {
+    const MALE = "0";
+    const FEMALE = "1";
+
+    const PUPPY = "0";
+    const SMALL = "1";
+    const MEDIUM = "2";
+    const BIG = "3";
+
+    const NOT_STERILIZED_YET = "0";
+    const STERILIZED = "1";
+
     /**
      * @var integer
      *
@@ -50,11 +61,11 @@ class Dog
     private $joinDate;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="health", type="string", length=255)
+     * @ORM\Column(name="sterilized", type="boolean")
      */
-    private $health;
+    private $sterilized;
 
     /**
      * @var string
@@ -195,26 +206,26 @@ class Dog
     }
 
     /**
-     * Set health
+     * Set sterilized
      *
-     * @param string $health
+     * @param string $sterilized
      * @return Dog
      */
-    public function setHealth($health)
+    public function setSterilized($sterilized)
     {
-        $this->health = $health;
+        $this->sterilized = $sterilized;
 
         return $this;
     }
 
     /**
-     * Get health
+     * Get sterilized
      *
      * @return string
      */
-    public function getHealth()
+    public function getSterilized()
     {
-        return $this->health;
+        return $this->sterilized;
     }
 
     /**

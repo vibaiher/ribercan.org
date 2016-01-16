@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Ribercan\Admin\DogBundle\Entity\Dog;
+
 class DogType extends AbstractType
 {
     /**
@@ -21,27 +23,15 @@ class DogType extends AbstractType
                 'choice',
                 array(
                     'choices' => array(
-                        'Macho' => "0",
-                        'Hembra' => "1"
+                        'Macho' => Dog::MALE,
+                        'Hembra' => Dog::FEMALE
                     ),
                     'choices_as_values' => true
                 )
             )
             ->add('birthday', 'birthday')
             ->add('joinDate', 'date')
-            ->add(
-                'health',
-                'choice',
-                array(
-                    'expanded' => true,
-                    'multiple' => false,
-                    'choices' => array(
-                        'Esterilizado' => "Se entrega esterilizado",
-                        'Con compromiso de esterilización' => "Se entrega con compromiso de esterilización"
-                    ),
-                    'choices_as_values' => true
-                )
-            )
+            ->add('sterilized')
             ->add('godfather', 'text', array('required' => false, 'empty_data' => null))
             ->add('description', 'text', array('required' => false, 'empty_data' => null))
             ->add(
@@ -51,10 +41,10 @@ class DogType extends AbstractType
                     'expanded' => true,
                     'multiple' => false,
                     'choices' => array(
-                        'Cachorro' => "Cachorro",
-                        'Pequeño' => "Pequeño",
-                        'Mediano' => "Mediano",
-                        'Grande' => "Grande",
+                        'Cachorro' => Dog::PUPPY,
+                        'Pequeño' => Dog::SMALL,
+                        'Mediano' => Dog::MEDIUM,
+                        'Grande' => Dog::BIG,
                     ),
                     'choices_as_values' => true
                 )

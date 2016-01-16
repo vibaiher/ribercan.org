@@ -11,7 +11,7 @@
           <th>Sex</th>
           <th>Birthday</th>
           <th>Joindate</th>
-          <th>Health</th>
+          <th>Sterilized</th>
           <th>Godfather</th>
           <th>Actions</th>
         </tr>
@@ -24,7 +24,7 @@
             <td>{{ entity.sex }}</td>
             <td>{% if entity.birthday %}{{ entity.birthday|date('Y-m-d') }}{% endif %}</td>
             <td>{% if entity.joinDate %}{{ entity.joinDate|date('Y-m-d') }}{% endif %}</td>
-            <td>{{ entity.health }}</td>
+            <td>{{ entity.sterilized }}</td>
             <td>{{ entity.godfather }}</td>
             <td>
               <ul class="list-inline">

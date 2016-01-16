@@ -16,7 +16,7 @@
     <ul class="List--metadata">
       <li class="ListItem"><time>{{ dog.birthday.format("d/m/Y") }}</time></li>
       <li class="ListItem">Tamaño {{ dog.size }}</li>
-      <li class="ListItem">{{ dog.health }}</li>
+      <li class="ListItem">{{ dog.sterilized }}</li>
       {% if dog.godfather %}<li class="ListItem">Apadrinado por {{ dog.godfather }}</li>{% endif %}
     </ul>
     <p>{{ dog.description }}</p>

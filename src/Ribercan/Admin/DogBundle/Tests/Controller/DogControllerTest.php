@@ -2,11 +2,23 @@
 
 namespace Ribercan\Admin\DogBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use BladeTester\HandyTestsBundle\Model\HandyTestCase;
+use BladeTester\HandyTestsBundle\Model\TableTruncator;
 
-class DogControllerTest extends WebTestCase
+use Ribercan\Admin\DogBundle\Entity\Dog;
+
+class DogControllerTest extends HandyTestCase
 {
-    public function testCompleteScenario()
+    function setUp()
+    {
+        parent::setUp();
+        $this->truncateTables(['dogs']);
+    }
+
+    /**
+     * @test
+     */
+    function itShouldBeAbleToCreateANewDog()
     {
         // Create a new client to browse the application
         $client = static::createClient();
@@ -19,21 +31,21 @@ class DogControllerTest extends WebTestCase
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
             'ribercan_admin_dogbundle_dog[name]'  => 'Test',
-            'ribercan_admin_dogbundle_dog[sex]'  => 0,
+            'ribercan_admin_dogbundle_dog[sex]'  => Dog::MALE,
             'ribercan_admin_dogbundle_dog[birthday]'  => array(
                 'year' => 2010,
-                'month' => 1,
-                'day' => 1
+                'month' => 7,
+                'day' => 16
             ),
             'ribercan_admin_dogbundle_dog[joinDate]'  => array(
-                'year' => 2010,
+                'year' => 2016,
                 'month' => 1,
-                'day' => 1
+                'day' => 16
             ),
-            'ribercan_admin_dogbundle_dog[health]'  => 0,
+            'ribercan_admin_dogbundle_dog[sterilized]'  => Dog::STERILIZED,
             'ribercan_admin_dogbundle_dog[godfather]'  => '',
             'ribercan_admin_dogbundle_dog[description]'  => 'Custom description',
-            'ribercan_admin_dogbundle_dog[size]'  => 0,
+            'ribercan_admin_dogbundle_dog[size]'  => Dog::PUPPY,
             'ribercan_admin_dogbundle_dog[urgent]'  => false
         ));
 
@@ -42,7 +54,21 @@ class DogControllerTest extends WebTestCase
 
         // Check data in the show view
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+    }
 
+    /**
+     * @test
+     */
+    function itShouldBeAbleToEditAnExistingDog()
+    {
+        // Create a new client to browse the application
+        $client = static::createClient();
+
+        // Create a new dog
+        $dog = $this->createDog();
+
+        // Create a new entry in the database
+        $crawler = $client->request('GET', "/admin/dog/{$dog->getId()}");
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
@@ -56,12 +82,44 @@ class DogControllerTest extends WebTestCase
 
         // Check the element contains an attribute with value equals "Foo"
         $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
+    }
 
+    /**
+     * @test
+     */
+    function itShoulbBeAbleToDeleteAnExistingDog()
+    {
+        // Create a new client to browse the application
+        $client = static::createClient();
+
+        // Create a new dog
+        $dog = $this->createDog();
+
+        // Create a new entry in the database
+        $crawler = $client->request('GET', "/admin/dog/{$dog->getId()}");
         // Delete the entity
         $client->submit($crawler->selectButton('Delete')->form());
         $crawler = $client->followRedirect();
 
         // Check the entity has been delete on the list
         $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+    }
+
+    private function createDog()
+    {
+        $dog = new Dog();
+        $dog->setName('Cory');
+        $dog->setSex(Dog::MALE);
+        $dog->setSize(Dog::BIG);
+        $dog->setSterilized(Dog::STERILIZED);
+        $dog->setBirthday(new \Datetime());
+        $dog->setJoinDate(new \Datetime());
+        $dog->setUrgent(false);
+
+        $this->em->persist($dog);
+
+        $this->em->flush();
+
+        return $dog;
     }
 }

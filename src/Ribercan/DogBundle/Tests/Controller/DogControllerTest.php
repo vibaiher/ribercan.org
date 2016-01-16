@@ -15,6 +15,6 @@ class DogControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/dogs');
 
-        $this->assertTrue($crawler->filter('html:contains("Dogs waiting for adoption")')->count() > 0);
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /dogs/");
     }
 }

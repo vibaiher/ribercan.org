@@ -59,7 +59,7 @@ class DogController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'dog_form'   => $form->createView(),
         );
     }
 
