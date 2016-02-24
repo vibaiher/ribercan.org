@@ -26,7 +26,8 @@
         "sensio/generator-bundle": "~2.3",
         "carlescliment/handy-tests-bundle": "dev-master",
         "phpunit/phpunit": "4.8.*",
-        "phpspec/phpspec": "~2.0"
+        "phpspec/phpspec": "~2.0",
+        "doctrine/doctrine-fixtures-bundle": "^2.3"
     },
     "scripts": {
         "post-root-package-install": [
