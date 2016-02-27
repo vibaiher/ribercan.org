@@ -1,6 +1,6 @@
 <?php
 
-namespace Ribercan\Admin\DogBundle\Tests\Controller;
+namespace Tests\Ribercan\Admin\DogBundle\Controller;
 
 use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;
@@ -9,9 +9,9 @@ use Ribercan\Admin\DogBundle\Entity\Dog;
 
 class DogControllerTest extends HandyTestCase
 {
-    function setUp()
+    function setUp(array $auth = [])
     {
-        parent::setUp();
+        parent::setUp($auth);
         $this->truncateTables(['dogs']);
     }
 
@@ -30,23 +30,23 @@ class DogControllerTest extends HandyTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'ribercan_admin_dogbundle_dog[name]'  => 'Test',
-            'ribercan_admin_dogbundle_dog[sex]'  => Dog::MALE,
-            'ribercan_admin_dogbundle_dog[birthday]'  => array(
+            'dog[name]'  => 'Test',
+            'dog[sex]'  => Dog::MALE,
+            'dog[birthday]'  => array(
                 'year' => 2010,
                 'month' => 7,
                 'day' => 16
             ),
-            'ribercan_admin_dogbundle_dog[joinDate]'  => array(
+            'dog[joinDate]'  => array(
                 'year' => 2016,
                 'month' => 1,
                 'day' => 16
             ),
-            'ribercan_admin_dogbundle_dog[sterilized]'  => Dog::STERILIZED,
-            'ribercan_admin_dogbundle_dog[godfather]'  => '',
-            'ribercan_admin_dogbundle_dog[description]'  => 'Custom description',
-            'ribercan_admin_dogbundle_dog[size]'  => Dog::PUPPY,
-            'ribercan_admin_dogbundle_dog[urgent]'  => false
+            'dog[sterilized]'  => Dog::STERILIZED,
+            'dog[godfather]'  => '',
+            'dog[description]'  => 'Custom description',
+            'dog[size]'  => Dog::PUPPY,
+            'dog[urgent]'  => false
         ));
 
         $client->submit($form);
@@ -73,8 +73,8 @@ class DogControllerTest extends HandyTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'ribercan_admin_dogbundle_dog[name]'  => 'Foo',
-            'ribercan_admin_dogbundle_dog[urgent]'  => true
+            'dog[name]'  => 'Foo',
+            'dog[urgent]'  => true
         ));
 
         $client->submit($form);

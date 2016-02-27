@@ -4,7 +4,9 @@ namespace Ribercan\DogBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 use Ribercan\Admin\DogBundle\Entity\Dog;
 
@@ -19,7 +21,7 @@ class DogFilterType extends AbstractType
         $builder
             ->add(
                 'sex',
-                'choice',
+                ChoiceType::class,
                 array(
                     'choices' => array(
                         'Macho' => Dog::MALE,
@@ -28,10 +30,13 @@ class DogFilterType extends AbstractType
                     'choices_as_values' => true
                 )
             )
-            ->add('years_old')
+            ->add(
+                'years_old',
+                IntegerType::class
+            )
             ->add(
                 'size',
-                'choice',
+                ChoiceType::class,
                 array(
                     'expanded' => true,
                     'multiple' => false,
@@ -43,7 +48,7 @@ class DogFilterType extends AbstractType
                     'choices_as_values' => true
                 )
             )
-            ->add('submit', 'submit', array('label' => 'Filter'))
+            ->add('submit', SubmitType::class, array('label' => 'Filter'))
         ;
     }
 

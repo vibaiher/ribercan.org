@@ -10,7 +10,7 @@ class DogController extends Controller
     public function indexAction()
     {
         $dogs = $this->get('doctrine')->getRepository('RibercanAdminDogBundle:Dog')->findAll();
-        $filter_form = $this->createForm(new DogFilterType(), array('method' => 'POST'));
+        $filter_form = $this->createForm(DogFilterType::class, array('method' => 'POST'));
 
         return $this->render('RibercanDogBundle:Dog:index.html.twig', array('dogs' => $dogs, 'filter_form' => $filter_form->createView()));
     }

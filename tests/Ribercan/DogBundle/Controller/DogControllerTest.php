@@ -1,6 +1,6 @@
 <?php
 
-namespace Ribercan\DogBundle\Tests\Controller;
+namespace Tests\Ribercan\DogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -15,6 +15,6 @@ class DogControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/dogs');
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /dogs/");
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /dogs");
     }
 }

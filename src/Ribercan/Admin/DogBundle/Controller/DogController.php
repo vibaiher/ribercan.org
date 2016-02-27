@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Ribercan\Admin\DogBundle\Entity\Dog;
 use Ribercan\Admin\DogBundle\Form\DogType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Dog controller.
@@ -72,12 +73,12 @@ class DogController extends Controller
      */
     private function createCreateForm(Dog $entity)
     {
-        $form = $this->createForm(new DogType(), $entity, array(
+        $form = $this->createForm(DogType::class, $entity, array(
             'action' => $this->generateUrl('dog_create'),
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', SubmitType::class, array('label' => 'Create'));
 
         return $form;
     }
@@ -92,11 +93,11 @@ class DogController extends Controller
     public function newAction()
     {
         $entity = new Dog();
-        $dog_form   = $this->createCreateForm($entity);
+        $dog_form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'dog_form'   => $dog_form->createView(),
+            'dog_form'   => $dog_form->createView()
         );
     }
 
@@ -161,12 +162,12 @@ class DogController extends Controller
     */
     private function createEditForm(Dog $entity)
     {
-        $form = $this->createForm(new DogType(), $entity, array(
+        $form = $this->createForm(DogType::class, $entity, array(
             'action' => $this->generateUrl('dog_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', SubmitType::class, array('label' => 'Update'));
 
         return $form;
     }
@@ -243,7 +244,7 @@ class DogController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('dog_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', SubmitType::class, array('label' => 'Delete'))
             ->getForm()
         ;
     }
