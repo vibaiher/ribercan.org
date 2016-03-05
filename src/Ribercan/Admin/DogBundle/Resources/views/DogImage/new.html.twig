@@ -1,0 +1,7 @@
+{% extends '::admin-base.html.twig' %}
+
+{% block section_title %}Añadir nuevas imágenes de {{ dog.name }}{% endblock %}
+
+{% block body -%}
+  {{ form(image_form) }}
+{% endblock %}

@@ -15,6 +15,9 @@
 composer.phar
 /vendor/
 /web/bundles/
+!/web/images/dogs
+/web/images/dogs/*
+!web/images/dogs/.gitkeep
 .vagrant/
 *.swp
 .DS_Store

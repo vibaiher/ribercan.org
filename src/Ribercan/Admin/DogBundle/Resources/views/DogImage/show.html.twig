@@ -1,0 +1,32 @@
+{% extends '::admin-base.html.twig' %}
+
+{% block body %}
+    <h1>Imagén de {{ dog.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Identificador</th>
+                <td>{{ dog_image.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ dog_image.name }}</td>
+            </tr>
+            <tr>
+                <th>Ruta</th>
+                <td><a href="/{{ dog_image.webPath }}">{{ dog_image.path }}</a></td>
+            </tr>
+            <tr>
+                <th>Imagen principal</th>
+                <td>{% if dog_image.firstImage %}Sí{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('dog_images_index', { 'dog_id': dog.id }) }}">Volver a la lista de imágenes</a>
+        </li>
+    </ul>
+{% endblock %}

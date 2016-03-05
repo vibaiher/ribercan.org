@@ -6,6 +6,7 @@ use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;
 
 use Ribercan\Admin\DogBundle\Entity\Dog;
+use Tests\Ribercan\Admin\DogBundle\Factory\DogCreator;
 
 class DogControllerTest extends HandyTestCase
 {
@@ -107,19 +108,6 @@ class DogControllerTest extends HandyTestCase
 
     private function createDog()
     {
-        $dog = new Dog();
-        $dog->setName('Cory');
-        $dog->setSex(Dog::MALE);
-        $dog->setSize(Dog::BIG);
-        $dog->setSterilized(Dog::STERILIZED);
-        $dog->setBirthday(new \Datetime());
-        $dog->setJoinDate(new \Datetime());
-        $dog->setUrgent(false);
-
-        $this->em->persist($dog);
-
-        $this->em->flush();
-
-        return $dog;
+        return DogCreator::create($this->em);
     }
 }

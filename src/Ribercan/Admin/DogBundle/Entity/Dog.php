@@ -3,12 +3,15 @@
 namespace Ribercan\Admin\DogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+use Ribercan\Admin\DogBundle\Entity\DogImage;
 
 /**
  * Dog
  *
  * @ORM\Table(name="dogs")
- * @ORM\Entity(repositoryClass="Ribercan\Admin\DogBundle\Entity\DogRepository")
+ * @ORM\Entity(repositoryClass="Ribercan\Admin\DogBundle\Repository\DogRepository")
  */
 class Dog
 {
@@ -102,6 +105,15 @@ class Dog
      */
     private $video;
 
+    /**
+     * @ORM\OneToMany(targetEntity="DogImage", mappedBy="dog")
+     */
+    protected $images;
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -341,5 +353,39 @@ class Dog
     public function getVideo()
     {
         return $this->video;
+    }
+
+    /**
+     * Add image
+     *
+     * @param DogImage $image
+     *
+     * @return Dog
+     */
+    public function addImage(DogImage $image)
+    {
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param DogImage $image
+     */
+    public function removeImage(DogImage $image)
+    {
+        $this->images->removeElement($image);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }
