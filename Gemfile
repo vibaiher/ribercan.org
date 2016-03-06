@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'capifony'
+gem 'capistrano', '~> 3.4'
+gem 'capistrano-symfony', '~> 1.0.0.rc1'

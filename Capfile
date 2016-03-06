@@ -1,4 +1,10 @@
-load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+# Load DSL and set up stages
+require 'capistrano/setup'
 
-require 'capifony_symfony2'
-load 'app/config/deploy'
+# Include default deployment tasks
+require 'capistrano/deploy'
+
+require 'capistrano/symfony'
+
+# Load custom tasks from `lib/capistrano/tasks` if you have any defined
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

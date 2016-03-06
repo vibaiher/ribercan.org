@@ -1,4 +1,6 @@
 /app/config/parameters.yml
+/app/config/parameters.yml.staging
+/app/config/parameters.yml.production
 /build/
 /phpunit.xml
 /var/*
@@ -14,6 +16,7 @@
 !var/SymfonyRequirements.php
 composer.phar
 /vendor/
+/.bundle/
 /web/bundles/
 !/web/images/dogs
 /web/images/dogs/*
