@@ -12,6 +12,6 @@ class FrontpageControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertTrue($crawler->filter('html:contains("Welcome to the frontpage")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("No recogemos perros")')->count() > 0);
     }
 }
