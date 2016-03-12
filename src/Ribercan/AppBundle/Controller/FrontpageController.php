@@ -9,6 +9,8 @@ class FrontpageController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('RibercanAppBundle:Frontpage:index.html.twig');
+        $urgentAdoptions = $this->get('doctrine')->getRepository('RibercanAdminDogBundle:Dog')->findUrgentAdoptions();
+
+        return $this->render('RibercanAppBundle:Frontpage:index.html.twig', array('urgent_adoptions' => $urgentAdoptions));
     }
 }

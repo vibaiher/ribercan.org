@@ -1,0 +1,16 @@
+<div class=urgent>
+  <header>
+    <h2>Adopciones urgentes ({{ dogs|length }})</h2>
+  </header>
+  <div class=main>
+    <ul class=list--urgent>
+      {% for dog in dogs %}
+        <li>
+          {{ include('RibercanDogBundle:Dog:urgent_adoption.html.twig', { 'dog': dog }) }}
+        </li>
+      {% endfor %}
+    </ul>
+    <p>Ver la <a href="{{ path('ribercan_dog_index') }}">lista completa de animales en espera de adopción</a>.</p>
+  </div>
+  <!-- .main -->
+</div>
