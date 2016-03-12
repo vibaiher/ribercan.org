@@ -54,7 +54,7 @@ class DogImage
 
     /**
      * @ORM\ManyToOne(targetEntity="Dog", inversedBy="dogs")
-     * @ORM\JoinColumn(name="dog_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="dog_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $dog;
 

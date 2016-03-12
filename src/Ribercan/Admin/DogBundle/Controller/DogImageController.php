@@ -22,7 +22,7 @@ class DogImageController extends Controller
     /**
      * Lists all DogImage entities.
      *
-     * @Route("/", name="dog_images_index")
+     * @Route("", name="dog_images_index")
      * @Method("GET")
      * @Template()
      */
@@ -37,26 +37,7 @@ class DogImageController extends Controller
     }
 
     /**
-     * @Route("/new", name="dog_images_new")
-     * @Method("GET")
-     * @Template("RibercanAdminDogBundle:DogImage:new.html.twig")
-     */
-    public function newAction($dog_id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $dog = $em->getRepository('RibercanAdminDogBundle:Dog')->find($dog_id);
-
-        $entity = new DogImage();
-        $entity->setDog($dog);
-
-        $form = $this->createUploadForm($entity);
-
-        return array('dog' => $dog, 'image_form' => $form->createView());
-    }
-
-    /**
-     * @Route("/", name="dog_images_create")
+     * @Route("", name="dog_images_create")
      * @Method("POST")
      * @Template("RibercanAdminDogBundle:DogImage:new.html.twig")
      */
@@ -82,6 +63,25 @@ class DogImageController extends Controller
 
             return $this->redirect($this->generateUrl('dog_images_show', array('dog_id' => $dog->getId(), 'id' => $entity->getId())));
         }
+
+        return array('dog' => $dog, 'image_form' => $form->createView());
+    }
+
+    /**
+     * @Route("/new", name="dog_images_new")
+     * @Method("GET")
+     * @Template("RibercanAdminDogBundle:DogImage:new.html.twig")
+     */
+    public function newAction($dog_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $dog = $em->getRepository('RibercanAdminDogBundle:Dog')->find($dog_id);
+
+        $entity = new DogImage();
+        $entity->setDog($dog);
+
+        $form = $this->createUploadForm($entity);
 
         return array('dog' => $dog, 'image_form' => $form->createView());
     }

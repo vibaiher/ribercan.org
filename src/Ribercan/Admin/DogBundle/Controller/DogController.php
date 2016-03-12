@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 /**
  * Dog controller.
  *
- * @Route("/dog")
+ * @Route("/dogs")
  */
 class DogController extends Controller
 {
@@ -22,7 +22,7 @@ class DogController extends Controller
     /**
      * Lists all Dog entities.
      *
-     * @Route("/", name="dog")
+     * @Route("", name="dog")
      * @Method("GET")
      * @Template()
      */
@@ -40,7 +40,7 @@ class DogController extends Controller
     /**
      * Creates a new Dog entity.
      *
-     * @Route("/", name="dog_create")
+     * @Route("", name="dog_create")
      * @Method("POST")
      * @Template("RibercanAdminDogBundle:Dog:new.html.twig")
      */

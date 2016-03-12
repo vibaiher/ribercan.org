@@ -25,8 +25,8 @@ class DogControllerTest extends HandyTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/dog/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/dog/");
+        $crawler = $client->request('GET', '/admin/dogs');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/dogs/");
         $crawler = $client->click($crawler->selectLink('Añadir perro en adopción')->link());
 
         // Fill in the form and submit it
@@ -69,7 +69,7 @@ class DogControllerTest extends HandyTestCase
         $dog = $this->createDog();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', "/admin/dog/{$dog->getId()}");
+        $crawler = $client->request('GET', "/admin/dogs/{$dog->getId()}");
         // Edit the entity
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
@@ -97,7 +97,7 @@ class DogControllerTest extends HandyTestCase
         $dog = $this->createDog();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', "/admin/dog/{$dog->getId()}");
+        $crawler = $client->request('GET', "/admin/dogs/{$dog->getId()}");
         // Delete the entity
         $client->submit($crawler->selectButton('Delete')->form());
         $crawler = $client->followRedirect();
