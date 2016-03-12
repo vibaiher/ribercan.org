@@ -12,8 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class DogRepository extends EntityRepository
 {
-    public function findUrgentAdoptions()
+    public function findUrgentAdoptions($limit = null)
     {
-        return $this->findBy(array('urgent' => true));
+        return $this->findBy(array('urgent' => true), array('id' => 'asc'), $limit);
     }
 }

@@ -1,10 +1,10 @@
 <article class="animaladoptable">
-  <a href="{{ path('ribercan_dog_show', { id: dog.id }) }}">
+  <a href="{{ path('dog_in_adoption', { id: dog.id }) }}">
     <img src="http://www.ribercan.org/timthumb.php?src=animales/776/cynthia.jpg" alt="..." width="60" height="60">
   </a>
   <div class="caption">
     <h3 class="name">
-      <a href="{{ path('ribercan_dog_show', { id: dog.id }) }}">
+      <a href="{{ path('dog_in_adoption', { id: dog.id }) }}">
         {{ dog.sex ? '<span class="female">♀</span>' : '<span class="male">♂</span>' }} {{ dog.name }}
       </a>
     </h3>

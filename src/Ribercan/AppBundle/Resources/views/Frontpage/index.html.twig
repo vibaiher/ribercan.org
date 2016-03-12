@@ -78,7 +78,9 @@
               <!-- .main -->
             </form>
             <!-- .form--search -->
-            {{ include('RibercanDogBundle:Dog:urgent_adoptions.html.twig', { 'dogs': urgent_adoptions }) }}
+            <div class="urgent">
+              {{ include('RibercanDogBundle:Dog:urgent_adoptions.html.twig', { 'dogs': urgent_adoptions }) }}
+            </div>
             <!-- .urgent -->
           </div>
           <!-- featured -->

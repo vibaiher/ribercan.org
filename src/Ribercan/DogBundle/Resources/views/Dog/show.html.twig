@@ -1,21 +1,21 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<section class="section--animal">
+<section class="section--animal" id="dog">
   <header class="animal-hero">
     <img src="http://www.ribercan.org/animales/1279/IMGP5778.JPG">
   </header>
   <div class="main">
     <div class="animal-adopt">
-      <h1 class="name">{{ dog.sex ? '<span class="female">♀</span>' : '<span class="male">♂</span>' }} {{ dog.name }}</h1>
+      <h1 class="name">{{ dog.sex|raw }} {{ dog.name }}</h1>
       <p>
         <a href="#" class="btn btn-primary" role="button">Adóptame</a> <a href="#" class="btn btn-default" role="button">Apadríname</a>
       </p>
     </div><!-- .animal-adopt -->
-    <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate.format("d/m/Y") }}</time></p>
+    <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate }}</time></p>
     <ul class="List--metadata">
-      <li class="ListItem"><time>{{ dog.birthday.format("d/m/Y") }}</time></li>
-      <li class="ListItem">Tamaño {{ dog.size }}</li>
+      <li class="ListItem"><time>{{ dog.birthday }}</time></li>
+      <li class="ListItem">{{ dog.size }}</li>
       <li class="ListItem">{{ dog.sterilized }}</li>
       {% if dog.godfather %}<li class="ListItem">Apadrinado por {{ dog.godfather }}</li>{% endif %}
     </ul>
@@ -38,66 +38,9 @@
   </div><!-- .main -->
   <div class="urgent">
     <div class="l__wrapper">
-      <header>
-        <h2>Adopciones urgentes (12)</h2>
-      </header>
-      <div class="main">
-        <ul class="list--urgent">
-          <li>
-            <article class="animaladoptable">
-              <img src="http://www.ribercan.org/timthumb.php?src=animales/776/cynthia.jpg" alt="...">
-              <div class="caption">
-                <h3 class="name"><a href="dog.html"><span class="male">♂</span> Folk</a></h3>
-                <p><time>17/05/2013</time></p>
-                <ul class="takeAction">
-                  <li>
-                    <a href="#" class="btn btn-primary" role="button">Adóptame</a>
-                  </li>
-                  <li>
-                    <a href="#" class="btn btn-default" role="button">Apadríname</a>
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="animaladoptable">
-              <img src="http://www.ribercan.org/timthumb.php?src=animales/1141/601154_470698576317492_2080560047_n.jpg" alt="...">
-              <div class="caption">
-                <h3 class="name"><a href="dog.html"><span class="female">♀</span> Janis</a></h3>
-                <p><time>01/04/2010</time></p>
-                <ul class="takeAction">
-                  <li>
-                    <a href="#" class="btn btn-primary" role="button">Adóptame</a>
-                  </li>
-                  <li>
-                    <a href="#" class="btn btn-default" role="button">Apadríname</a>
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </li>
-          <li>
-            <article class="animaladoptable">
-              <img src="http://www.ribercan.org/timthumb.php?src=animales/978/principal.jpg" alt="...">
-              <div class="caption">
-                <h3 class="name"><a href="dog.html"><span class="male">♂</span> Fosc</a></h3>
-                <p><time>23/10/2011</time></p>
-                <ul class="takeAction">
-                  <li>
-                    <a href="#" class="btn btn-primary" role="button">Adóptame</a>
-                  </li>
-                  <li>
-                    <a href="#" class="btn btn-default" role="button">Apadríname</a>
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </li>
-        </ul>
-        <p>Ver la <a href="#">lista completa de animales en espera de adopción</a>.</p>
-      </div><!-- .main -->
+      {{ include('RibercanDogBundle:Dog:urgent_adoptions.html.twig', { 'dogs': urgent_adoptions }) }}
     </div>
-  </div><!-- urgent -->
+  </div>
+  <!-- .urgent -->
 </section>
 {% endblock %}

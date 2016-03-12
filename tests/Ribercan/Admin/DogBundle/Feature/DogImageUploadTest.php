@@ -52,6 +52,8 @@ class DogImageUploadTest extends HandyTestCase
 
     private function createDog()
     {
-        return DogCreator::create($this->em);
+        $dog_creator = new DogCreator($this->em);
+
+        return $dog_creator->create();
     }
 }
