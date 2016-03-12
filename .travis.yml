@@ -10,8 +10,15 @@ before_script:
   - php bin/console doctrine:schema:create --env=test
 
 script:
-  - phpunit
+  - php bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+    - vendor/bin/test-reporter
 
 notifications:
   email:
     - vibaiher@gmail.com
+
+addons:
+  code_climate:
+    repo_token: 197271ff4029d9e2b32b8193fa3479fac08fd0f63a71ed65448bced5ea3cef9c
