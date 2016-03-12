@@ -21,13 +21,8 @@ class DogControllerTest extends HandyTestCase
      */
     function itShouldBeAbleToCreateANewDog()
     {
-        // Create a new client to browse the application
-        $client = static::createClient();
-
-        // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/dogs');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/dogs/");
-        $crawler = $client->click($crawler->selectLink('Añadir perro en adopción')->link());
+        $crawler = $this->visit('admin_dogs');
+        $crawler = $this->client->click($crawler->selectLink('Añadir perro en adopción')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
@@ -50,8 +45,8 @@ class DogControllerTest extends HandyTestCase
             'dog[urgent]'  => false
         ));
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+        $this->client->submit($form);
+        $crawler = $this->client->followRedirect();
 
         // Check data in the show view
         $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
@@ -62,24 +57,21 @@ class DogControllerTest extends HandyTestCase
      */
     function itShouldBeAbleToEditAnExistingDog()
     {
-        // Create a new client to browse the application
-        $client = static::createClient();
-
         // Create a new dog
         $dog = $this->createDog();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', "/admin/dogs/{$dog->getId()}");
+        $crawler = $this->visit('admin_dog_show', array('id' => $dog->getId()));
         // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
+        $crawler = $this->client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
             'dog[name]'  => 'Foo',
             'dog[urgent]'  => true
         ));
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+        $this->client->submit($form);
+        $crawler = $this->client->followRedirect();
 
         // Check the element contains an attribute with value equals "Foo"
         $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
@@ -90,20 +82,17 @@ class DogControllerTest extends HandyTestCase
      */
     function itShoulbBeAbleToDeleteAnExistingDog()
     {
-        // Create a new client to browse the application
-        $client = static::createClient();
-
         // Create a new dog
         $dog = $this->createDog();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', "/admin/dogs/{$dog->getId()}");
+        $crawler = $this->visit('admin_dog_show', array('id' => $dog->getId()));
         // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
+        $this->client->submit($crawler->selectButton('Delete')->form());
+        $crawler = $this->client->followRedirect();
 
         // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertNotRegExp('/Foo/', $this->client->getResponse()->getContent());
     }
 
     private function createDog()

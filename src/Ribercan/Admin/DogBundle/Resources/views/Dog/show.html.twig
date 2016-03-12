@@ -7,51 +7,51 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <td>{{ dog.id }}</td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td>{{ entity.name }}</td>
+                <td>{{ dog.name }}</td>
             </tr>
             <tr>
                 <th>Sex</th>
-                <td>{{ entity.sex }}</td>
+                <td>{{ dog.sex }}</td>
             </tr>
             <tr>
                 <th>Birthday</th>
-                <td>{{ entity.birthday|date('Y-m-d H:i:s') }}</td>
+                <td>{{ dog.birthday|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
                 <th>Joindate</th>
-                <td>{{ entity.joinDate|date('Y-m-d H:i:s') }}</td>
+                <td>{{ dog.joinDate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
                 <th>Sterilized</th>
-                <td>{{ entity.sterilized }}</td>
+                <td>{{ dog.sterilized }}</td>
             </tr>
             <tr>
                 <th>Godfather</th>
-                <td>{{ entity.godfather }}</td>
+                <td>{{ dog.godfather }}</td>
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ entity.description }}</td>
+                <td>{{ dog.description }}</td>
             </tr>
             <tr>
                 <th>Size</th>
-                <td>{{ entity.size }}</td>
+                <td>{{ dog.size }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('dog') }}">
+        <a href="{{ path('admin_dogs') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('dog_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('admin_dog_edit', { 'id': dog.id }) }}">
             Edit
         </a>
     </li>
