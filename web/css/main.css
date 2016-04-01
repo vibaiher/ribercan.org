@@ -695,10 +695,24 @@ textarea {
 
 .list--social .facebook, .list--social .teaming, .list--social .tuenti, .list--social .twitter, .list--social .youtube {
   text-indent: -999em;
-  outline: 1px solid red;
   width: 40px;
   height: 40px;
   display: block; }
+
+.list--social .facebook {
+  background: url('/css/icons/facebook.png') no-repeat; }
+
+.list--social .twitter {
+  background: url('/css/icons/twitter.png') no-repeat; }
+
+.list--social .tuenti {
+  background: url('/css/icons/tuenti.png') no-repeat; }
+
+.list--social .teaming {
+  background: url('/css/icons/teaming.png') no-repeat; }
+
+.list--social .youtube {
+  background: url('/css/icons/youtube.png') no-repeat 50%; }
 
 .MainFooter-listLegalStuff {
   display: block;
