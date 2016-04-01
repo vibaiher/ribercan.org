@@ -19,9 +19,15 @@
       <li class="ListItem">{{ dog.sterilized }}</li>
       {% if dog.godfather %}<li class="ListItem">Apadrinado por {{ dog.godfather }}</li>{% endif %}
     </ul>
-    <iframe width="560" height="315" src="{{ dog.video }}" frameborder="0" allowfullscreen></iframe>
     <p>{{ dog.description }}</p>
     <ul class="List--thumbs">
+      {% if dog.video %}
+        <li class="ListItem">
+          <a href="{{ dog.video}}" id="show-video">
+            <img src="/images/youtube.png" alt="Ver Vídeo en YouTube">
+          </a>
+        </li>
+      {% endif %}
       <li class="ListItem">
         <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/1069314_10153346751365392_1652044460_n.jpg&amp;w=150">
       </li>
@@ -35,6 +41,16 @@
         <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/IMGP5812.JPG&amp;w=150">
       </li>
     </ul>
+    {% if dog.video %}
+      <dialog id="video">
+        <iframe width="640" height="360" src="{{ dog.video }}" frameborder="0" allowfullscreen></iframe>
+        <p>
+          <a href=# class="btn btn-primary" role="button">Adóptame</a>
+          <a href=# class="btn btn-default" role="button">Apadríname</a>
+          <a href="#close" id="close-video" class="btn btn-red" role="button">Cerrar</a>
+        </p>
+      </dialog>
+    {% endif %}
   </div><!-- .main -->
   <div class="urgent">
     <div class="l__wrapper">
@@ -43,4 +59,28 @@
   </div>
   <!-- .urgent -->
 </section>
+{% endblock %}
+
+{% block header_javascripts %}
+<script src="/js/dialog-polyfill.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/css/dialog-polyfill.css" />
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  var dialog = document.querySelector('dialog#video');
+  dialogPolyfill.registerDialog(dialog);
+
+  document.querySelector('#show-video').addEventListener('click', function(event) {
+    event.preventDefault();
+    dialog.showModal();
+  });
+
+  document.querySelector('#close-video').onclick = function() {
+    dialog.close();
+  };
+</script>
 {% endblock %}

@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Ribercan.org{% endblock %}</title>
+    {% block header_javascripts %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
     <link href="{{ asset('css/main.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Lato:100,400" rel="stylesheet" type="text/css" />
-    {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
   </head>
   <body class="{% block body_class %}{% endblock %}">

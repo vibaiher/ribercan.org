@@ -907,3 +907,44 @@ textarea {
 
 .pager-wrapper .pager {
   margin-top: 2rem; }
+
+dialog {
+  background: #FFF;
+  width: 80%;
+  text-align: center;
+  padding: 1.5em;
+  margin: 1em auto;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border-top: 5px solid #69c773;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+dialog::backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); }
+
+dialog .close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+dialog .close:hover {
+  background: #00d9ff; }
