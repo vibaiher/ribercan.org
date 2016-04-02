@@ -693,7 +693,7 @@ textarea {
   display: inline-block;
   margin-right: 5px; }
 
-.list--social .facebook, .list--social .teaming, .list--social .tuenti, .list--social .twitter, .list--social .youtube {
+.list--social .facebook, .list--social .teaming, .list--social .twitter, .list--social .youtube {
   text-indent: -999em;
   width: 40px;
   height: 40px;
@@ -704,9 +704,6 @@ textarea {
 
 .list--social .twitter {
   background: url('/css/icons/twitter.png') no-repeat; }
-
-.list--social .tuenti {
-  background: url('/css/icons/tuenti.png') no-repeat; }
 
 .list--social .teaming {
   background: url('/css/icons/teaming.png') no-repeat; }
