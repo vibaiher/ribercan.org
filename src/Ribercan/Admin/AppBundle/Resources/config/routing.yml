@@ -1,0 +1,3 @@
+admin_frontpage:
+    path:     /
+    defaults: { _controller: RibercanAdminAppBundle:Admin:index }

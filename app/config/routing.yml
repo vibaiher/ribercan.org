@@ -1,7 +1,3 @@
-ribercan_admin_dog_dog_image:
-    resource: "@RibercanAdminDogBundle/Controller/DogImageController.php"
-    type:     annotation
-
 ribercan_app:
     resource: "@RibercanAppBundle/Resources/config/routing.yml"
     prefix:   /
@@ -10,7 +6,15 @@ ribercan_dog:
     resource: "@RibercanDogBundle/Resources/config/routing.yml"
     prefix:   /
 
+ribercan_admin_app:
+    resource: "@RibercanAdminAppBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
 ribercan_admin_dog:
     resource: "@RibercanAdminDogBundle/Controller/"
     type:     annotation
     prefix:   /admin
+
+ribercan_admin_dog_dog_image:
+    resource: "@RibercanAdminDogBundle/Controller/DogImageController.php"
+    type:     annotation

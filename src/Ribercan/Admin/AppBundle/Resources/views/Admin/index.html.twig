@@ -1,0 +1,17 @@
+{% extends '::admin-base.html.twig' %}
+
+{% block section_title %}¡Hola <b>@ribercan</b>!{% endblock %}
+
+{% block body %}
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Acciones disponibles</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <li><a href="{{ path('admin_dog_new') }}">Dar de alta un nuevo perro en la protectora</a></li>
+        <li><a href="{{ path('admin_dogs') }}">Ver todos los perros de la protectora</a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
