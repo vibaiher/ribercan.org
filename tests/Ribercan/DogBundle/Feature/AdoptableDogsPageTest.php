@@ -36,7 +36,7 @@ class AdoptableDogsPageTest extends HandyTestCase
 
     private function createDogWithName($dogName)
     {
-        $crawler = $this->visit('admin_dogs');
+        $crawler = $this->visit('admin_dogs_index');
         $crawler = $this->client->click($crawler->selectLink('Añadir perro en adopción')->link());
 
         $dogAttributes = array(

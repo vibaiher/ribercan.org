@@ -1,4 +1,0 @@
-services:
-#    ribercan_admin_dog.example:
-#        class: Ribercan\Admin\DogBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

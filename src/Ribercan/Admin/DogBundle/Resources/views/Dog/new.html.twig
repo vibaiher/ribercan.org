@@ -3,5 +3,8 @@
 {% block section_title %}Añadir perro en adopción{% endblock %}
 
 {% block body -%}
-  {{ form(form) }}
+  {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Create" />
+  {{ form_end(form) }}
 {% endblock %}

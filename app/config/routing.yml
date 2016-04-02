@@ -11,10 +11,5 @@ ribercan_admin_app:
     prefix:   /admin
 
 ribercan_admin_dog:
-    resource: "@RibercanAdminDogBundle/Controller/"
-    type:     annotation
+    resource: "@RibercanAdminDogBundle/Resources/config/routing.yml"
     prefix:   /admin
-
-ribercan_admin_dog_dog_image:
-    resource: "@RibercanAdminDogBundle/Controller/DogImageController.php"
-    type:     annotation

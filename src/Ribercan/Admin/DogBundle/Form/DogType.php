@@ -67,7 +67,7 @@ class DogType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Ribercan\Admin\DogBundle\Entity\Dog',
             'csrf_field_name' => 'dog_token',
-            'csrf_token_id'   => 'dog',
+            'csrf_token_id'   => 'dog'
         ));
     }
 

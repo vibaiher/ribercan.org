@@ -32,7 +32,7 @@ class DogImageUploadTest extends HandyTestCase
             'dog.jpg'
         );
 
-        $crawler = $this->visit('dog_images_index', array('dog_id' => $this->dog->getId()));
+        $crawler = $this->visit('admin_dog_images_index', array('dog_id' => $this->dog->getId()));
         $link = $crawler->selectLink('Añadir nuevas imágenes')->link();
         $crawler = $this->client->click($link);
 

@@ -21,7 +21,7 @@ class DogControllerTest extends HandyTestCase
      */
     function itShouldBeAbleToCreateANewDog()
     {
-        $crawler = $this->visit('admin_dogs');
+        $crawler = $this->visit('admin_dogs_index');
         $crawler = $this->client->click($crawler->selectLink('Añadir perro en adopción')->link());
 
         // Fill in the form and submit it
@@ -61,7 +61,7 @@ class DogControllerTest extends HandyTestCase
         $dog = $this->createDog();
 
         // Create a new entry in the database
-        $crawler = $this->visit('admin_dog_show', array('id' => $dog->getId()));
+        $crawler = $this->visit('admin_dogs_show', array('id' => $dog->getId()));
         // Edit the entity
         $crawler = $this->client->click($crawler->selectLink('Edit')->link());
 
@@ -86,7 +86,7 @@ class DogControllerTest extends HandyTestCase
         $dog = $this->createDog();
 
         // Create a new entry in the database
-        $crawler = $this->visit('admin_dog_show', array('id' => $dog->getId()));
+        $crawler = $this->visit('admin_dogs_show', array('id' => $dog->getId()));
         // Delete the entity
         $this->client->submit($crawler->selectButton('Delete')->form());
         $crawler = $this->client->followRedirect();

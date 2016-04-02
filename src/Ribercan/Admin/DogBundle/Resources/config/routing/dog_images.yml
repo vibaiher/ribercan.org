@@ -1,0 +1,14 @@
+admin_dog_images_index:
+    path:     /
+    defaults: { _controller: "RibercanAdminDogBundle:DogImage:index" }
+    methods:  GET
+
+admin_dog_images_new:
+    path:     /new
+    defaults: { _controller: "RibercanAdminDogBundle:DogImage:new" }
+    methods:  [GET, POST]
+
+admin_dog_images_show:
+    path:     /{id}/show
+    defaults: { _controller: "RibercanAdminDogBundle:DogImage:show" }
+    methods:  GET

@@ -1,0 +1,24 @@
+admin_dogs_index:
+    path:     /
+    defaults: { _controller: "RibercanAdminDogBundle:Dog:index" }
+    methods:  GET
+
+admin_dogs_new:
+    path:     /new
+    defaults: { _controller: "RibercanAdminDogBundle:Dog:new" }
+    methods:  [GET, POST]
+
+admin_dogs_show:
+    path:     /{id}/show
+    defaults: { _controller: "RibercanAdminDogBundle:Dog:show" }
+    methods:  GET
+
+admin_dogs_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RibercanAdminDogBundle:Dog:edit" }
+    methods:  [GET, POST]
+
+admin_dogs_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RibercanAdminDogBundle:Dog:delete" }
+    methods:  DELETE

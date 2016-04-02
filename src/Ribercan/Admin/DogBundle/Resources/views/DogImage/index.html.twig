@@ -16,14 +16,14 @@
         <tbody>
         {% for image in images %}
             <tr>
-                <td><a href="{{ path('dog_images_show', { 'dog_id': dog.id, 'id': image.id }) }}">{{ image.id }}</a></td>
+                <td><a href="{{ path('admin_dog_images_show', { 'dog_id': dog.id, 'id': image.id }) }}">{{ image.id }}</a></td>
                 <td>{{ image.name }}</td>
                 <td><a href="/{{ image.webPath }}">{{ image.path }}</a></td>
                 <td>{% if image.firstImage %}Sí{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('dog_images_show', { 'dog_id': dog.id, 'id': image.id }) }}">Ver</a>
+                            <a href="{{ path('admin_dog_images_show', { 'dog_id': dog.id, 'id': image.id }) }}">Ver</a>
                         </li>
                     </ul>
                 </td>
@@ -32,6 +32,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('dog_images_new', { 'dog_id': dog.id }) }}">Añadir nuevas imágenes</a>
+    <a href="{{ path('admin_dog_images_new', { 'dog_id': dog.id }) }}">Añadir nuevas imágenes</a>
 
 {% endblock %}

@@ -20,7 +20,7 @@
       <tbody>
         {% for dog in dogs %}
           <tr>
-            <td><a href="{{ path('admin_dog_show', { 'id': dog.id }) }}">{{ dog.id }}</a></td>
+            <td><a href="{{ path('admin_dogs_show', { 'id': dog.id }) }}">{{ dog.id }}</a></td>
             <td>{{ dog.name }}</td>
             <td>{{ dog.sex }}</td>
             <td>{% if dog.birthday %}{{ dog.birthday|date('Y-m-d') }}{% endif %}</td>
@@ -33,7 +33,7 @@
                   <a href="{{ path('dog_in_adoption', { 'id': dog.id }) }}">Ver</a>
                 </li>
                 <li>
-                  <a href="{{ path('admin_dog_edit', { 'id': dog.id }) }}">Editar</a>
+                  <a href="{{ path('admin_dogs_edit', { 'id': dog.id }) }}">Editar</a>
                 </li>
               </ul>
             </td>
