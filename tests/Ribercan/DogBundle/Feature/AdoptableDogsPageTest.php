@@ -1,45 +1,48 @@
 <?php
 
-namespace Test\Ribercan\AppBundle\Feature;
+namespace tests\Ribercan\DogBundle\Feature;
+
+use Tests\Ribercan\Admin\DogBundle\Factory\DogCreator;
 
 use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;
 
 use Ribercan\Admin\DogBundle\Entity\Dog;
 
-class UrgentAdoptionDogTest extends HandyTestCase
+class AdoptableDogsPageTest extends HandyTestCase
 {
     public function setUp(array $auth = [])
     {
         parent::setUp($auth);
         $this->truncateTables(['dogs']);
+        $this->dogCreator = new DogCreator($this->em);
     }
 
     /**
      * @test
      */
-    public function whenAUrgentAdoptionDogIsCreatedItAppearsInTheFrontPage()
+    public function whenADogIsCreatedThenIsShownInTheAdoptionsPage()
     {
-        $this->createUrgentAdoptionForDogWithName('My Urgent Adoption Dog');
+        $this->createDogWithName('My Dog');
 
-        $crawler = $this->visit('frontpage');
+        $crawler = $this->visit('dogs_in_adoption');
 
         $this->assertCount(
             1,
-            $crawler->filter('a:contains("My Urgent Adoption Dog")'),
-            'The urgent adoption dog created appears in the frontpage'
+            $crawler->filter('a:contains("My Dog")'),
+            'The dog created appears in the adoptions page'
         );
     }
 
-    private function createUrgentAdoptionForDogWithName($dogName)
+    private function createDogWithName($dogName)
     {
         $crawler = $this->visit('admin_dogs');
         $crawler = $this->client->click($crawler->selectLink('Añadir perro en adopción')->link());
 
         $dogAttributes = array(
             'dog[name]' => $dogName,
-            'dog[urgent]' => true,
-            'dog[sex]'  => Dog::MALE,
+            'dog[urgent]' => false,
+            'dog[sex]'  => Dog::FEMALE,
             'dog[birthday]'  => array(
                 'year' => 2010,
                 'month' => 7,
@@ -51,9 +54,9 @@ class UrgentAdoptionDogTest extends HandyTestCase
                 'day' => 16
             ),
             'dog[sterilized]'  => Dog::STERILIZED,
-            'dog[godfather]'  => '',
-            'dog[description]'  => 'Custom description',
-            'dog[size]'  => Dog::PUPPY,
+            'dog[godfather]'  => 'Vicente',
+            'dog[description]'  => 'The dog description',
+            'dog[size]'  => Dog::BIG
         );
 
         $form = $crawler->selectButton('Create')->form($dogAttributes);

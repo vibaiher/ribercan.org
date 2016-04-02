@@ -21,23 +21,7 @@ class DogPageTest extends HandyTestCase
     /**
      * @test
      */
-    public function whenADogIsCreatedThenIsShownInTheAdoptionsPage()
-    {
-        $this->createDogWithName('My Dog');
-
-        $crawler = $this->visit('dogs_in_adoption');
-
-        $this->assertCount(
-            1,
-            $crawler->filter('a:contains("My Dog")'),
-            'The dog created appears in the adoptions page'
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function whenIVisitADogPageThenISeeAllHisInformation()
+    public function whenIVisitADogPageThenISeeAllTheDogInformation()
     {
         $this->createDogWithName('My Dog');
 
