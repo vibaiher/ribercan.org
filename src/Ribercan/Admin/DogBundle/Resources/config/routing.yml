@@ -1,7 +1,3 @@
 admin_dogs:
     resource: "@RibercanAdminDogBundle/Resources/config/routing/dogs.yml"
     prefix:   /dogs
-
-admin_dog_images:
-    resource: "@RibercanAdminDogBundle/Resources/config/routing/dog_images.yml"
-    prefix:   /dogs/{dog_id}/images

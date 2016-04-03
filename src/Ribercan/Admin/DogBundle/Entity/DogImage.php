@@ -13,6 +13,7 @@ use Ribercan\Admin\DogBundle\Entity\Dog;
  *
  * @ORM\Table(name="dog_images")
  * @ORM\Entity(repositoryClass="Ribercan\Admin\DogBundle\Repository\DogImageRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class DogImage
 {
@@ -54,9 +55,19 @@ class DogImage
 
     /**
      * @ORM\ManyToOne(targetEntity="Dog", inversedBy="images")
-     * @ORM\JoinColumn(name="dog_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="dog_id", referencedColumnName="id")
      */
-    protected $dog;
+    private $dog;
+
+    public function __construct(UploadedFile $uploadedFile)
+    {
+        $path = sha1(uniqid(mt_rand(), true)).'.'.$uploadedFile->guessExtension();
+
+        $this->setName($uploadedFile->getClientOriginalName());
+        $this->setPath($path);
+
+        $uploadedFile->move($this->getUploadRootDir(), $path);
+    }
 
     /**
      * Get id
@@ -198,22 +209,6 @@ class DogImage
             : $this->getUploadDir().'/'.$this->path;
     }
 
-    public function upload()
-    {
-        if (null === $this->getFile()) {
-            return;
-        }
-
-        $this->getFile()->move(
-            $this->getUploadRootDir(),
-            $this->getFile()->getClientOriginalName()
-        );
-
-        $this->path = $this->getFile()->getClientOriginalName();
-
-        $this->file = null;
-    }
-
     protected function getUploadRootDir()
     {
         return __DIR__.'/../../../../../web/'.$this->getUploadDir();
@@ -222,5 +217,15 @@ class DogImage
     protected function getUploadDir()
     {
         return 'images/dogs';
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeFile()
+    {
+        if ($file = $this->getUploadRootDir().'/'.$this->path) {
+            unlink($file);
+        }
     }
 }

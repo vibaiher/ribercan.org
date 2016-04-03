@@ -44,17 +44,32 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_dogs_index') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_dogs_edit', { 'id': dog.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {% if dog.images is not empty %}
+      <section id="images">
+        <header>
+          <h2>Imágenes ({{ dog.images|length }})</h2>
+        </header>
+        <div class="row">
+          {% for image in dog.images %}
+            <div class="col-lg-4 col-md-6">
+              <img src="/{{ image.webPath }}" class="img-thumbnail">
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <ul class="record_actions">
+      <li>
+          <a href="{{ path('admin_dogs_index') }}">
+              Back to the list
+          </a>
+      </li>
+      <li>
+          <a href="{{ path('admin_dogs_edit', { 'id': dog.id }) }}">
+              Edit
+          </a>
+      </li>
+      <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

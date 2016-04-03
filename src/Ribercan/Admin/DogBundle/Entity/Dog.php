@@ -4,6 +4,7 @@ namespace Ribercan\Admin\DogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use Ribercan\Admin\DogBundle\Entity\DogImage;
 
@@ -12,6 +13,7 @@ use Ribercan\Admin\DogBundle\Entity\DogImage;
  *
  * @ORM\Table(name="dogs")
  * @ORM\Entity(repositoryClass="Ribercan\Admin\DogBundle\Repository\DogRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Dog
 {
@@ -106,13 +108,19 @@ class Dog
     private $video;
 
     /**
-     * @ORM\OneToMany(targetEntity="DogImage", mappedBy="dog")
+     * @ORM\OneToMany(targetEntity="DogImage", mappedBy="dog", cascade={"persist", "remove"})
      */
-    protected $images;
+    private $images;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $uploadedImages;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->images = new ArrayCollection();
+        $this->uploadedImages = new ArrayCollection();
     }
 
     /**
@@ -356,30 +364,6 @@ class Dog
     }
 
     /**
-     * Add image
-     *
-     * @param DogImage $image
-     *
-     * @return Dog
-     */
-    public function addImage(DogImage $image)
-    {
-        $this->images[] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Remove image
-     *
-     * @param DogImage $image
-     */
-    public function removeImage(DogImage $image)
-    {
-        $this->images->removeElement($image);
-    }
-
-    /**
      * Get images
      *
      * @return \Doctrine\Common\Collections\Collection
@@ -387,5 +371,47 @@ class Dog
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set images
+     */
+    public function setImages(array $images)
+    {
+        $this->images = $images;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUploadedImages()
+    {
+        return $this->uploadedImages;
+    }
+
+    /**
+     * @param ArrayCollection $uploadedImages
+     */
+    public function setUploadedImages($uploadedImages)
+    {
+        $this->uploadedImages = $uploadedImages;
+    }
+
+    /**
+     * @ORM\PreFlush()
+     */
+    public function upload()
+    {
+        foreach($this->uploadedImages as $uploadedImage)
+        {
+            if ($uploadedImage) {
+                $dogImage = new DogImage($uploadedImage);
+                $dogImage->setDog($this);
+
+                $this->getImages()->add($dogImage);
+
+                unset($uploadedImage);
+            }
+        }
     }
 }
