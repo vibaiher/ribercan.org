@@ -1,10 +1,87 @@
 {% extends '::admin-base.html.twig' %}
 
-{% block section_title %}Añadir perro en adopción{% endblock %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block section_title %}Dar de alta un nuevo perro en la protectora{% endblock %}
 
 {% block body -%}
   {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Create" />
+    <section class="dog-information">
+      <header>
+        <h2>Información relevante</h2>
+      </header>
+      <div>
+        <div class="row">
+          <div class="col-lg-2">
+            {{ form_widget(form.urgent) }}
+          </div>
+          <div class="col-lg-2">
+            {{ form_widget(form.sterilized) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+          </div>
+          <div class="col-lg-3">
+            {{ form_label(form.birthday) }}
+            {{ form_widget(form.birthday) }}
+          </div>
+          <div class="col-lg-3">
+            {{ form_label(form.joinDate) }}
+            {{ form_widget(form.joinDate) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            {{ form_label(form.sex) }}
+            {{ form_widget(form.sex) }}
+          </div>
+          <div class="col-lg-3">
+            {{ form_label(form.size) }}
+            {{ form_widget(form.size) }}
+          </div>
+          <div class="col-lg-6">
+            {{ form_label(form.godfather) }}
+            {{ form_widget(form.godfather) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description, { 'attr': { 'rows': 10 } }) }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dog-media">
+      <header>
+        <h2>Vídeo e imágenes</h2>
+      </header>
+      <div>
+        <div class="row">
+          <div class="col-lg-6">
+            {{ form_label(form.video) }}
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">https://www.youtube.com/watch?v=</span>
+              {{ form_widget(form.video, { 'attr': { 'aria-describedby': 'basic-addon3' } }) }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(form.uploadedImages) }}
+            {{ form_widget(form.uploadedImages) }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="pull-right">
+      <input type="submit" class="btn btn-primary" value="Create" />
+      <a href="{{ path('admin_dogs_index') }}" class="btn btn-warning">Cancelar</a>
+    </div>
   {{ form_end(form) }}
 {% endblock %}

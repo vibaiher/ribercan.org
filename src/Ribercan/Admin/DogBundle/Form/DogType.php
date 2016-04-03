@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use Ribercan\Admin\DogBundle\Entity\Dog;
 
@@ -24,10 +25,12 @@ class DogType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('description', TextareaType::class, array('required' => false, 'empty_data' => null))
             ->add(
                 'sex',
                 ChoiceType::class,
                 array(
+                    'multiple' => false,
                     'choices' => array(
                         'Macho' => Dog::MALE,
                         'Hembra' => Dog::FEMALE
@@ -39,12 +42,10 @@ class DogType extends AbstractType
             ->add('joinDate', DateType::class)
             ->add('sterilized')
             ->add('godfather', TextType::class, array('required' => false, 'empty_data' => null))
-            ->add('description', TextType::class, array('required' => false, 'empty_data' => null))
             ->add(
                 'size',
                 ChoiceType::class,
                 array(
-                    'expanded' => true,
                     'multiple' => false,
                     'choices' => array(
                         'Cachorro' => Dog::PUPPY,
