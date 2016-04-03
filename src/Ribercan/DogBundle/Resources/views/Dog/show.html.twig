@@ -3,7 +3,11 @@
 {% block body %}
 <section class="section--animal" id="dog">
   <header class="animal-hero">
-    <img src="http://www.ribercan.org/animales/1279/IMGP5778.JPG">
+    {% if dog.mainImage %}
+      <img src="/{{ dog.mainImage.webPath }}">
+    {% else %}
+      <img src="/images/default.jpg">
+    {% endif %}
   </header>
   <div class="main">
     <div class="animal-adopt">
@@ -17,39 +21,36 @@
       <li class="ListItem"><time>{{ dog.birthday }}</time></li>
       <li class="ListItem">{{ dog.size }}</li>
       <li class="ListItem">{{ dog.sterilized }}</li>
-      {% if dog.godfather %}<li class="ListItem">Apadrinado por {{ dog.godfather }}</li>{% endif %}
+      {% if dog.godfather %}
+        <li class="ListItem">Apadrinado por {{ dog.godfather }}</li>
+      {% endif %}
     </ul>
     <p>{{ dog.description }}</p>
-    <ul class="List--thumbs">
+    {% if dog.video or dog.images is not empty %}
+      <ul class="List--thumbs">
+        {% if dog.video %}
+          <li class="ListItem">
+            <a href="{{ dog.video}}" id="show-video">
+              <img src="/images/video.jpg" alt="Ver Vídeo en YouTube" width="150" height="112">
+            </a>
+          </li>
+        {% endif %}
+        {% for image in dog.images %}
+          <li class="ListItem">
+            <img src="/{{ image.webPath }}" width="150" height="112">
+          </li>
+        {% endfor %}
+      </ul>
       {% if dog.video %}
-        <li class="ListItem">
-          <a href="{{ dog.video}}" id="show-video">
-            <img src="/images/youtube.png" alt="Ver Vídeo en YouTube">
-          </a>
-        </li>
+        <dialog id="video">
+          <iframe width="640" height="360" src="{{ dog.video }}" frameborder="0" allowfullscreen></iframe>
+          <p>
+            <a href=# class="btn btn-primary" role="button">Adóptame</a>
+            <a href=# class="btn btn-default" role="button">Apadríname</a>
+            <a href="#close" id="close-video" class="btn btn-red" role="button">Cerrar</a>
+          </p>
+        </dialog>
       {% endif %}
-      <li class="ListItem">
-        <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/1069314_10153346751365392_1652044460_n.jpg&amp;w=150">
-      </li>
-      <li class="ListItem">
-        <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/IMGP5811.JPG&amp;w=150">
-      </li>
-      <li class="ListItem">
-        <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/IMGP5808.JPG&amp;w=150">
-      </li>
-      <li class="ListItem">
-        <img src="http://www.ribercan.org/timthumb.php?src=animales/1279/IMGP5812.JPG&amp;w=150">
-      </li>
-    </ul>
-    {% if dog.video %}
-      <dialog id="video">
-        <iframe width="640" height="360" src="{{ dog.video }}" frameborder="0" allowfullscreen></iframe>
-        <p>
-          <a href=# class="btn btn-primary" role="button">Adóptame</a>
-          <a href=# class="btn btn-default" role="button">Apadríname</a>
-          <a href="#close" id="close-video" class="btn btn-red" role="button">Cerrar</a>
-        </p>
-      </dialog>
     {% endif %}
   </div><!-- .main -->
   <div class="urgent">
@@ -62,11 +63,11 @@
 {% endblock %}
 
 {% block header_javascripts %}
-<script src="/js/dialog-polyfill.js"></script>
+  <script src="/js/vendor/dialog-polyfill.js"></script>
 {% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="/css/dialog-polyfill.css" />
+  <link rel="stylesheet" type="text/css" href="/css/vendor/dialog-polyfill.css" />
 {% endblock %}
 
 {% block javascripts %}

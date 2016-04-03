@@ -373,6 +373,15 @@ class Dog
         return $this->images;
     }
 
+    public function getMainImage()
+    {
+        if (empty($this->images) || !isset($this->images[0])) {
+            return null;
+        }
+
+        return $this->images[0];
+    }
+
     /**
      * Set images
      */

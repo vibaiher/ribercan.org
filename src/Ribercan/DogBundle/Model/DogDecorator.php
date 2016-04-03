@@ -82,4 +82,9 @@ class DogDecorator
     {
         return $this->dog->getImages();
     }
+
+    public function getMainImage()
+    {
+        return $this->dog->getMainImage();
+    }
 }
