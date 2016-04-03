@@ -10,7 +10,7 @@ set :tmp_dir, "/home/vibaiher/tmp/capistrano"
 set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('web/images/dogs')
 
 # Default value for keep_releases is 5
 set :keep_releases, 2
