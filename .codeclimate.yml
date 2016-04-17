@@ -32,5 +32,6 @@ ratings:
 exclude_paths:
 - config/
 - tests/
+- web/assets/vendor/
 - web/css/vendor/
 - web/js/vendor/

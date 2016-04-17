@@ -78,6 +78,23 @@ class DogDecorator
         return $this->dog->getVideo();
     }
 
+    public function getVideoId()
+    {
+        return $this->getVideo();
+    }
+
+    public function getVideoUrl()
+    {
+        $videoId = $this->getVideoId();
+        return "https://www.youtube.com/embed/{$videoId}";
+    }
+
+    public function getVideoThumbnail()
+    {
+        $videoId = $this->getVideoId();
+        return "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg";
+    }
+
     public function getImages()
     {
         return $this->dog->getImages();

@@ -1,0 +1,22 @@
+{
+  "name": "ribercan",
+  "homepage": "https://github.com/vibaiher/ribercan.org",
+  "authors": [
+    "Vicente Baixauli <vibaiher@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Gallery": "blueimp/Gallery#^2.20.0"
+  }
+}

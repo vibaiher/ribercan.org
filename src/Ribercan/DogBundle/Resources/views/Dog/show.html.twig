@@ -21,30 +21,22 @@
     </ul>
     <p>{{ dog.description }}</p>
     {% if dog.video or dog.images is not empty %}
-      <ul class="List--thumbs">
+      <ul class="List--thumbs" id="dog-gallery">
         {% if dog.video %}
           <li class="ListItem">
-            <a href="{{ dog.video}}" id="show-video">
-              <img src="/images/video.jpg" alt="Ver Vídeo en YouTube" width="150" height="112">
+            <a href="{{ dog.videoUrl }}" id="show-video" type="text/html" data-youtube="{{ dog.videoId }}" data-gallery>
+              <img src="{{ dog.videoThumbnail }}" alt="Ver Vídeo en YouTube">
             </a>
           </li>
         {% endif %}
         {% for image in dog.images %}
           <li class="ListItem">
-            <img src="/{{ image.webPath }}" width="150" height="112">
+            <a href="/{{ image.webPath }}">
+              <img src="/{{ image.webPath }}">
+            </a>
           </li>
         {% endfor %}
       </ul>
-      {% if dog.video %}
-        <dialog id="video">
-          <iframe width="640" height="360" src="{{ dog.video }}" frameborder="0" allowfullscreen></iframe>
-          <p>
-            <a href=# class="btn btn-primary" role="button">Adóptame</a>
-            <a href=# class="btn btn-default" role="button">Apadríname</a>
-            <a href="#close" id="close-video" class="btn btn-red" role="button">Cerrar</a>
-          </p>
-        </dialog>
-      {% endif %}
     {% endif %}
   </div><!-- .main -->
   <div class="urgent">
@@ -54,28 +46,36 @@
   </div>
   <!-- .urgent -->
 </section>
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 {% endblock %}
 
 {% block header_javascripts %}
-  <script src="/js/vendor/dialog-polyfill.js"></script>
+  <script src="/assets/vendor/Gallery/js/blueimp-gallery.min.js"></script>
 {% endblock %}
 
 {% block stylesheets %}
-  <link rel="stylesheet" type="text/css" href="/css/vendor/dialog-polyfill.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/vendor/Gallery/css/blueimp-gallery.min.css">
 {% endblock %}
 
 {% block javascripts %}
 <script>
-  var dialog = document.querySelector('dialog#video');
-  dialogPolyfill.registerDialog(dialog);
-
-  document.querySelector('#show-video').addEventListener('click', function(event) {
-    event.preventDefault();
-    dialog.showModal();
-  });
-
-  document.querySelector('#close-video').onclick = function() {
-    dialog.close();
+  document.getElementById('dog-gallery').onclick = function (event) {
+      event = event || window.event;
+      var target = event.target || event.srcElement,
+          link = target.src ? target.parentNode : target,
+          options = { index: link, event: event }
+          links = this.getElementsByTagName('a');
+      blueimp.Gallery(links, options);
   };
 </script>
 {% endblock %}
