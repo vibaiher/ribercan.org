@@ -85,7 +85,7 @@ class DogDecorator
 
     public function getMainImage()
     {
-        $defaultImage = 'images/default.jpg';
+        $defaultImage = 'images/logo__big.jpg';
         return $this->dog->getMainImage() ? $this->dog->getMainImage()->getWebPath() : $defaultImage;
     }
 }
