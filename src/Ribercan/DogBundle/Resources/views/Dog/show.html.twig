@@ -1,14 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<section class="section--animal" id="dog">
-  <header class="animal-hero">
-    {% if dog.mainImage %}
-      <img src="/{{ dog.mainImage.webPath }}">
-    {% else %}
-      <img src="/images/default.jpg">
-    {% endif %}
-  </header>
+<section class="section--animal" id="dog" style="background: url('/{{ dog.mainImage }}') no-repeat; background-size: contain;">
+  <header class="animal-hero"></header>
   <div class="main">
     <div class="animal-adopt">
       <h1 class="name">{{ dog.sex|raw }} {{ dog.name }}</h1>
