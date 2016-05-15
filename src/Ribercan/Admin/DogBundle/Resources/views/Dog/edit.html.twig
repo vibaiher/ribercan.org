@@ -1,19 +1,97 @@
 {% extends '::admin-base.html.twig' %}
 
+{% block header_javascripts %}
+  <script src="/assets/vendor/trix/dist/trix.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="/assets/vendor/trix/dist/trix.css">
+{% endblock %}
+
+{% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+
 {% block body -%}
-    <h1>Dog edit</h1>
+  {{ form_start(edit_form) }}
+    <section class="dog-information">
+      <header>
+        <h2>Información relevante</h2>
+      </header>
+      <div>
+        <div class="row">
+          <div class="col-lg-2">
+            {{ form_widget(edit_form.urgent) }}
+          </div>
+          <div class="col-lg-2">
+            {{ form_widget(edit_form.sterilized) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            {{ form_label(edit_form.name) }}
+            {{ form_widget(edit_form.name) }}
+          </div>
+          <div class="col-lg-3">
+            {{ form_label(edit_form.birthday) }}
+            {{ form_widget(edit_form.birthday) }}
+          </div>
+          <div class="col-lg-3">
+            {{ form_label(edit_form.joinDate) }}
+            {{ form_widget(edit_form.joinDate) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            {{ form_label(edit_form.sex) }}
+            {{ form_widget(edit_form.sex) }}
+          </div>
+          <div class="col-lg-3">
+            {{ form_label(edit_form.size) }}
+            {{ form_widget(edit_form.size) }}
+          </div>
+          <div class="col-lg-6">
+            {{ form_label(edit_form.godfather) }}
+            {{ form_widget(edit_form.godfather) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(edit_form.description) }}
+            <div class="hide">{{ form_widget(edit_form.description) }}</div>
+            <trix-editor input="dog_description"></trix-editor>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    {{ form_start(edit_form) }}
-      {{ form_widget(edit_form) }}
-      <input type="submit" value="Update" />
-    {{ form_end(edit_form) }}
+    <section class="dog-media">
+      <header>
+        <h2>Vídeo e imágenes</h2>
+      </header>
+      <div>
+        <div class="row">
+          <div class="col-lg-6">
+            {{ form_label(edit_form.video) }}
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">https://www.youtube.com/watch?v=</span>
+              {{ form_widget(edit_form.video, { 'attr': { 'aria-describedby': 'basic-addon3' } }) }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(edit_form.uploadedImages) }}
+            {{ form_widget(edit_form.uploadedImages) }}
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('admin_dogs_index') }}">
-                Back to the list
-            </a>
-        </li>
-        <li>{{ form(delete_form) }}</li>
-    </ul>
+    <div class="pull-right">
+      <input type="submit" class="btn btn-primary" value="Update" />
+      <a href="{{ path('admin_dogs_index') }}" class="btn btn-warning">Cancelar</a>
+    </div>
+  {{ form_end(edit_form) }}
+  <div class="pull-right">
+    {{ form(delete_form) }}
+  </div>
 {% endblock %}
