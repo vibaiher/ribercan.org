@@ -19,7 +19,9 @@
         <li class="ListItem">Apadrinado por {{ dog.godfather }}</li>
       {% endif %}
     </ul>
-    <p>{{ dog.description }}</p>
+    <div class="description">
+      {{ dog.description | raw }}
+    </div>
     {% if dog.video or dog.images is not empty %}
       <ul class="List--thumbs" id="dog-gallery">
         {% if dog.video %}

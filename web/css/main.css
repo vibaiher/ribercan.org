@@ -755,6 +755,9 @@ textarea {
   margin-right: auto;
   margin-left: auto; }
 
+.section--animal .main .description {
+  font-size: 1.6rem; }
+
 @media (max-width: 767px) {
   .section--animal > .main {
     width: 95%;

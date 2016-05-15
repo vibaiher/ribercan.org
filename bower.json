@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "Gallery": "blueimp/Gallery#^2.20.0"
+    "Gallery": "blueimp/Gallery#^2.20.0",
+    "trix": "^0.9.7"
   }
 }

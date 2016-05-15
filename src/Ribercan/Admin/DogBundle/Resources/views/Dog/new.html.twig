@@ -1,5 +1,13 @@
 {% extends '::admin-base.html.twig' %}
 
+{% block header_javascripts %}
+  <script src="/assets/vendor/trix/dist/trix.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="/assets/vendor/trix/dist/trix.css">
+{% endblock %}
+
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block section_title %}Dar de alta un nuevo perro en la protectora{% endblock %}
@@ -50,7 +58,8 @@
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(form.description) }}
-            {{ form_widget(form.description, { 'attr': { 'rows': 10 } }) }}
+            <div class="hide">{{ form_widget(form.description) }}</div>
+            <trix-editor input="dog_description"></trix-editor>
           </div>
         </div>
       </div>
