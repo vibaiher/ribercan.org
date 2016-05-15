@@ -34,15 +34,18 @@
                 <td>{{ dog.godfather }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ dog.description }}</td>
-            </tr>
-            <tr>
                 <th>Size</th>
                 <td>{{ dog.size }}</td>
             </tr>
         </tbody>
     </table>
+
+    {% if dog.description %}
+      <div class="description" style="margin-bottom: 10px;">
+        <h3>Description</h3>
+        {{ dog.description | raw }}
+      </div>
+    {% endif %}
 
     {% if dog.images is not empty %}
       <section id="images">
