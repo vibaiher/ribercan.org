@@ -251,7 +251,7 @@ body {
   content: '';
   width: 20px;
   height: 20px;
-  outline: 1px solid red;
+  background: url('/css/icons/ribercan.svg') no-repeat;
   display: inline-block;
   vertical-align: middle;
   top: -3px;
@@ -702,16 +702,16 @@ textarea {
   display: block; }
 
 .list--social .facebook {
-  background: url('/css/icons/facebook.png') no-repeat; }
+  background: url('/css/icons/facebook.svg') no-repeat; }
 
 .list--social .twitter {
-  background: url('/css/icons/twitter.png') no-repeat; }
+  background: url('/css/icons/twitter.svg') no-repeat; }
 
 .list--social .teaming {
-  background: url('/css/icons/teaming.png') no-repeat; }
+  background: url('/css/icons/teaming.svg') no-repeat; }
 
 .list--social .youtube {
-  background: url('/css/icons/youtube.png') no-repeat 50%; }
+  background: url('/css/icons/youtube.svg') no-repeat 50%; }
 
 .MainFooter-listLegalStuff {
   display: block;
