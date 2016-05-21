@@ -29,12 +29,16 @@ class DogController extends Controller
 
         $limit = 3;
         $urgentAdoptions = $this->get('doctrine')->getRepository('RibercanAdminDogBundle:Dog')->findUrgentAdoptions($limit);
+        $decorated_dogs = array();
+        foreach ($urgentAdoptions as $dog) {
+            $decorated_dogs[] = new DogDecorator($dog);
+        }
 
         return $this->render(
             'RibercanDogBundle:Dog:show.html.twig',
             array(
                 'dog' => $decorated_dog,
-                'urgent_adoptions' => $urgentAdoptions
+                'urgent_adoptions' => $decorated_dogs
             )
         );
     }
