@@ -816,8 +816,18 @@ textarea {
   outline: 1px solid #ddd;
   width: 170px;
   height: 120px;
-  overflow: hidden;
-}
+  overflow: hidden; }
+
+.List--thumbs .ListItem .videoThumbnail {
+  position: relative; }
+
+.List--thumbs .ListItem .play {
+  position: absolute;
+  width: 57px;
+  height: 57px;
+  top: 23px;
+  left: 47px;
+  background: url(/assets/vendor/Gallery/img/video-play.svg) no-repeat center; }
 
 @media (max-width: 400px) {
   .List--thumbs .ListItem {

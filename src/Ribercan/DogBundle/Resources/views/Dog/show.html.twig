@@ -26,9 +26,8 @@
       <ul class="List--thumbs" id="dog-gallery">
         {% if dog.video %}
           <li class="ListItem">
-            <a href="{{ dog.videoUrl }}" id="show-video" type="text/html" data-youtube="{{ dog.videoId }}" data-gallery>
-              <img src="{{ dog.videoThumbnail }}" alt="Ver Vídeo en YouTube">
-            </a>
+            <img src="{{ dog.videoThumbnail }}" class="videoThumbnail" alt="Ver Vídeo en YouTube">
+            <a href="{{ dog.videoUrl }}" class="play" id="show-video" type="text/html" data-youtube="{{ dog.videoId }}" data-gallery></a>
           </li>
         {% endif %}
         {% for image in dog.images %}
