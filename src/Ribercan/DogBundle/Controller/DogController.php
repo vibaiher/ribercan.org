@@ -12,15 +12,20 @@ class DogController extends Controller
     public function indexAction()
     {
         $dogs = $this->get('doctrine')->getRepository('RibercanAdminDogBundle:Dog')->findAll();
+        $decorated_dogs = array();
+        foreach ($dogs as $dog) {
+            $decorated_dogs[] = new DogDecorator($dog);
+        }
+
         $filter_form = $this->createForm(DogFilterType::class, array('method' => 'POST'));
 
-        return $this->render('RibercanDogBundle:Dog:index.html.twig', array('dogs' => $dogs, 'filter_form' => $filter_form->createView()));
+        return $this->render('RibercanDogBundle:Dog:index.html.twig', array('dogs' => $decorated_dogs, 'filter_form' => $filter_form->createView()));
     }
 
     public function showAction($id)
     {
         $dog = $this->get('doctrine')->getRepository('RibercanAdminDogBundle:Dog')->find($id);
-        $dog_decorator = new DogDecorator($dog);
+        $decorated_dog = new DogDecorator($dog);
 
         $limit = 3;
         $urgentAdoptions = $this->get('doctrine')->getRepository('RibercanAdminDogBundle:Dog')->findUrgentAdoptions($limit);
@@ -28,7 +33,7 @@ class DogController extends Controller
         return $this->render(
             'RibercanDogBundle:Dog:show.html.twig',
             array(
-                'dog' => $dog_decorator,
+                'dog' => $decorated_dog,
                 'urgent_adoptions' => $urgentAdoptions
             )
         );

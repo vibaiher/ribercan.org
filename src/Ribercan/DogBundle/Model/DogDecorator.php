@@ -36,6 +36,22 @@ class DogDecorator
         return $this->dog->getBirthday()->format("d/m/Y");
     }
 
+    public function getAge()
+    {
+        $current_date = new \DateTime();
+        $diff = $current_date->diff($this->dog->getBirthday());
+
+        if ($diff->y != 0) {
+            return ($diff->y == 1) ? "1 año" : "{$diff->y} años";
+        }
+
+        if ($diff->m != 0) {
+            return ($diff->m == 1) ? "1 mes" : "{$diff->m} meses";
+        }
+
+        return (($diff->d) ? "1 día" : "{$diff->d} días");
+    }
+
     public function getJoinDate()
     {
         return $this->dog->getJoinDate()->format("d/m/Y");

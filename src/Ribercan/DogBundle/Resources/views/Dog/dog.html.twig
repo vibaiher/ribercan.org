@@ -1,14 +1,14 @@
 <article class="animal">
   <a href="{{ path('dog_in_adoption', { id: dog.id }) }}">
     <figure class="pic">
-      <img src="http://www.ribercan.org/timthumb.php?src=animales/1375/principal.jpg&amp;w=200">
+      <img src="/{{ dog.mainImage }}">
     </figure>
     <div class="main">
       <p class="name" data-title="Nombre">
         {{ dog.sex ? '<span class="female">♀</span>' : '<span class="male">♂</span>' }} {{ dog.name }}
       </p>
       <ul class="metadata">
-        <li class="age" data-title="Edad">{{ dog.birthday.format("d/m/Y") }}</li>
+        <li class="age" data-title="Edad">{{ dog.age }}</li>
         <li class="size" data-title="Tamaño">{{ dog.size }}</li>
         <li class="sterilized" data-title="Esterilizado">
           {{ dog.sterilized ? 'X' : '' }}

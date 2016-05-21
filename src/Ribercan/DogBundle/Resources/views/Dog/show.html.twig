@@ -12,9 +12,9 @@
     </div><!-- .animal-adopt -->
     <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate }}</time></p>
     <ul class="List--metadata">
-      <li class="ListItem"><time>{{ dog.birthday }}</time></li>
-      <li class="ListItem">{{ dog.size }}</li>
-      <li class="ListItem">{{ dog.sterilized }}</li>
+      <li class="ListItem"><b>Edad:</b> <time>{{ dog.age }}</time></li>
+      <li class="ListItem"><b>Tamaño:</b> {{ dog.size }}</li>
+      <li class="ListItem"><b>Salud:</b> {{ dog.sterilized }}</li>
       {% if dog.godfather %}
         <li class="ListItem">Apadrinado por {{ dog.godfather }}</li>
       {% endif %}

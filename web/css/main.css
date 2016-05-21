@@ -796,14 +796,6 @@ textarea {
     display: block;
     margin-bottom: 2rem;
     margin-right: 0; } }
-.List--metadata .ListItem:before {
-  content: '';
-  border: 1px solid red;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: .5rem; }
 
 .List--thumbs {
   margin-top: 4rem; }

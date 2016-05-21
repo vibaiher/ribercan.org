@@ -45,8 +45,8 @@ class DogPageTest extends HandyTestCase
         );
         $this->assertCount(
             1,
-            $crawler->filter('html:contains("16/07/2010")'),
-            'Appears the dog birthday'
+            $crawler->filter('html:contains("años")'),
+            'Appears the dog age'
         );
         $this->assertCount(
             1,
