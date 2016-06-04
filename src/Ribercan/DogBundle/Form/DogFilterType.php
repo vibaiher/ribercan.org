@@ -26,8 +26,7 @@ class DogFilterType extends AbstractType
                     'choices' => array(
                         'Macho' => Dog::MALE,
                         'Hembra' => Dog::FEMALE
-                    ),
-                    'choices_as_values' => true
+                    )
                 )
             )
             ->add(
@@ -44,8 +43,7 @@ class DogFilterType extends AbstractType
                         'Pequeño' => Dog::SMALL,
                         'Mediano' => Dog::MEDIUM,
                         'Grande' => Dog::BIG,
-                    ),
-                    'choices_as_values' => true
+                    )
                 )
             )
             ->add('submit', SubmitType::class, array('label' => 'Filter'))

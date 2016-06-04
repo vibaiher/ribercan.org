@@ -34,8 +34,7 @@ class DogType extends AbstractType
                     'choices' => array(
                         'Macho' => Dog::MALE,
                         'Hembra' => Dog::FEMALE
-                    ),
-                    'choices_as_values' => true
+                    )
                 )
             )
             ->add('birthday', BirthdayType::class)
@@ -52,8 +51,7 @@ class DogType extends AbstractType
                         'Pequeño' => Dog::SMALL,
                         'Mediano' => Dog::MEDIUM,
                         'Grande' => Dog::BIG,
-                    ),
-                    'choices_as_values' => true
+                    )
                 )
             )
             ->add('urgent')
