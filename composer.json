@@ -39,7 +39,6 @@
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
         "carlescliment/handy-tests-bundle": "dev-master",
-        "phpunit/phpunit": "4.8.*",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "codeclimate/php-test-reporter": "^0.3.0"
     },
