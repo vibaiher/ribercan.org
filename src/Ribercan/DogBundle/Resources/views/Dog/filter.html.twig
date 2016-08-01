@@ -1,0 +1,40 @@
+{% form_theme form 'form/fields.html.twig' %}
+
+{{ form_start(form, { 'attr': { 'class': 'form--search' } }) }}
+  {{ form_errors(form) }}
+
+  <div class=main>
+    <ul class=list--search-filters>
+      <li>
+        {{ form_label(form.sex) }}
+        
+        <div class="button dropdown">
+          {{ form_errors(form.sex) }}
+          {{ form_widget(form.sex) }}
+        </div>
+      </li>
+
+      <li>
+        {{ form_label(form.years_old) }}
+
+        <div class="button dropdown">
+          {{ form_errors(form.years_old) }}
+          {{ form_widget(form.years_old) }}
+        </div>
+      </li>
+
+      <li>
+        {{ form_label(form.size) }}
+
+        <div class="button dropdown">
+          {{ form_errors(form.size) }}
+          {{ form_widget(form.size) }}
+        </div>
+      </li>
+
+      <li>
+          {{ form_widget(form.submit) }}
+      </li>
+    </ul>
+  </div>
+{{ form_end(form) }}

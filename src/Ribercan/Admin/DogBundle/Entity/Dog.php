@@ -20,10 +20,12 @@ class Dog
     const MALE = "0";
     const FEMALE = "1";
 
-    const PUPPY = "0";
     const SMALL = "1";
     const MEDIUM = "2";
     const BIG = "3";
+
+    const PUPPY = "0";
+    const ADULT = "1";
 
     const NOT_STERILIZED_YET = "0";
     const STERILIZED = "1";
