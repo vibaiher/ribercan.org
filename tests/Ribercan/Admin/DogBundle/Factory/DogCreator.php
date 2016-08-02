@@ -18,9 +18,9 @@ class DogCreator
         $dog = new Dog();
         $dog->setName(isset($attributes['name']) ? $attributes['name'] : 'Cory');
         $dog->setSex(Dog::MALE);
-        $dog->setSize(Dog::BIG);
+        $dog->setSize(isset($attributes['size']) ? $attributes['size'] : Dog::BIG);
         $dog->setSterilized(Dog::STERILIZED);
-        $dog->setBirthday(new \Datetime());
+        $dog->setBirthday(isset($attributes['birthday']) ? $attributes['birthday'] : new \Datetime());
         $dog->setJoinDate(new \Datetime());
         $dog->setUrgent(isset($attributes['urgent']) ? $attributes['urgent'] : false);
 

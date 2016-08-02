@@ -23,19 +23,23 @@ class DogFilterType extends AbstractType
                 'sex',
                 ChoiceType::class,
                 array(
+                    'required' => false,
                     'multiple' => false,
                     'choices' => array(
+                        'Cualquiera' => '',
                         'Macho' => Dog::MALE,
                         'Hembra' => Dog::FEMALE
                     )
                 )
             )
             ->add(
-                'years_old',
+                'age',
                 ChoiceType::class,
                 array(
+                    'required' => false,
                     'multiple' => false,
                     'choices' => array(
+                        'Cualquiera' => '',
                         'Cachorro' => Dog::PUPPY,
                         'Adulto' => Dog::ADULT
                     )
@@ -45,8 +49,10 @@ class DogFilterType extends AbstractType
                 'size',
                 ChoiceType::class,
                 array(
+                    'required' => false,
                     'multiple' => false,
                     'choices' => array(
+                        'Cualquiera' => '',
                         'Pequeño' => Dog::SMALL,
                         'Mediano' => Dog::MEDIUM,
                         'Grande' => Dog::BIG,

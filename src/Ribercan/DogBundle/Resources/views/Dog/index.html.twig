@@ -5,7 +5,7 @@
     <div class="l__wrapper">
       <h2>Listado de perros en adopción</h2>
 
-      {{ include('RibercanDogBundle:Dog:filter.html.twig', { 'form': filter_form }) }}
+      {{ include('RibercanDogBundle:Dog:filter.html.twig', { 'form': filterForm }) }}
 
       <ul class="List--animals">
         {% for dog in dogs %}
