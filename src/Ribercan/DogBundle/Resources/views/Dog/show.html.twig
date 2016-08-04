@@ -7,7 +7,7 @@
     <div class="animal-adopt">
       <h1 class="name">{{ dog.sex|raw }} {{ dog.name }}</h1>
       <p>
-        <a href="#" class="btn btn-primary" role="button">Adóptame</a> <a href="#" class="btn btn-default" role="button">Apadríname</a>
+        <a href="https://vibaiher.typeform.com/to/HAK5Rf" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Adóptame</a> <a href="https://vibaiher.typeform.com/to/xQDq0d" class="btn btn-default typeform-share" role="button" data-mode="1" target="_blank">Apadríname</a>
       </p>
     </div><!-- .animal-adopt -->
     <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate }}</time></p>
@@ -69,14 +69,15 @@
 {% endblock %}
 
 {% block javascripts %}
-<script>
-  document.getElementById('dog-gallery').onclick = function (event) {
-      event = event || window.event;
-      var target = event.target || event.srcElement,
-          link = target.src ? target.parentNode : target,
-          options = { index: link, event: event }
-          links = this.getElementsByTagName('a');
-      blueimp.Gallery(links, options);
-  };
-</script>
+  <script>
+    document.getElementById('dog-gallery').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, event: event }
+            links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+  </script>
+  <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}id=id+'_';if(!gi.call(d,id)){qs=ce.call(d,'link');qs.rel='stylesheet';qs.id=id;qs.href=b+'share-button.css';s=gt.call(d,'head')[0];s.appendChild(qs,s)}})()</script>
 {% endblock %}
