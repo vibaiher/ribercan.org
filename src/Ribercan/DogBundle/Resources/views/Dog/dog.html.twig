@@ -5,7 +5,7 @@
     </figure>
     <div class="main">
       <p class="name" data-title="Nombre">
-        {{ dog.sex ? '<span class="female">♀</span>' : '<span class="male">♂</span>' }} {{ dog.name }}
+        {{ dog.sex|raw }} {{ dog.name }}
       </p>
       <ul class="metadata">
         <li class="age" data-title="Edad">{{ dog.age }}</li>
