@@ -53,7 +53,7 @@ class UrgentAdoptionDogTest extends HandyTestCase
             'dog[sterilized]'  => Dog::STERILIZED,
             'dog[godfather]'  => '',
             'dog[description]'  => 'Custom description',
-            'dog[size]'  => Dog::PUPPY,
+            'dog[size]'  => Dog::SMALL,
         );
 
         $form = $crawler->selectButton('Create')->form($dogAttributes);

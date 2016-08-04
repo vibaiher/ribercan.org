@@ -47,7 +47,6 @@ class DogType extends AbstractType
                 array(
                     'multiple' => false,
                     'choices' => array(
-                        'Cachorro' => Dog::PUPPY,
                         'Pequeño' => Dog::SMALL,
                         'Mediano' => Dog::MEDIUM,
                         'Grande' => Dog::BIG,

@@ -13,7 +13,7 @@ class LoadDogData extends AbstractFixture implements OrderedFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        $sizes = [Dog::PUPPY, Dog::SMALL, Dog::MEDIUM, Dog::BIG];
+        $sizes = [Dog::SMALL, Dog::MEDIUM, Dog::BIG];
 
         for ($i = 1; $i < self::MAX; $i++)
         {

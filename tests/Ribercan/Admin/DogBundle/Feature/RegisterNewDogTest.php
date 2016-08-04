@@ -48,7 +48,7 @@ class RegisterNewDogTest extends HandyTestCase
                 'day' => 18
             ),
             'dog[description]' => 'He is the cutest dog in the world.',
-            'dog[size]' => Dog::PUPPY,
+            'dog[size]' => Dog::SMALL,
             'dog[urgent]' => true,
             'dog[uploadedImages][0]' => $image
         ));
