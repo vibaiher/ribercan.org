@@ -75,19 +75,6 @@ class DogDecorator
     public function getSize()
     {
         $translations = [
-            Dog::PUPPY => 'Cachorro',
-            Dog::SMALL => 'Tamaño pequeño',
-            Dog::MEDIUM => 'Tamaño mediano',
-            Dog::BIG => 'Tamaño grande'
-        ];
-
-        return $translations[$this->dog->getSize()];
-    }
-
-    public function getSizeShortFormat()
-    {
-        $translations = [
-            Dog::PUPPY => 'Cachorro',
             Dog::SMALL => 'Pequeño',
             Dog::MEDIUM => 'Mediano',
             Dog::BIG => 'Grande'

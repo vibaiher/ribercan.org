@@ -35,7 +35,7 @@ class DogPageTest extends HandyTestCase
         );
         $this->assertCount(
             1,
-            $crawler->filter('html:contains("Tamaño grande")'),
+            $crawler->filter('html:contains("Grande")'),
             'Appears the dog size'
         );
         $this->assertCount(
