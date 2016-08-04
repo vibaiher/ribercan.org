@@ -9,7 +9,7 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:100,400" rel="stylesheet" type="text/css" />
     {% block header_javascripts %}{% endblock %}
   </head>
-  <body class="{% block body_class %}{% endblock %}">
+  <body class="{{ body_class }}">
     <div class="MainWrapper">
       {{ include('menu.html.twig') }}
       <div class="MainBody" role="main">
