@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new Ribercan\AppBundle\RibercanAppBundle(),
             new Ribercan\DogBundle\RibercanDogBundle(),
             new Ribercan\Admin\AppBundle\RibercanAdminAppBundle(),
-            new Ribercan\Admin\DogBundle\RibercanAdminDogBundle()
+            new Ribercan\Admin\DogBundle\RibercanAdminDogBundle(),
+            new Ribercan\AboutUsBundle\RibercanAboutUsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

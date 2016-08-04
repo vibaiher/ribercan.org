@@ -1,3 +1,7 @@
+ribercan_about_us:
+    resource: "@RibercanAboutUsBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ribercan_app:
     resource: "@RibercanAppBundle/Resources/config/routing.yml"
     prefix:   /

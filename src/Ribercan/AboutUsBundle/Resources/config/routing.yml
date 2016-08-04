@@ -1,0 +1,3 @@
+ribercan_about_us_homepage:
+    path:     /about-us
+    defaults: { _controller: RibercanAboutUsBundle:Default:index }

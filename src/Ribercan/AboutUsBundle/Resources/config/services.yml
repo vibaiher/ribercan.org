@@ -1,0 +1,4 @@
+services:
+#    ribercan_about_us.example:
+#        class: Ribercan\AboutUsBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
