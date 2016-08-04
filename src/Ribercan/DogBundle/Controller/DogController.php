@@ -26,9 +26,7 @@ class DogController extends Controller
         $filterForm->handleRequest($request);
 
         if ($filterForm->isSubmitted() && $filterForm->isValid()) {
-            $filters = $filterForm->getData();
-
-            $dogs = $this->filterDogsListWith($filters);
+            $dogs = $this->get('dog.filter')->filterBy($filterForm->getData());
         }
         else {
             $dogs = $this->findDogs();
@@ -73,44 +71,9 @@ class DogController extends Controller
         return new DogDecorator($dog);
     }
 
-    private function filterDogsListWith($filters)
-    {
-        if ($filters['size'] != '') {
-            return $this->filterDogsBySize($filters['size']);
-        }
-
-        return $this->filterDogsByAge($filters['age']);
-    }
-
     private function findDogs()
     {
         return $this->repository()->findAll();
-    }
-
-    private function filterDogsBySize($size)
-    {
-        return $this->repository()->findBy(
-            array(
-                'size' => $size
-            )
-        );
-    }
-
-    private function filterDogsByAge($age)
-    {
-        $where_clause = ($age == Dog::PUPPY ? 'd.birthday > :birthday' : 'd.birthday <= :birthday');
-        $query = $this->repository()->createQueryBuilder('d')
-            ->where($where_clause)
-            ->setParameter('birthday', $this->oneYearAgo())
-            ->getQuery();
-
-        return $query->getResult();
-    }
-
-    private function oneYearAgo()
-    {
-        $today = new \DateTime();
-        return $today->add(\DateInterval::createFromDateString('1 year ago'));
     }
 
     private function repository()

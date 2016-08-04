@@ -1,0 +1,6 @@
+services:
+  repositories.dog:
+    class: Doctrine\ORM\EntityRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments:
+      - Ribercan\Admin\DogBundle\Entity\Dog
