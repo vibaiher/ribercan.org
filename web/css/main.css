@@ -46,6 +46,16 @@ div + ol, div + ul, h2 + ol, h2 + p, h2 + ul, h3 + ol, h3 + p, h3 + ul, h4 + ol,
   list-style: none;
   padding-left: 0; }
 
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px; }
+
+.list-inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px; }
+
 .MobileSidebar-UserMetadata .listItem {
   -webkit-flex: 1;
   -moz-flex: 1;

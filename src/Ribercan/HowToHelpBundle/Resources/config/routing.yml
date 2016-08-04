@@ -1,0 +1,3 @@
+ribercan_how_to_help_homepage:
+    path:     /how-to-help
+    defaults: { _controller: RibercanHowToHelpBundle:Default:index }
