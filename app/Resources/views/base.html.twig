@@ -9,6 +9,7 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:100,400" rel="stylesheet" type="text/css" />
     {% block header_javascripts %}{% endblock %}
   </head>
+  {% set body_class = body_class|default('page') %}
   <body class="{{ body_class }}">
     <div class="MainWrapper">
       {{ include('menu.html.twig') }}
