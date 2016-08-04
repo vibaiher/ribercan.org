@@ -249,6 +249,7 @@ body {
   margin: 0; }
 
 .DesktopNavigation-secondary {
+  background: #b0d7ff;
   margin: 0;
   border-top: 1px solid #bbb; }
 
@@ -311,6 +312,7 @@ body {
   cursor: pointer; }
 
 .MobileHeader-secondary {
+  background: #b0d7ff;
   margin: 0; }
 
 .MobileHeader-linkProfile {
