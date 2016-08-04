@@ -646,8 +646,13 @@ textarea {
   padding: 1rem 2rem;
   border-radius: 2px; }
 
-.jumbotron .tlf-time {
-  display: block; }
+.jumbotron .bank-account {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #bbb;
+  margin-left: 5px;
+  padding: 1rem 2rem;
+  border-radius: 2px; }
 
 .news header h2 {
   border-bottom: 1px solid #eee; }
