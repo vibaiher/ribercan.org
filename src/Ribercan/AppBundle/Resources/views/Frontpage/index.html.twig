@@ -2,6 +2,12 @@
 
 {% set body_class = 'page--index' %}
 
+{% set filter_form_header %}
+  <header class=header>
+    <h2>Buscador de animales</h2>
+  </header>
+{% endset %}
+
 {% block body %}
   <section class=section--index>
     <div class=jumbotron itemscope itemtype=http://schema.org/Organization>
@@ -21,46 +27,7 @@
       <div class="l__wrapper">
         <div class=main>
           <div class=featured>
-            <form class=form--search>
-              <header class=header>
-                <h2>Buscador de animales</h2>
-              </header>
-              <div class=main>
-                <ul class=list--search-filters>
-                  <li>
-                    <label>Sexo</label>
-                    <div class="button dropdown">
-                      <select>
-                        <option>Macho
-                        <option>Hembra
-                      </select>
-                    </div>
-                  </li>
-                  <li>
-                    <label>Edad</label>
-                    <div class="button dropdown">
-                      <select>
-                        <option>Cachorro
-                        <option>Adulto
-                      </select>
-                    </div>
-                  </li>
-                  <li>
-                    <label>Tamaño</label>
-                    <div class="button dropdown">
-                      <select>
-                        <option>Pequeño
-                        <option>Mediano
-                        <option>Grande
-                      </select>
-                    </div>
-                  </li>
-                  <li><input type=submit value=Buscar class="btn btn--primary"></li>
-                </ul>
-              </div>
-              <!-- .main -->
-            </form>
-            <!-- .form--search -->
+            {{ include('RibercanDogBundle:Dog:filter.html.twig', { 'form': filterForm }) }}
             <div class="urgent">
               {{ include('RibercanDogBundle:Dog:urgent_adoptions.html.twig', { 'dogs': urgent_adoptions }) }}
             </div>
