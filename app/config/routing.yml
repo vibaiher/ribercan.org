@@ -2,10 +2,6 @@ ribercan_how_to_help:
     resource: "@RibercanHowToHelpBundle/Resources/config/routing.yml"
     prefix:   /
 
-ribercan_about_us:
-    resource: "@RibercanAboutUsBundle/Resources/config/routing.yml"
-    prefix:   /
-
 ribercan_app:
     resource: "@RibercanAppBundle/Resources/config/routing.yml"
     prefix:   /
@@ -13,6 +9,10 @@ ribercan_app:
 ribercan_dog:
     resource: "@RibercanDogBundle/Resources/config/routing.yml"
     prefix:   /
+
+ribercan_about_us:
+    resource: "@RibercanAboutUsBundle/Resources/config/routing.yml"
+    prefix:   /about-us
 
 ribercan_admin_app:
     resource: "@RibercanAdminAppBundle/Resources/config/routing.yml"

@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% set body_class = 'page--news' %}
+{% set desktop_submenu %}
+  <ol class="DesktopMenu" role="menu">
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/about-us/contacts">Contactos</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/about-us/for-regina">Por Regina</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/about-us/ribercan-friends">Amigos Ribercan</a>
+    </li>
+  </ol>
+{% endset %}
+
+{% block title %}Contactos | Ribercan{% endblock %}
+
+{% block body %}
+  <section class="section--news">
+    <div class="l__wrapper">
+      <h1>Contactos</h1>
+      <div class="news__body">
+        <p>En Ribercan no existe el trabajo remunerado debido a los pocos recursos existentes, ya que no recibimos ninguna subvención. Todas las personas que trabajan en esta protectora son voluntarios. Compaginamos todo lo relacionado con Ribercan con nuestro trabajo, estudios, família, etc...  Rogamos comprendan nuestra situación, y entiendan si en algún momento no les podemos atender al télefono dentro del horario de atención telefónica. Gracias!
+
+        <h2>Información general</h2>
+        <p><span class=mail>E.mail</span>: <a href="mailto:info@ribercan.org">info@ribercan.org</a>
+
+        <h2>Adopciones y acogidas</h2>
+        <p><span class=mail>E.mail</span>: <a href="mailto:adopciones@ribercan.org">adopciones@ribercan.org</a>
+        <p>
+          <span class=telf>Teléfono 1: 654.561.572</span>
+          <br/>
+          Horario recepción llamadas tlf 1:  De 9h a 15:30h y de 22h a 23h (de lunes a viernes) //  de 10h a 22h (sábados y domingos)
+
+        <p>
+          <span class=telf>Teléfono 2: 645.754.224</span>
+          <br/>
+          Horario recepción de llamadas tlf 2: De 11h a 14h y de 18h a 22h  (de lunes a viernes) // de 10h a 22h (sábados y domingos)
+
+        <h2>Casos externos</h2>
+        <p>Mensaje privado: <a href="https://www.facebook.com/ribercan">www.facebook.com/ribercan</a>
+
+        <h2>Socios y padrinos</h2>
+        <p><span class=mail>E-mail</span>: <a href="mailto:socios@ribercan.org">socios@ribercan.org</a>
+
+        <h2>Voluntariado / donación de material</h2>
+        <p><span class=mail>E-mail</span>: <a href="mailto:voluntariado@ribercan.org">voluntariado@ribercan.org</a>
+        <p><span class=telf>Teléfono: 692.731.157</span>
+
+        <h2>Eventos</h2>
+        <p><span class=mail>E-mail</span>: <a href="mailto:eventos@ribercan.org">eventos@ribercan.org</a>
+
+        <h2>Tienda benéfica</h2>
+        <p><span class=mail>E-mail</span>: <a href="mailto:tienda@ribercan.org">tienda@ribercan.org</a>
+
+        <h2>Presidencia</h2>
+        <p><span class=mail>E-mail</span>: <a href="mailto:presidencia@ribercan.org">presidencia@ribercan.org</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

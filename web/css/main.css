@@ -970,3 +970,13 @@ dialog .close {
 
 dialog .close:hover {
   background: #00d9ff; }
+
+.ribercan-friends--container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around; }
+
+.ribercan-friends--item {
+  flex: 1 30%;
+  margin: 25px; }

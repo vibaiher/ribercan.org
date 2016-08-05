@@ -62,4 +62,12 @@
       </ol>
     </div><!-- l__wrapper -->
   </div>
+  {% set desktop_submenu = desktop_submenu|default(false) %}
+  {% if desktop_submenu %}
+    <div class="DesktopNavigation-terciary">
+      <div class="l__wrapper">
+        {{ desktop_submenu }}
+      </div><!-- l__wrapper -->
+    </div>
+  {% endif %}
 </nav>

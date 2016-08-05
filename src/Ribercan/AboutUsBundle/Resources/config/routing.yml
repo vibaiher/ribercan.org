@@ -1,3 +1,12 @@
 ribercan_about_us_homepage:
-    path:     /about-us
-    defaults: { _controller: RibercanAboutUsBundle:Default:index }
+    path:     /
+    defaults: { _controller: RibercanAboutUsBundle:StaticPages:aboutUs }
+ribercan_about_us_contacts:
+    path:     /contacts
+    defaults: { _controller: RibercanAboutUsBundle:StaticPages:contacts }
+ribercan_about_us_for_regina:
+    path:     /for-regina
+    defaults: { _controller: RibercanAboutUsBundle:StaticPages:forRegina }
+ribercan_about_us_ribercan_friends:
+    path:     /ribercan-friends
+    defaults: { _controller: RibercanAboutUsBundle:StaticPages:ribercanFriends }
