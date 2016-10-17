@@ -1,19 +1,4 @@
-{% extends "base.html.twig" %}
-
-{% set body_class = 'page--news' %}
-{% set desktop_submenu %}
-  <ol class="DesktopMenu" role="menu">
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/about-us/contacts">Contactos</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/about-us/for-regina">Por Regina</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/about-us/ribercan-friends">Amigos Ribercan</a>
-    </li>
-  </ol>
-{% endset %}
+{% extends "RibercanAboutUsBundle:StaticPages:base-about_us.html.twig" %}
 
 {% block title %}Amigos Ribercan | Ribercan{% endblock %}
 

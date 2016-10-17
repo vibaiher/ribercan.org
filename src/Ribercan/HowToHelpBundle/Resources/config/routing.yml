@@ -1,3 +1,35 @@
 ribercan_how_to_help_homepage:
-    path:     /how-to-help
-    defaults: { _controller: RibercanHowToHelpBundle:Default:index }
+    path:     /
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:howToHelp }
+
+ribercan_how_to_help_adopt:
+    path:     /adopt
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:adopt }
+
+ribercan_how_to_help_take_in:
+    path:     /take-in
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:takeIn }
+
+ribercan_how_to_help_be_our_partner:
+    path:     /be-our-partner
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:beOurPartner }
+
+ribercan_how_to_help_godfather:
+    path:     /godfather
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:godfather }
+
+ribercan_how_to_help_be_volunteer:
+    path:     /be-volunteer
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:beVolunteer }
+
+ribercan_how_to_help_donate-material:
+    path:     /donate-material
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:donateMaterial }
+
+ribercan_how_to_help_donate:
+    path:     /donate
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:donate }
+
+ribercan_how_to_help_teaming_group:
+    path:     /teaming-group
+    defaults: { _controller: RibercanHowToHelpBundle:StaticPages:teamingGroup }

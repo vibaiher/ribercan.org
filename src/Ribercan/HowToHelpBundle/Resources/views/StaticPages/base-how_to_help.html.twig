@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% set body_class = 'page--news' %}
+{% set desktop_submenu %}
+  <ol class="DesktopMenu" role="menu">
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/adopt">Adopta</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/take-in">Acoge</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/be-our-partner">Hazte socio</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/godfather">Apadrina</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/be-volunteer">Hazte voluntario</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/donate-material">Dona material</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/donate">Haz un donativo</a>
+    </li>
+    <li class="ListItem">
+      <a role="menuitem" class="MenuLink" href="/how-to-help/teaming-group">Grupo teaming</a>
+    </li>
+  </ol>
+{% endset %}
+
+{% block body %}
+  <section class="section--news">
+    <div class="l__wrapper">
+      <h1>
+        {% block title_body %}{% endblock %}
+      </h1>
+      <div class="news__body">
+        {% block content_body %}{% endblock %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
