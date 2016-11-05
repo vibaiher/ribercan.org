@@ -6,8 +6,8 @@
   <div class="main">
     <div class="animal-adopt">
       <h1 class="name">{{ dog.sex|raw }} {{ dog.name }}</h1>
-      <p>
-        <a href="https://vibaiher.typeform.com/to/HAK5Rf" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Adóptame</a> <a href="https://vibaiher.typeform.com/to/xQDq0d" class="btn btn-default typeform-share" role="button" data-mode="1" target="_blank">Apadríname</a>
+      <p class="cta">
+        <a href="https://vibaiher.typeform.com/to/HAK5Rf" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Adóptame</a> <a href="{{ path('ribercan_how_to_help_adopt') }}"><i class="icon icon-info">Más info.</i></a> <a href="https://vibaiher.typeform.com/to/xQDq0d" class="btn btn-default typeform-share" role="button" data-mode="1" target="_blank">Apadríname</a> <a href="{{ path('ribercan_how_to_help_godfather') }}"><i class="icon icon-info">Más info.</i></a>
       </p>
     </div><!-- .animal-adopt -->
     <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate }}</time></p>

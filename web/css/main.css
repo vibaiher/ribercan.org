@@ -916,7 +916,7 @@ textarea {
   text-align: center; }
 
 .section--news .news__body {
-  max-width: 760px;
+  /* max-width: 760px; */
   margin-bottom: 4rem; }
 
 .section--listNews {
@@ -980,3 +980,47 @@ dialog .close:hover {
 .ribercan-friends--item {
   flex: 1 30%;
   margin: 25px; }
+
+.typeform-share {
+  text-align: center;
+  width: 8em;
+  color: #fff;
+  border: 0; }
+
+.news__body .cta {
+  margin: 40px auto;
+  text-align: center; }
+
+.news__body .cta .typeform-share {
+  text-transform: uppercase;
+  width: 50%; }
+
+.animal-adopt .cta .btn {
+  margin-left: 1em; }
+
+.btn-primary {
+  background: #2dbe60; }
+
+.btn-primary:hover, .btn-primary:focus {
+  background: #28a956; }
+
+.btn-primary:active {
+  background: #23954b; }
+
+.btn-default {
+  background: #2996cc; }
+
+.btn-default:hover, .btn-default:focus {
+  background: #2586b7; }
+
+.btn-default:active {
+  background: #2077a2; }
+
+.icon {
+  text-indent: -999em;
+  width: 25px;
+  height: 25px;
+  display: inline-block; }
+
+.icon-info {
+  background: url('/css/icons/info.svg') no-repeat 50%; }
