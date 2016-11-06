@@ -11,7 +11,7 @@ doctrine:
     dbal:
         connections:
             default:
-                dbname: %database_name%_dev
+                dbname: "%database_name%_dev"
 
 web_profiler:
     toolbar: true

@@ -12,7 +12,7 @@ doctrine:
     dbal:
         connections:
             default:
-                dbname:   %database_name%_test
+                dbname:   "%database_name%_test"
 
 web_profiler:
     toolbar: false
