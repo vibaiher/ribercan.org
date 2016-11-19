@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Ribercan\Admin\DogBundle\Feature;
+namespace Tests\Ribercan\Admin\DogBundle\Feature;
 
 use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;

@@ -6,7 +6,7 @@ use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;
 
 use Ribercan\Admin\DogBundle\Entity\Dog;
-use Tests\Ribercan\Admin\DogBundle\Factory\DogCreator;
+use Tests\Ribercan\Helper\Factory\Dog as DogCreator;
 
 class DogControllerTest extends HandyTestCase
 {

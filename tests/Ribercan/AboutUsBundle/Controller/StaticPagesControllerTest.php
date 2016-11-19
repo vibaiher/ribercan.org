@@ -1,6 +1,6 @@
 <?php
 
-namespace Ribercan\AboutUsBundle\Tests\Controller;
+namespace Tests\Ribercan\AboutUsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

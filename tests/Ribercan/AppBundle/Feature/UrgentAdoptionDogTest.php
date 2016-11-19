@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Ribercan\AppBundle\Feature;
+namespace Tests\Ribercan\AppBundle\Feature;
 
 use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;

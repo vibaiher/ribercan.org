@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Ribercan\Admin\AppBundle\Feature;
+namespace Tests\Ribercan\Admin\AppBundle\Feature;
 
 use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 

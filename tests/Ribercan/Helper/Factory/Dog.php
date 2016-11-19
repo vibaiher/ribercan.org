@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Ribercan\Admin\DogBundle\Factory;
+namespace Tests\Ribercan\Helper\Factory;
 
-use Ribercan\Admin\DogBundle\Entity\Dog;
+use Ribercan\Admin\DogBundle\Entity\Dog as DogEntity;
 
-class DogCreator
+class Dog
 {
     private $entity_manager;
 
@@ -15,11 +15,11 @@ class DogCreator
 
     public function create(array $attributes = [])
     {
-        $dog = new Dog();
+        $dog = new DogEntity();
         $dog->setName(isset($attributes['name']) ? $attributes['name'] : 'Cory');
-        $dog->setSex(isset($attributes['sex']) ? $attributes['sex'] : Dog::MALE);
-        $dog->setSize(isset($attributes['size']) ? $attributes['size'] : Dog::BIG);
-        $dog->setSterilized(Dog::STERILIZED);
+        $dog->setSex(isset($attributes['sex']) ? $attributes['sex'] : DogEntity::MALE);
+        $dog->setSize(isset($attributes['size']) ? $attributes['size'] : DogEntity::BIG);
+        $dog->setSterilized(DogEntity::STERILIZED);
         $dog->setBirthday(isset($attributes['birthday']) ? $attributes['birthday'] : new \Datetime());
         $dog->setJoinDate(new \Datetime());
         $dog->setUrgent(isset($attributes['urgent']) ? $attributes['urgent'] : false);

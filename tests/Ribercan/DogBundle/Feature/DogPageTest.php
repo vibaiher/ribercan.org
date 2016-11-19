@@ -1,13 +1,12 @@
 <?php
 
-namespace tests\Ribercan\DogBundle\Feature;
-
-use Tests\Ribercan\Admin\DogBundle\Factory\DogCreator;
+namespace Tests\Ribercan\DogBundle\Feature;
 
 use BladeTester\HandyTestsBundle\Model\HandyTestCase;
 use BladeTester\HandyTestsBundle\Model\TableTruncator;
 
 use Ribercan\Admin\DogBundle\Entity\Dog;
+use Tests\Ribercan\Helper\Factory\Dog as DogCreator;
 
 class DogPageTest extends HandyTestCase
 {
