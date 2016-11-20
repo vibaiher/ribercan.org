@@ -19,11 +19,11 @@
             </tr>
             <tr>
                 <th>Birthday</th>
-                <td>{{ dog.birthday|date('Y-m-d H:i:s') }}</td>
+                <td>{{ dog.birthday|date('d/m/Y') }}</td>
             </tr>
             <tr>
                 <th>Joindate</th>
-                <td>{{ dog.joinDate|date('Y-m-d H:i:s') }}</td>
+                <td>{{ dog.joinDate|date('d/m/Y') }}</td>
             </tr>
             <tr>
                 <th>Sterilized</th>
@@ -55,7 +55,7 @@
         <div class="row">
           {% for image in dog.images %}
             <div class="col-lg-4 col-md-6">
-              <img src="/{{ image.webPath }}" class="img-thumbnail">
+              <img src="{{ image.webPath }}" class="img-thumbnail">
             </div>
           {% endfor %}
         </div>

@@ -41,7 +41,7 @@
                 {% for announcement in news %}
                   <li>
                     <article>
-                      <p class="date"><time>{{ announcement.publishedAt|date("d/m/Y") }}</time></p>
+                      <p class="date"><time>{{ announcement.publishedAt|date('d/m/Y') }}</time></p>
                       <a href="news.html">
                         {% if announcement.image %}
                           <img src="{{ announcement.image.webPath }}" alt="{{ announcement.image.name }}" width="120" height="120" />

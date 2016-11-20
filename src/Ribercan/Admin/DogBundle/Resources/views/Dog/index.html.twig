@@ -23,8 +23,8 @@
             <td><a href="{{ path('admin_dogs_show', { 'id': dog.id }) }}">{{ dog.id }}</a></td>
             <td>{{ dog.name }}</td>
             <td>{{ dog.sex }}</td>
-            <td>{% if dog.birthday %}{{ dog.birthday|date('Y-m-d') }}{% endif %}</td>
-            <td>{% if dog.joinDate %}{{ dog.joinDate|date('Y-m-d') }}{% endif %}</td>
+            <td>{% if dog.birthday %}{{ dog.birthday|date('d/m/Y') }}{% endif %}</td>
+            <td>{% if dog.joinDate %}{{ dog.joinDate|date('d/m/Y') }}{% endif %}</td>
             <td>{{ dog.sterilized }}</td>
             <td>{{ dog.godfather }}</td>
             <td>

@@ -61,7 +61,7 @@ class DogImage
 
     public function __construct(UploadedFile $uploadedFile)
     {
-        $path = sha1(uniqid(mt_rand(), true)).'.'.$uploadedFile->guessExtension();
+        $path = sha1(uniqid(mt_rand(), true)) . '.' . $uploadedFile->guessExtension();
 
         $this->setName($uploadedFile->getClientOriginalName());
         $this->setPath($path);
@@ -199,19 +199,19 @@ class DogImage
     {
         return null === $this->path
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir() . '/' . $this->path;
     }
 
     public function getWebPath()
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir().'/'.$this->path;
+            : '/' . $this->getUploadDir() . '/' . $this->path;
     }
 
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../../../web/'.$this->getUploadDir();
+        return __DIR__ . '/../../../../../web/' . $this->getUploadDir();
     }
 
     protected function getUploadDir()
@@ -224,7 +224,7 @@ class DogImage
      */
     public function removeFile()
     {
-        if ($file = $this->getUploadRootDir().'/'.$this->path) {
+        if ($file = $this->getUploadRootDir() . '/' . $this->path) {
             unlink($file);
         }
     }

@@ -54,14 +54,20 @@ class Announcement
      * @var string
      *
      * @ORM\Column(name="published_at", type="datetime")
-     * @Assert\NotBlank
      */
     private $publishedAt;
 
     /**
+     * @var AnnouncementImage
+     *
      * @ORM\OneToOne(targetEntity="AnnouncementImage", mappedBy="announcement", cascade={"persist", "remove"})
      */
     private $image;
+
+    /**
+     * @var UploadedFile
+     */
+    private $uploadedImage;
 
     /**
      * Get id

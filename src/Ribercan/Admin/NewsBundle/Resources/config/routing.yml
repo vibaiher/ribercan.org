@@ -1,0 +1,23 @@
+admin_news_index:
+    path:     /admin/news
+    defaults: { _controller: RibercanAdminNewsBundle:News:index }
+
+admin_announcement_new:
+    path:     /admin/news/new
+    defaults: { _controller: "RibercanAdminNewsBundle:News:new" }
+    methods:  [GET, POST]
+
+admin_announcement_show:
+    path:     /admin/news/{id}/show
+    defaults: { _controller: "RibercanAdminNewsBundle:News:show" }
+    methods:  GET
+
+admin_announcement_edit:
+    path:     /admin/news/{id}/edit
+    defaults: { _controller: "RibercanAdminNewsBundle:News:edit" }
+    methods:  [GET, POST]
+
+admin_announcement_delete:
+    path:     /admin/news/{id}/delete
+    defaults: { _controller: "RibercanAdminNewsBundle:News:delete" }
+    methods:  DELETE

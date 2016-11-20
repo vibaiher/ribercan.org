@@ -1,0 +1,43 @@
+{% extends '::admin-base.html.twig' %}
+
+{% block section_title %}Notícias{% endblock %}
+
+{% block body -%}
+  <div class="actions">
+    <ul class="list-inline">
+      <li>
+        <a href="{{ path('admin_announcement_new') }}" class="btn btn-primary">Añadir una notícia</a>
+      </li>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Published at</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for announcement in news %}
+          <tr>
+            <td><a href="{{ path('admin_announcement_show', { 'id': announcement.id }) }}">{{ announcement.id }}</a></td>
+            <td>{{ announcement.title }}</td>
+            <td>{{ announcement.publishedAt|date('d/m/Y') }}</td>
+            <td>
+              <ul class="list-inline">
+                <li>
+                  <a href="{{ path('announcement', { 'id': announcement.id }) }}">Ver</a>
+                </li>
+                <li>
+                  <a href="{{ path('admin_announcement_edit', { 'id': announcement.id }) }}">Editar</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

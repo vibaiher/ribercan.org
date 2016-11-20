@@ -32,8 +32,8 @@
         {% endif %}
         {% for image in dog.images %}
           <li class="ListItem">
-            <a href="/{{ image.webPath }}">
-              <img src="/{{ image.webPath }}">
+            <a href="{{ image.webPath }}">
+              <img src="{{ image.webPath }}">
             </a>
           </li>
         {% endfor %}
