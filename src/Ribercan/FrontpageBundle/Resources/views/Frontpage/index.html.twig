@@ -42,14 +42,14 @@
                   <li>
                     <article>
                       <p class="date"><time>{{ announcement.publishedAt|date('d/m/Y') }}</time></p>
-                      <a href="news.html">
+                      <a href="{{ path('announcement', { id: announcement.id }) }}">
                         {% if announcement.image %}
                           <img src="{{ announcement.image.webPath }}" alt="{{ announcement.image.name }}" width="120" height="120" />
                         {% else %}
                           <img src="/images/logo__big.jpg" alt="default image" width="120" height="120" />
                         {% endif %}
                       </a>
-                      <h3><a href="/news/{{ announcement.id }}">{{ announcement.title }}</a></h3>
+                      <h3><a href="{{ path('announcement', { id: announcement.id }) }}">{{ announcement.title }}</a></h3>
                       <p>{{ announcement.summary }}</p>
                     </article>
                   </li>
