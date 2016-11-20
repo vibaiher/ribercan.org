@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Ribercan\AppBundle\Feature;
+namespace Tests\Ribercan\FrontpageBundle\Feature;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

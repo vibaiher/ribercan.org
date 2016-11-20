@@ -1,5 +1,5 @@
-ribercan_app:
-    resource: "@RibercanAppBundle/Resources/config/routing.yml"
+ribercan_frontpage:
+    resource: "@RibercanFrontpageBundle/Resources/config/routing.yml"
     prefix:   /
 
 ribercan_dog:

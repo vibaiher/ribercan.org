@@ -1,6 +1,6 @@
 <?php
 
-namespace Ribercan\AppBundle\Controller;
+namespace Ribercan\FrontpageBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -38,7 +38,7 @@ class FrontpageController extends Controller
             findLatestNews(self::LATEST_NEWS_LIMIT);
 
         return $this->render(
-            'RibercanAppBundle:Frontpage:index.html.twig',
+            'RibercanFrontpageBundle:Frontpage:index.html.twig',
             array(
                 'filterForm' => $filterForm->createView(),
                 'urgent_adoptions' => $decorated_dogs,

@@ -1,3 +1,0 @@
-frontpage:
-    path:     /
-    defaults: { _controller: RibercanAppBundle:Frontpage:index }
