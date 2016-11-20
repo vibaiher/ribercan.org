@@ -20,8 +20,8 @@ ribercan_how_to_help:
 
 ribercan_admin_app:
     resource: "@RibercanAdminAppBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /
 
 ribercan_admin_dog:
     resource: "@RibercanAdminDogBundle/Resources/config/routing.yml"
-    prefix:   /admin
+    prefix:   /
