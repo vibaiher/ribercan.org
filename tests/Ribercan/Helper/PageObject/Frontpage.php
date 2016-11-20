@@ -2,17 +2,11 @@
 
 namespace Tests\Ribercan\Helper\PageObject;
 
-class Frontpage {
+use Tests\Ribercan\Helper\PageObject\PageObject;
+
+class Frontpage extends PageObject
+{
     const FRONTPAGE_TITLE = 'Ribercan';
-
-    private $client;
-    private $crawler;
-
-    public function __construct($client, $crawler = null)
-    {
-        $this->client = $client;
-        $this->crawler = $crawler;
-    }
 
     public function go_to_frontpage()
     {

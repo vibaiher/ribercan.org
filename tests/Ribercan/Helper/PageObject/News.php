@@ -3,18 +3,11 @@
 namespace Tests\Ribercan\Helper\PageObject;
 
 use Tests\Ribercan\Helper\PageObject\Announcement;
+use Tests\Ribercan\Helper\PageObject\PageObject;
 
-class News {
+class News extends PageObject
+{
     const NEWS_PAGE_TITLE = 'Archivo de noticias';
-
-    private $client;
-    private $crawler;
-
-    public function __construct($client, $crawler = null)
-    {
-        $this->client = $client;
-        $this->crawler = $crawler;
-    }
 
     public function go_to_news()
     {

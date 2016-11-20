@@ -2,17 +2,10 @@
 
 namespace Tests\Ribercan\Helper\PageObject;
 
-class Announcement
+use Tests\Ribercan\Helper\PageObject\PageObject;
+
+class Announcement extends PageObject
 {
-    private $client;
-    private $crawler;
-
-    public function __construct($client, $crawler = null)
-    {
-        $this->client = $client;
-        $this->crawler = $crawler;
-    }
-
     public function title()
     {
         return $this->crawler->
