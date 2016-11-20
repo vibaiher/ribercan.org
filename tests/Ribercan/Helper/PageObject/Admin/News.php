@@ -4,11 +4,13 @@ namespace Tests\Ribercan\Helper\PageObject\Admin;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+use Ribercan\NewsBundle\Entity\Announcement;
 use Tests\Ribercan\Helper\PageObject\PageObject;
 
 class News extends PageObject
 {
-    const NEWS_PAGE_TITLE = 'Añadir una notícia';
+    const ADD_ANNOUNCEMENT_PAGE_TITLE = 'Añadir una notícia';
+    const EDIT_ANNOUNCEMENT_PAGE_TITLE = 'Editar una notícia';
 
     private $form_data;
 
@@ -27,8 +29,36 @@ class News extends PageObject
         $this->crawler = $this->client->click($link);
 
 
-        if ($this->page_title() != self::NEWS_PAGE_TITLE) {
-            throw new \Exception("News page is not accesible");
+        if ($this->page_title() != self::ADD_ANNOUNCEMENT_PAGE_TITLE) {
+            throw new \Exception("Add announcement page is not accesible");
+        }
+    }
+
+    public function go_to_announcement_page(Announcement $announcement)
+    {
+        $this->crawler = $this->client->request('GET', '/admin');
+        $link = $this->crawler->filter('a:contains("Notícias")')->link();
+        $this->crawler = $this->client->click($link);
+        $link = $this->crawler->filter("a[href=\"/admin/news/{$announcement->getId()}/show\"]")->link();
+        $this->crawler = $this->client->click($link);
+
+
+        if ($this->announcement_title() != $announcement->getTitle()) {
+            throw new \Exception("Announcement <{$announcement->getId()}> page is not accesible");
+        }
+    }
+
+    public function go_to_edit_announcement_page(Announcement $announcement)
+    {
+        $this->crawler = $this->client->request('GET', '/admin');
+        $link = $this->crawler->filter('a:contains("Notícias")')->link();
+        $this->crawler = $this->client->click($link);
+        $link = $this->crawler->filter("a[href=\"/admin/news/{$announcement->getId()}/edit\"]")->link();
+        $this->crawler = $this->client->click($link);
+
+
+        if ($this->page_title() != self::EDIT_ANNOUNCEMENT_PAGE_TITLE) {
+            throw new \Exception("Edit announcement <{$announcement->getId()}> page is not accesible");
         }
     }
 
@@ -59,14 +89,31 @@ class News extends PageObject
         $this->form_data['announcement[uploadedImage]'] = $uploaded_image;
     }
 
-    public function submit_announcement()
+    public function click_on_publish()
+    {
+        $this->submit_button('Publish');
+    }
+
+    public function click_on_update()
+    {
+        $this->submit_button('Update');
+    }
+
+    public function click_on_delete()
     {
         $form = $this->crawler->
-            selectButton('Publish')->
-            form($this->form_data);
+            selectButton('Delete')->
+            form();
 
         $this->client->submit($form);
         $this->crawler = $this->client->followRedirect();
+    }
+
+    public function news_table()
+    {
+        return $this->crawler->
+            filter('table.table')->
+            html();
     }
 
     public function announcement_title()
@@ -109,5 +156,15 @@ class News extends PageObject
         return $this->crawler->
             filter('h1')->
             text();
+    }
+
+    private function submit_button($button)
+    {
+        $form = $this->crawler->
+            selectButton($button)->
+            form($this->form_data);
+
+        $this->client->submit($form);
+        $this->crawler = $this->client->followRedirect();
     }
 }

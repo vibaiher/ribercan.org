@@ -41,7 +41,8 @@ class CreateAnnouncementTest extends WebTestCase
         $this->page->fill_summary_with('Mi resumen');
         $this->page->fill_body_with('<p>Mi cuerpo de la notícia</p>');
         $this->page->upload_image('dog.jpg');
-        $this->page->submit_announcement();
+
+        $this->page->click_on_publish();
 
         $this->assertEquals(
             'Mi título',
@@ -70,16 +71,61 @@ class CreateAnnouncementTest extends WebTestCase
         );
     }
 
+    /**
+     * @test
+     */
     function userCanUpdateAnAnnouncement()
     {
         $announcement = $this->factory->create();
 
-        $this->page->go_to_news();
+        $this->page->go_to_edit_announcement_page($announcement);
+
+        $this->page->fill_title_with('Otro título');
+
+        $this->page->click_on_update();
 
         $this->assertEquals(
+            'Otro título',
+            $this->page->announcement_title(),
+            'User can update the announcement\'s title'
+        );
+        $this->assertEquals(
+            $announcement->getSummary(),
+            $this->page->announcement_summary(),
+            'Summary is not changed because user do not updated it'
+        );
+        $this->assertEquals(
+            $announcement->getBody(),
+            $this->page->announcement_body(),
+            'Summary is not changed because user do not updated it'
+        );
+        $this->assertEquals(
+            $announcement->getImage()->getName(),
+            $this->page->announcement_image(),
+            'Summary is not changed because user do not updated it'
+        );
+        $this->assertEquals(
+            $announcement->getPublishedAt()->format('d/m/Y'),
+            $this->page->announcement_published_at(),
+            'System does not updated the announcement\'s publishedAt date'
+        );
+    }
+
+    /**
+     * @test
+     */
+    function userCanDeleteAnAnnouncement()
+    {
+        $announcement = $this->factory->create();
+
+        $this->page->go_to_announcement_page($announcement);
+
+        $this->page->click_on_delete();
+
+        $this->assertNotContains(
             $announcement->getTitle(),
-            $this->page->first_announcement_title(),
-            'Latest announcements appear in news page'
+            $this->page->news_table(),
+            'Announcement has been removed'
         );
     }
 
