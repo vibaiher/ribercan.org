@@ -22,9 +22,6 @@
       <!-- "l__wrapper" -->
     </div>
     <div class="l__row">
-      <div class="l__wrapper"></div>
-    </div>
-    <div class="l__row">
       <div class="l__wrapper">
         <div class=main>
           <div class=featured>
@@ -41,30 +38,22 @@
             </header>
             <div class=main>
               <ul class=list--news>
-                <li>
-                  <article>
-                    <p class="date"><time>26/01/2014</time></p>
-                    <a href="news.html"><img src="https://scontent-b-mad.xx.fbcdn.net/hphotos-prn2/t31.0-8/q71/s720x720/1941502_10153862625475392_2105835074_o.jpg" alt="" width="120" height="120"></a>
-                    <h3><a href="news.html">1ª Comida Benéfica de San Valentín</a></h3>
-                    <p>Os informamos que este año vamos a celebrar nuestra "1ª Comida Benéfica de San Valentín" que tendrá lugar el próximo 16 DE FEBRERO a las 14:00h en la antigua discoteta Bambú de Carcaixent (Valencia), junto al campo de fútbol de "els quatre camins".</p>
-                  </article>
-                </li>
-                <li>
-                  <article>
-                    <p class="date"><time>26/01/2014</time></p>
-                    <a href="news.html"><img src="https://scontent-b-mad.xx.fbcdn.net/hphotos-prn2/t31.0-8/q71/s720x720/1941502_10153862625475392_2105835074_o.jpg" alt="" width="120" height="120"></a>
-                    <h3><a href="news.html">Muestra solidaria de Rock</a></h3>
-                    <p>El próximo 8 de Febrero en el Hot Rod Café de Sueca (Valencia) participaremos en la Mostra solidària de rock!</p>
-                  </article>
-                </li>
-                <li>
-                  <article>
-                    <p class="date"><time>26/01/2014</time></p>
-                    <a href="news.html"><img src="https://scontent-b-mad.xx.fbcdn.net/hphotos-prn2/t31.0-8/q71/s720x720/1941502_10153862625475392_2105835074_o.jpg" alt="" width="120" height="120"></a>
-                    <h3><a href="news.html">Camisetas personalizadas</a></h3>
-                    <p>Queremos compartir con vosotros la iniciativa de Paper Clouds Design, que diseña estas chulísimas camisetas personalizadas con el nombre de tu mascota y su foto.</p>
-                  </article>
-                </li>
+                {% for announcement in news %}
+                  <li>
+                    <article>
+                      <p class="date"><time>{{ announcement.publishedAt|date("d/m/Y") }}</time></p>
+                      <a href="news.html">
+                        {% if announcement.image %}
+                          <img src="{{ announcement.image.webPath }}" alt="{{ announcement.image.name }}" width="120" height="120" />
+                        {% else %}
+                          <img src="/images/logo__big.jpg" alt="default image" width="120" height="120" />
+                        {% endif %}
+                      </a>
+                      <h3><a href="/news/{{ announcement.id }}">{{ announcement.title }}</a></h3>
+                      <p>{{ announcement.summary }}</p>
+                    </article>
+                  </li>
+                {% endfor %}
               </ul>
             </div>
             <!-- .main -->

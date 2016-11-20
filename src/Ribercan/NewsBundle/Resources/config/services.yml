@@ -1,0 +1,4 @@
+services:
+#    ribercan_news.example:
+#        class: RibercanNewsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

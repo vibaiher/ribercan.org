@@ -20,6 +20,8 @@ composer.phar
 /web/bundles/
 !/web/images/dogs
 /web/images/dogs/*
+!/web/images/news
+/web/images/news/*
 !web/images/dogs/.gitkeep
 .vagrant/
 *.swp

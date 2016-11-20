@@ -20,7 +20,7 @@ class LoadDogData extends AbstractFixture implements OrderedFixtureInterface
             $dog = new Dog();
             $dog->setName("Dog $i");
             $dog->setSex($i % 2 ? Dog::FEMALE : Dog::MALE);
-            $dog->setSize($sizes[rand(0, 3)]);
+            $dog->setSize($sizes[rand(0, 2)]);
             $dog->setSterilized($i % 2 ? Dog::NOT_STERILIZED_YET : Dog::STERILIZED);
             $dog->setBirthday(new \Datetime());
             $dog->setJoinDate(new \Datetime());

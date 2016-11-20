@@ -6,6 +6,10 @@ ribercan_dog:
     resource: "@RibercanDogBundle/Resources/config/routing.yml"
     prefix:   /
 
+ribercan_news:
+    resource: "@RibercanNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ribercan_about_us:
     resource: "@RibercanAboutUsBundle/Resources/config/routing.yml"
     prefix:   /about-us

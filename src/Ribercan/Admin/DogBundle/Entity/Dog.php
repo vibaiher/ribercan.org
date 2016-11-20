@@ -375,6 +375,11 @@ class Dog
         return $this->images;
     }
 
+    /**
+     * Get main image
+     *
+     * @return DogImage
+     */
     public function getMainImage()
     {
         if (empty($this->images) || !isset($this->images[0])) {

@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% set body_class = 'page--news' %}
+
+{% block body %}
+  <section class="section--news">
+    <div class="l__wrapper">
+      <h1>{{ announcement.title }}</h1>
+
+      <div class="news__body">{{ announcement.body|raw }}</div>
+
+      <div class="news__sidebar">
+        {% if announcement.image %}
+          <img src="{{ announcement.image.webPath }}" alt="{{ announcement.image.name }}">
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

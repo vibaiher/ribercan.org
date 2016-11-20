@@ -1,0 +1,7 @@
+news:
+    path:     /news
+    defaults: { _controller: RibercanNewsBundle:News:index }
+
+announcement:
+    path:     /news/{id}
+    defaults: { _controller: RibercanNewsBundle:News:show }
