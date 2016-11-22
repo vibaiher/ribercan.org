@@ -1,0 +1,35 @@
+ribercan_advices_homepage:
+    path:     /advices
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:advices }
+
+ribercan_advices_put_me_a_chip:
+    path:     /advices/put-me-a-chip
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:chip }
+
+ribercan_advices_adoptant_guide:
+    path:     /advices/adoptant-guide
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:adoptantGuide }
+
+ribercan_advices_leishmania:
+    path:     /advices/leishmania
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:leishmania }
+
+ribercan_advices_dogs_and_kids:
+    path:     /advices/dogs-and-kids
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:dogsAndKids }
+
+ribercan_advices_dogs_and_cats:
+    path:     /advices/dogs-and-cats
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:dogsAndCats }
+
+ribercan_advices_what_to_do_if_you_find_a_dog:
+    path:     /advices/what-to-do-if-you-find-a-dog
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:foundDog }
+
+ribercan_advices_heatstroke:
+    path:     /advices/heatstroke
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:heatstroke }
+
+ribercan_advices_my_dog_has_been_lost:
+    path:     /advices/my-pet-has-been-lost
+    defaults: { _controller: RibercanAdvicesBundle:StaticPages:lostPet }

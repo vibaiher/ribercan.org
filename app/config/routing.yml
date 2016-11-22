@@ -1,3 +1,7 @@
+ribercan_advices:
+    resource: "@RibercanAdvicesBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ribercan_admin_news:
     resource: "@RibercanAdminNewsBundle/Resources/config/routing.yml"
     prefix:   /
