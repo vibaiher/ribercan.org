@@ -1267,6 +1267,12 @@ dialog .close:hover {
   border: 0;
 }
 
+.news__body img {
+  border: 1em solid #fff;
+  outline: 1px solid #bbb;
+  margin-bottom: 3rem;
+}
+
 .news__body .cta {
   margin: 40px auto;
   text-align: center;
