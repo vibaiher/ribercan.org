@@ -65,7 +65,9 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: Georgia,serif; }
+  font-family: Georgia,serif;
+  font-size: 1.6rem;
+}
 
 .h1, h1 {
   position: relative;
