@@ -626,7 +626,7 @@ input[type=submit]:disabled {
   border: none;
   color: #444;
   outline: 0;
-  padding: .4em 19% .4em .8em;
+  padding: .4em 25% .4em .8em;
   font-family: helvetica,sans-serif;
   line-height: 1.2;
   margin: .2em;
