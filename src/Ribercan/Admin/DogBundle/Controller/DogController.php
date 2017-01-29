@@ -105,7 +105,13 @@ class DogController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_dogs_delete', array('id' => $dog->getId())))
             ->setMethod('DELETE')
-            ->add('submit', SubmitType::class, array('label' => 'Delete'))
+            ->add('submit', SubmitType::class, array(
+                    'label' => 'Delete',
+                    'attr' => array(
+                        'class' => 'btn btn-danger'
+                    )
+                )
+            )
             ->getForm()
         ;
     }

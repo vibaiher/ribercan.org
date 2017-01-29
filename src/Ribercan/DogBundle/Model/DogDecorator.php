@@ -62,6 +62,11 @@ class DogDecorator
         return $this->dog->getSterilized() ? 'Esterilizado' : 'Se entrega con compromiso de castración';
     }
 
+    public function getHealth()
+    {
+        return $this->dog->getHealth();
+    }
+
     public function getGodfather()
     {
         return $this->dog->getGodfather();

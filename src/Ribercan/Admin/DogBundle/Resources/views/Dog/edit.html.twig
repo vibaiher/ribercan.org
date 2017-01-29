@@ -55,6 +55,13 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
+            {{ form_label(edit_form.health) }}
+            <div class="hide">{{ form_widget(edit_form.health) }}</div>
+            <trix-editor input="dog_health"></trix-editor>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
             {{ form_label(edit_form.description) }}
             <div class="hide">{{ form_widget(edit_form.description) }}</div>
             <trix-editor input="dog_description"></trix-editor>
@@ -91,7 +98,7 @@
       <a href="{{ path('admin_dogs_index') }}" class="btn btn-warning">Cancelar</a>
     </div>
   {{ form_end(edit_form) }}
-  <div class="pull-right">
+  <div class="pull-right" style="margin-right: 4px;">
     {{ form(delete_form) }}
   </div>
 {% endblock %}

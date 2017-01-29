@@ -77,6 +77,13 @@ class Dog
     /**
      * @var string
      *
+     * @ORM\Column(name="health", type="text", nullable=true)
+     */
+    private $health;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="godfather", type="string", length=255, nullable=true)
      */
     private $godfather;
@@ -248,6 +255,29 @@ class Dog
     public function getSterilized()
     {
         return $this->sterilized;
+    }
+
+    /**
+     * Set health
+     *
+     * @param string $health
+     * @return Dog
+     */
+    public function setHealth($health)
+    {
+        $this->health = $health;
+
+        return $this;
+    }
+
+    /**
+     * Get health
+     *
+     * @return string
+     */
+    public function getHealth()
+    {
+        return $this->health;
     }
 
     /**

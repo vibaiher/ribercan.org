@@ -19,6 +19,11 @@
         <li class="ListItem">Apadrinado por {{ dog.godfather }}</li>
       {% endif %}
     </ul>
+    {% if dog.health %}
+      <div class="health">
+        {{ dog.health | raw }}
+      </div>
+    {% endif %}
     <div class="description">
       {{ dog.description | raw }}
     </div>

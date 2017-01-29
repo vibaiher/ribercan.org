@@ -64,6 +64,11 @@ class DogPageTest extends HandyTestCase
         );
         $this->assertCount(
             1,
+            $crawler->filter('html:contains("The dog is healthy")'),
+            'Appears the dog health'
+        );
+        $this->assertCount(
+            1,
             $crawler->filter('html:contains("The dog description")'),
             'Appears the dog description'
         );
@@ -124,6 +129,7 @@ class DogPageTest extends HandyTestCase
                 'day' => 16
             ),
             'dog[sterilized]'  => Dog::STERILIZED,
+            'dog[health]'  => 'The dog is healthy',
             'dog[godfather]'  => 'Vicente',
             'dog[description]'  => 'The dog description',
             'dog[size]'  => Dog::BIG

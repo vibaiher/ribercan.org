@@ -39,6 +39,7 @@ class DogControllerTest extends HandyTestCase
                 'day' => 16
             ),
             'dog[sterilized]'  => Dog::STERILIZED,
+            'dog[health]'  => 'This dog is healthy',
             'dog[godfather]'  => '',
             'dog[description]'  => 'Custom description',
             'dog[size]'  => Dog::SMALL,

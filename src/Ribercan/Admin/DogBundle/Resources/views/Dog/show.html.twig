@@ -40,6 +40,13 @@
         </tbody>
     </table>
 
+    {% if dog.health %}
+      <div class="health" style="margin-bottom: 10px;">
+        <h3>Health</h3>
+        {{ dog.health | raw }}
+      </div>
+    {% endif %}
+
     {% if dog.description %}
       <div class="description" style="margin-bottom: 10px;">
         <h3>Description</h3>
