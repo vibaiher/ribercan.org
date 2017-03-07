@@ -1323,3 +1323,39 @@ dialog .close:hover {
 .icon-info {
   background: url('/css/icons/info.svg') no-repeat 50%;
 }
+
+.content--with-nav {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.content--with-nav h1 {
+  flex: none;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  font-family: Lato;
+  width: 20%;
+}
+
+.sidebar-menu .ListItem:not(:first-child) {
+  border-top: 1px solid #ddd;
+}
+
+.sidebar-menu .MenuLink {
+  display: block;
+  padding: 1em;
+}
+
+.content--with-nav__content {
+  flex: 1;
+  max-width: 65em;
+  margin-left: 5em;
+}
+
+.DesktopNavigation {
+  margin-bottom: 3em;
+}
+

@@ -1,43 +1,43 @@
 {% extends "base.html.twig" %}
 
 {% set body_class = 'page--news' %}
-{% set desktop_submenu %}
-  <ol class="DesktopMenu" role="menu">
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/put-me-a-chip">Ponme el chip</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/adoptant-guide">Guia del adoptante</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/leishmania">Leishmania</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/dogs-and-kids">Perros y niños</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/dogs-and-cats">Perros y gatos</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/what-to-do-if-you-find-a-dog">Que hacer si te encuentras un perro</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/heatstroke">El golpe de calor</a>
-    </li>
-    <li class="ListItem">
-      <a role="menuitem" class="MenuLink" href="/advices/my-pet-has-been-lost">Mi mascota se ha perdido</a>
-    </li>
-  </ol>
-{% endset %}
 
 {% block body %}
   <section class="section--news">
     <div class="l__wrapper">
-      <h1>
-        {% block title_body %}{% endblock %}
-      </h1>
-      <div class="news__body">
-        {% block content_body %}{% endblock %}
+      <div class="content--with-nav">
+        <ol class="sidebar-menu" role="menu">
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/put-me-a-chip">Ponme el chip</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/adoptant-guide">Guia del adoptante</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/leishmania">Leishmania</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/dogs-and-kids">Perros y niños</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/dogs-and-cats">Perros y gatos</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/what-to-do-if-you-find-a-dog">Que hacer si te encuentras un perro</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/heatstroke">El golpe de calor</a>
+          </li>
+          <li class="ListItem">
+            <a role="menuitem" class="MenuLink" href="/advices/my-pet-has-been-lost">Mi mascota se ha perdido</a>
+          </li>
+        </ol>
+        <div class="content--with-nav__content">
+          <h1>{% block title_body %}{% endblock %}</h1>
+          <div class="news__body">
+            {% block content_body %}{% endblock %}
+          </div>
+        </div>
       </div>
     </div>
   </section>
