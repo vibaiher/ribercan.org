@@ -1355,7 +1355,6 @@ dialog .close:hover {
   margin-left: 5em;
 }
 
-.DesktopNavigation {
+.page--news .DesktopNavigation {
   margin-bottom: 3em;
 }
-
