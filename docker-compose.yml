@@ -1,0 +1,21 @@
+version: '2'
+services:
+  database:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  ribercan:
+    build: .
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "80:80"
+    links:
+      - database
+
+volumes:
+  db_data:
