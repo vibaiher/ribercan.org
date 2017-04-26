@@ -1,0 +1,23 @@
+admin_events_index:
+    path:     /admin/events
+    defaults: { _controller: RibercanAdminEventBundle:Event:index }
+
+admin_event_new:
+    path:     /admin/events/new
+    defaults: { _controller: "RibercanAdminEventBundle:Event:new" }
+    methods:  [GET, POST]
+
+admin_event_show:
+    path:     /admin/events/{id}/show
+    defaults: { _controller: "RibercanAdminEventBundle:Event:show" }
+    methods:  GET
+
+admin_event_edit:
+    path:     /admin/events/{id}/edit
+    defaults: { _controller: "RibercanAdminEventBundle:Event:edit" }
+    methods:  [GET, POST]
+
+admin_event_delete:
+    path:     /admin/events/{id}/delete
+    defaults: { _controller: "RibercanAdminEventBundle:Event:delete" }
+    methods:  DELETE

@@ -1,0 +1,15 @@
+events:
+  path:     /
+  defaults: { _controller: RibercanEventBundle:Event:index }
+
+fetch_events:
+  path:     /fetch
+  defaults: { _controller: RibercanEventBundle:Event:fetch }
+
+event:
+  path:     /{id}
+  defaults: { _controller: RibercanEventBundle:Event:show }
+
+expose_event:
+  path:     /expose/{id}
+  defaults: { _controller: RibercanEventBundle:Event:expose }

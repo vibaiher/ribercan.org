@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% set body_class = 'page--events' %}
+
+{% block body %}
+  <section class="section--listEvents">
+    <div class="l__wrapper">
+      <h1>{{ event.title }}</h1>
+
+      <div class="news__body">{{ event.body|raw }}</div>
+
+      <div class="news__sidebar">
+        {% if event.image %}
+          <img src="{{ event.image.webPath }}" alt="{{ event.image.name }}">
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

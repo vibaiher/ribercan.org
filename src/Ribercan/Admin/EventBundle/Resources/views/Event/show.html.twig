@@ -1,0 +1,60 @@
+{% extends '::admin-base.html.twig' %}
+
+{% block body -%}
+    <h1>Event</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td id="event_id">{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td id="event_title">{{ event.title }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td id="event_summary">{{ event.summary }}</td>
+            </tr>
+            <tr>
+                <th>Published at</th>
+                <td id="event_published_at">{{ event.publishedAt|date('d/m/Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if event.body %}
+      <div class="body" style="margin-bottom: 10px;">
+        <h3>Body</h3>
+        <div id="event_body">{{ event.body|raw }}</div>
+      </div>
+    {% endif %}
+
+    {% if event.image %}
+      <section id="images">
+        <header>
+          <h2>Imágenes (1)</h2>
+        </header>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <img id="event_image" alt="{{ event.image.name }}" src="{{ event.image.webPath }}" class="img-thumbnail">
+          </div>
+        </div>
+      </section>
+    {% endif %}
+
+    <ul class="record_actions">
+      <li>
+          <a href="{{ path('admin_events_index') }}">
+              Back to the list
+          </a>
+      </li>
+      <li>
+          <a href="{{ path('admin_event_edit', { 'id': event.id }) }}">
+              Edit
+          </a>
+      </li>
+      <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}

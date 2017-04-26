@@ -20,9 +20,12 @@ composer.phar
 /web/bundles/
 !/web/images/dogs
 /web/images/dogs/*
+!/web/images/dogs/.gitkeep
 !/web/images/news
 /web/images/news/*
-!web/images/dogs/.gitkeep
+!/web/images/events
+/web/images/events/*
+!/web/images/events/.gitkeep
 .vagrant/
 *.swp
 .DS_Store

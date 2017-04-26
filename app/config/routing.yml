@@ -2,10 +2,6 @@ ribercan_advices:
     resource: "@RibercanAdvicesBundle/Resources/config/routing.yml"
     prefix:   /
 
-ribercan_admin_news:
-    resource: "@RibercanAdminNewsBundle/Resources/config/routing.yml"
-    prefix:   /
-
 ribercan_frontpage:
     resource: "@RibercanFrontpageBundle/Resources/config/routing.yml"
     prefix:   /
@@ -16,6 +12,18 @@ ribercan_dog:
 
 ribercan_news:
     resource: "@RibercanNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ribercan_admin_news:
+    resource: "@RibercanAdminNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ribercan_event:
+    resource: "@RibercanEventBundle/Resources/config/routing.yml"
+    prefix:   /events
+
+ribercan_admin_event:
+    resource: "@RibercanAdminEventBundle/Resources/config/routing.yml"
     prefix:   /
 
 ribercan_about_us:
