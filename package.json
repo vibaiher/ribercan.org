@@ -1,0 +1,29 @@
+{
+  "name": "Ribercan",
+  "version": "1.0.0",
+  "description": "Website to manage Ribercan adoptions",
+  "main": "index.js",
+  "repository": "git@github.com:vibaiher/ribercan.org.git",
+  "author": "Vicente Baixauli <vibaiher@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  }
+}

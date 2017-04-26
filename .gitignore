@@ -26,3 +26,4 @@ composer.phar
 .vagrant/
 *.swp
 .DS_Store
+node_modules/*
