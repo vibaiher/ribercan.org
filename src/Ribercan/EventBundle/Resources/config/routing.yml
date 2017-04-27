@@ -1,0 +1,7 @@
+events:
+  path:     /
+  defaults: { _controller: RibercanEventBundle:Event:index }
+
+fetch_events:
+  path:     /fetch
+  defaults: { _controller: RibercanEventBundle:Event:fetch }

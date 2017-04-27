@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Ribercan\FrontpageBundle\RibercanFrontpageBundle(),
             new Ribercan\NewsBundle\RibercanNewsBundle(),
+            new Ribercan\EventBundle\RibercanEventBundle(),
             new Ribercan\DogBundle\RibercanDogBundle(),
             new Ribercan\AboutUsBundle\RibercanAboutUsBundle(),
             new Ribercan\HowToHelpBundle\RibercanHowToHelpBundle(),

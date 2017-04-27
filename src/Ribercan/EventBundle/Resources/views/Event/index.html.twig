@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% set body_class = 'page--events' %}
+
+{% block body %}
+  <section class="section--listEvents">
+    <div class="l__wrapper">
+      <h1>Eventos</h1>
+
+      <div id="EventList"></div>
+
+      <div class="pager-wrapper">
+        <p>Viendo del 1 al 3 de 9</p>
+        <ul class="pager">
+          <li class="ListItem">
+            <a href="#">1</a>
+          </li>
+          <li class="ListItem">
+            <a href="#">2</a>
+          </li>
+          <li class="ListItem">
+            <a href="#">3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endblock %}

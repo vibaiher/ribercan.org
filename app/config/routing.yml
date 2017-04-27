@@ -18,6 +18,10 @@ ribercan_news:
     resource: "@RibercanNewsBundle/Resources/config/routing.yml"
     prefix:   /
 
+ribercan_event:
+    resource: "@RibercanEventBundle/Resources/config/routing.yml"
+    prefix:   /events
+
 ribercan_about_us:
     resource: "@RibercanAboutUsBundle/Resources/config/routing.yml"
     prefix:   /about-us
