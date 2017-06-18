@@ -3,11 +3,12 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-# server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'db.example.com', user: 'deploy', roles: %w{db}
+server 'cl01.redneutra.com', user: 'ribercan', port: 8322, roles: %w{app db web}
+set :deploy_to, '/home/ribercan/ribercan'
+set :tmp_dir, "/home/ribercan/tmp/capistrano"
 
-
+# Composer
+SSHKit.config.command_map[:composer] = "php -d \"disable_functions=\" #{shared_path.join("composer.phar")}"
 
 # role-based syntax
 # ==================

@@ -4,6 +4,11 @@
 # You can define all roles on a single server, or split them:
 
 server 'ribercan.vibaiher.com', user: 'vibaiher', port: 8322, roles: %w{app db web}
+set :deploy_to, '/home/vibaiher/ribercan.vibaiher.com'
+set :tmp_dir, "/home/vibaiher/tmp/capistrano"
+
+# Composer
+SSHKit.config.command_map[:composer] = "php -d \"disable_functions=\" #{shared_path.join("composer.phar")}"
 
 # role-based syntax
 # ==================
