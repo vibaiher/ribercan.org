@@ -16,6 +16,10 @@ class RegisterNewDogTest extends HandyTestCase
 
     function setUp(array $auth = [])
     {
+        $auth = array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'secret',
+        );
         parent::setUp($auth);
         $this->truncateTables(['dogs', 'dog_images']);
     }

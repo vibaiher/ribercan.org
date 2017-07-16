@@ -18,7 +18,10 @@ class CreateAnnouncementTest extends WebTestCase
      */
     function init()
     {
-        $client = static::createClient();
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'admin',
+            'PHP_AUTH_PW'   => 'secret',
+        ));
         $entity_manager = $client->
             getContainer()->
             get('doctrine.orm.default_entity_manager');
