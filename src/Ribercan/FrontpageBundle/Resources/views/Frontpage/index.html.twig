@@ -10,16 +10,8 @@
 
 {% block body %}
   <section class=section--index>
-    <div class=jumbotron itemscope itemtype=http://schema.org/Organization>
-      <div class="l__wrapper">
-        <h1 itemprop=name>Ribercan</h1>
-        <p class=lead>Sociedad Protectora de Animales de La Ribera<br><span itemprop=address itemscope itemtype=http://schema.org/PostalAddress><span itemprop=addressLocality>Carcaixent, España</span> · <a href="mailto:adopciones@ribercan.org" class=email itemprop=email>adopciones@ribercan.org</a></span></p>
-        <p><span class=msg--alert>No recogemos perros.</span></p>
-        <p><span class=tlf itemprop=telephone>654 561 572</span> <span class=tlf itemprop=telephone>645 754 224</span></p>
-        <p><span class=bank-account itemprop=bank-account>ES750182-0552-29-0201540080</span></p>
-        {% include '_social.html.twig' %}
-      </div>
-      <!-- "l__wrapper" -->
+    <div class="l__row">
+      <img class=cover src="{{ asset('images/cover.jpg') }}" />
     </div>
     <div class="l__row">
       <div class="l__wrapper">

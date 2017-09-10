@@ -6,13 +6,11 @@ use Tests\Ribercan\Helper\PageObject\PageObject;
 
 class Frontpage extends PageObject
 {
-    const FRONTPAGE_TITLE = 'Ribercan';
-
     public function go_to_frontpage()
     {
         $this->crawler = $this->client->request('GET', '/');
 
-        if ($this->frontpage_header_title() != self::FRONTPAGE_TITLE) {
+        if ($this->frontpage_cover()->count() != 1) {
             throw new \Exception("Frontpage is not accesible");
         }
     }
@@ -23,10 +21,8 @@ class Frontpage extends PageObject
             filter('.list--news > li > article');
     }
 
-    private function frontpage_header_title()
+    private function frontpage_cover()
     {
-        return $this->crawler->
-            filter('.jumbotron > div > h1')->
-            text();
+        return $this->crawler->filter('img.cover');
     }
 }
