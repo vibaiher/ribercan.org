@@ -1358,3 +1358,7 @@ dialog .close:hover {
 .page--news .DesktopNavigation {
   margin-bottom: 3em;
 }
+
+#google_translate_element img {
+  display: inline;
+}
