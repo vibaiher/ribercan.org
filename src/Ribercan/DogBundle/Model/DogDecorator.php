@@ -57,6 +57,11 @@ class DogDecorator
         return $this->dog->getJoinDate()->format("d/m/Y");
     }
 
+    public function getIsSterilized()
+    {
+        return $this->dog->getSterilized();
+    }
+
     public function getSterilized()
     {
         return $this->dog->getSterilized() ? 'Esterilizado' : 'Se entrega con compromiso de castración';
