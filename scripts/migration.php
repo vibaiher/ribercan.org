@@ -66,6 +66,31 @@
 * const NOT_STERILIZED_YET = "0";
 * const STERILIZED = "1";
 *
+* SHOW COLUMNS FROM odec_noticias;
+*
+* +----------------------+--------------+------+-----+---------+----------------+
+* | Field                | Type         | Null | Key | Default | Extra          |
+* +----------------------+--------------+------+-----+---------+----------------+
+* | noticia_id           | int(11)      | NO   | PRI | NULL    | auto_increment |
+* | noticia_titulo       | varchar(200) | NO   |     |         |                |
+* | noticia_breve        | text         | YES  |     | NULL    |                |
+* | noticia_contenido    | text         | YES  |     | NULL    |                |
+* | noticia_fecha_inicio | date         | YES  |     | NULL    |                |
+* | noticia_fecha_fin    | date         | YES  |     | NULL    |                |
+* | noticia_idioma_lang  | char(3)      | YES  |     | NULL    |                |
+* +----------------------+--------------+------+-----+---------+----------------+
+*
+* SHOW COLUMNS FROM news;
+*
+* +--------------+--------------+------+-----+---------+----------------+
+* | Field        | Type         | Null | Key | Default | Extra          |
+* +--------------+--------------+------+-----+---------+----------------+
+* | id           | int(11)      | NO   | PRI | NULL    | auto_increment |
+* | title        | varchar(255) | NO   |     | NULL    |                |
+* | body         | longtext     | NO   |     | NULL    |                |
+* | summary      | longtext     | NO   |     | NULL    |                |
+* | published_at | datetime     | NO   |     | NULL    |                |
+* +--------------+--------------+------+-----+---------+----------------+
 */
 $username = 'root';
 $password = null;
@@ -76,6 +101,9 @@ $host = 'localhost';
 $old_connection = new PDO("mysql:dbname=$old_database;host=$host", $username, $password);
 $connection = new PDO("mysql:dbname=$database;host=$host", $username, $password);
 
+/**
+ * More dogs please!
+ */
 $dogs = $old_connection->query(
     'SELECT * FROM pro_perros'
 );
@@ -83,22 +111,50 @@ $insert_dog = $connection->prepare(
     'INSERT INTO dogs (name, sex, birthday, join_date, sterilized, godfather, description, size, urgent) VALUES(:name, :sex, :birthday, :join_date, :sterilized, :godfather, :description, :size, :urgent)'
 );
 
+$connection->exec('DELETE FROM dog_images');
 $connection->exec('DELETE FROM dogs');
 
 foreach ($dogs as $dog) {
     $insert_dog->execute(
         array(
-            ':name' => format_name_from($dog['perro_nombre']),
+            ':name' => utf8_decode(format_name_from($dog['perro_nombre'])),
             ':sex' => format_sex_from($dog['perro_sexo']),
             ':birthday' => format_datetime_from($dog['perro_edad']),
             ':join_date' => format_datetime_from($dog['perro_entrada']),
-            ':sterilized' => format_sterilized_from($dog['perro_esterilizacion']),
-            ':godfather' => $dog['perro_apadrinado'],
-            ':description' => $dog['perro_caracter'],
+            ':sterilized' => utf8_decode(format_sterilized_from($dog['perro_esterilizacion'])),
+            ':godfather' => utf8_decode($dog['perro_apadrinado']),
+            ':description' => utf8_decode($dog['perro_caracter']),
             ':size' => format_size_from($dog['perro_tamano']),
             ':urgent' => format_urgent_from($dog['perro_estado'])
         )
     );
+    echo "Inserted dog: {$dog['perro_nombre']}\n";
+}
+
+/**
+ * Now news, come on!
+ */
+
+$news = $old_connection->query(
+    'SELECT * FROM odec_noticias'
+);
+$insert_announcement = $connection->prepare(
+    'INSERT INTO news (title, summary, body, published_at) VALUES(:title, :summary, :body, :published_at)'
+);
+
+$connection->exec('DELETE FROM announcement_images');
+$connection->exec('DELETE FROM news');
+
+foreach ($news as $announcement) {
+    $result = $insert_announcement->execute(
+        array(
+            ':title' => utf8_decode($announcement['noticia_titulo']),
+            ':summary' => utf8_decode($announcement['noticia_breve']),
+            ':body' => utf8_decode($announcement['noticia_contenido']),
+            ':published_at' => "{$announcement['noticia_fecha_inicio']} 00:00:00"
+        )
+    );
+    echo "Inserted announcement: {$announcement['noticia_titulo']}\n";
 }
 
 function format_name_from($string) {
@@ -134,9 +190,9 @@ function format_size_from($letter) {
       return 1; // MEDIUM
 
     case 'G':
+    case 'X':
       return 2; // BIG
   }
-  print $letter;
   return null;
 }
 

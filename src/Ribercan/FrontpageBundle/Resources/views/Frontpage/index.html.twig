@@ -42,7 +42,7 @@
                         {% endif %}
                       </a>
                       <h3><a href="{{ path('announcement', { id: announcement.id }) }}">{{ announcement.title }}</a></h3>
-                      <p>{{ announcement.summary }}</p>
+                      <p>{{ announcement.summary|raw }}</p>
                     </article>
                   </li>
                 {% endfor %}
