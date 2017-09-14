@@ -110,6 +110,9 @@ $dogs = $old_connection->query(
 $insert_dog = $connection->prepare(
     'INSERT INTO dogs (name, sex, birthday, join_date, sterilized, godfather, description, size, urgent) VALUES(:name, :sex, :birthday, :join_date, :sterilized, :godfather, :description, :size, :urgent)'
 );
+$insert_dog_image = $connection->prepare(
+    'INSERT INTO dog_images (name, path, first_image, dog_id) VALUES(:name, :path, :first_image, :dog_id)'
+);
 
 $connection->exec('DELETE FROM dog_images');
 $connection->exec('DELETE FROM dogs');
@@ -128,7 +131,28 @@ foreach ($dogs as $dog) {
             ':urgent' => format_urgent_from($dog['perro_estado'])
         )
     );
+    $dog_id = $connection->lastInsertId();
+    
     echo "Inserted dog: {$dog['perro_nombre']}\n";
+    $dir = opendir("scripts/images/" . $dog['perro_id']);
+    while (false !== ($image = readdir($dir))){
+      if (in_array($image, array('.', '..', 'Thumbs.db'))) continue;
+
+      echo "mkdir: web/images/dogs/{$dog['perro_id']}\n";
+      mkdir("web/images/dogs/{$dog['perro_id']}");
+
+      echo "copy: scripts/images/{$dog['perro_id']}/{$image} -> web/images/dogs/{$dog['perro_id']}/{$image}\n";
+      copy("scripts/images/{$dog['perro_id']}/{$image}", "web/images/dogs/{$dog['perro_id']}/{$image}");
+
+      $insert_dog_image->execute(
+          array(
+            ':name' => $image,
+            ':path' => $dog['perro_id'] . '/' . $image,
+            ':first_image' => $image == 'principal.jpg',
+            ':dog_id' => $dog_id
+          )
+      );
+    }
 }
 
 /**
@@ -201,3 +225,26 @@ function format_urgent_from($number) {
 
   return 1; // URGENT
 }
+
+/**
+* if (is_dir("animales/".$perro['perro_id']) && !file_exists("animales/".$perro['perro_id'].'/principal.jpg')){
+*   $gestor = opendir("animales/".$perro['perro_id']);
+*   $archivo = ".";
+*   while (($archivo==".")||($archivo=="..")){
+*     $archivo = readdir($gestor);
+*   }
+*   $info = pathinfo($archivo);
+*   $file = $info['basename'];
+* }
+* else if (file_exists("animales/".$perro['perro_id'].'/principal.jpg')){
+*   $file = 'principal.jpg';
+* }
+*
+* $gestor2 = opendir("animales/".$perro['perro_id']);
+* while (false !== ($archivo = readdir($gestor2))){
+*   if (in_array($archivo,array('.','..','Thumbs.db',$file))) continue;
+*   echo '<li class="ficha_foto">';
+*   echo '<a class="fancy" rel="galeria" href="/animales/'.$perro['perro_id'].'/'.$archivo.'"><img class="ficha_foto" src="/timthumb.php?src=animales/'.$perro['perro_id'].'/'.$archivo.'&w=150" alt="'.$perro['perro_nombre'].'" /></a>';
+*   echo '</li>';
+* }
+*/
