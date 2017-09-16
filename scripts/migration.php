@@ -132,17 +132,27 @@ foreach ($dogs as $dog) {
         )
     );
     $dog_id = $connection->lastInsertId();
-    
     echo "Inserted dog: {$dog['perro_nombre']}\n";
-    $dir = opendir("scripts/images/" . $dog['perro_id']);
+
+    $script_images_dir = "scripts/images/" . $dog['perro_id'];
+    $dir = opendir($script_images_dir);
+    if ($dir == false) {
+      echo "WARNING!: {$script_images_dir} does not exists!\n";
+      exit;
+    }
+
     while (false !== ($image = readdir($dir))){
       if (in_array($image, array('.', '..', 'Thumbs.db'))) continue;
 
-      echo "mkdir: web/images/dogs/{$dog['perro_id']}\n";
-      mkdir("web/images/dogs/{$dog['perro_id']}");
+      $dog_images_dir = "web/images/dogs/{$dog['perro_id']}";
 
-      echo "copy: scripts/images/{$dog['perro_id']}/{$image} -> web/images/dogs/{$dog['perro_id']}/{$image}\n";
-      copy("scripts/images/{$dog['perro_id']}/{$image}", "web/images/dogs/{$dog['perro_id']}/{$image}");
+      if (false == is_dir($dog_images_dir)) {
+          echo "mkdir: {$dog_images_dir}\n";
+          mkdir($dog_images_dir);
+      }
+
+      echo "copy: {$script_images_dir}/{$image} -> {$dog_images_dir}/{$image}\n";
+      copy("{$script_images_dir}/{$image}", "{$dog_images_dir}/{$image}");
 
       $insert_dog_image->execute(
           array(
