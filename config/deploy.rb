@@ -11,7 +11,7 @@ set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('web/images/dogs', 'web/images/news')
 
 # Default value for keep_releases is 5
-set :keep_releases, 2
+set :keep_releases, 1
 
 namespace :deploy do
   after :starting, 'composer:install_executable'
