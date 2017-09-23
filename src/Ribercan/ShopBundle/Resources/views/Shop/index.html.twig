@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% set body_class = 'page--list' %}
+
+{% block body %}
+  <section class="section--list">
+    <div class="l__wrapper">
+      <h1>Tienda benéfica</h1>
+
+      <p>
+        Escribe a <a href="mailto:tienda@ribercan.org">tienda@ribercan.org</a> para hacer tu pedido,
+        indicando tus datos personales, domicilio y el pedido
+        de lo que quieras comprar.
+        El abono se realiza mediante transferencia bancaria.
+        Donativo, características y modo de envío al pie de cada foto.
+        Gracias a todos por colaborar con nosotros, todos los beneficios son
+        para nuestros perros, con la ilusión de poder mejorar su calidad de vida
+        día a día.
+        GRACIAS :)
+      </p>
+
+      <ul class="List--products">
+        {% for product in products %}
+          <li class="ListItem">
+            <article class="product">
+              <a href="{{ path('shop_index', { id: product.id }) }}">
+                {% if product.mainImage %}
+                  <figure class="pic">
+                    <img src="{{ product.mainImage.webPath }}">
+                  </figure>
+                {% endif %}
+                <div class="main">
+                  <p class="name" data-title="Nombre">{{ product.name }}</p>
+                  <ul class="metadata">
+                    <li class="price" data-title="Precio">{{ product.price }} &euro;</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="pager-wrapper"></div>
+    </div>
+  </section>
+{% endblock %}

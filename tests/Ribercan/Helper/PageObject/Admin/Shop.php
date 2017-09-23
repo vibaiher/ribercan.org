@@ -76,6 +76,11 @@ class Shop extends PageObject
         $this->form_data['product[description]'] = $description;
     }
 
+    public function markAsAvailable()
+    {
+        $this->form_data['product[available]'] = '1';
+    }
+
     public function upload_image($name)
     {
         $folder = __DIR__ . '/../../../Helper/Images';
@@ -147,6 +152,13 @@ class Shop extends PageObject
     {
         return $this->crawler->
             filter('#product_published_at')->
+            text();
+    }
+
+    public function productAvailability()
+    {
+        return $this->crawler->
+            filter('#product_available')->
             text();
     }
 

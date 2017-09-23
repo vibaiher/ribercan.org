@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 use Ribercan\ShopBundle\Entity\Product;
@@ -31,6 +32,7 @@ class ProductType extends AbstractType
                     'currency' => 'EUR'
                 )
             )
+            ->add('available', CheckboxType::class, array('required' => false))
             ->add('uploadedImages', FileType::class, array('multiple' => true, 'data_class' => null, 'required' => false))
         ;
     }

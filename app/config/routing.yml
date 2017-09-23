@@ -42,6 +42,10 @@ ribercan_admin_dog:
     resource: "@RibercanAdminDogBundle/Resources/config/routing.yml"
     prefix:   /
 
+ribercan_shop:
+    resource: "@RibercanShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ribercan_admin_shop:
     resource: "@RibercanAdminShopBundle/Resources/config/routing.yml"
     prefix:   /

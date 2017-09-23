@@ -24,11 +24,13 @@ class Product
         $price = $this->extractFrom($attributes, 'price');
         $description = $this->extractFrom($attributes, 'description');
         $image = $this->extractFrom($attributes, 'image');
+        $available = $this->extractFrom($attributes, 'available');
 
         $product->setTitle($title);
         $product->setPrice($price);
         $product->setDescription($description);
         $product->setUploadedImages([$image]);
+        $product->setAvailable($available);
 
         $this->entity_manager->persist($product);
         $this->entity_manager->flush();
@@ -51,7 +53,8 @@ class Product
             'title' => 'This is a title',
             'price' => 1.5,
             'description' => '<p>This is a description, with <a href="/link">links</a></p>',
-            'image' => $this->defaultImage()
+            'image' => $this->defaultImage(),
+            'available' => true
         );
 
         return $defaults;

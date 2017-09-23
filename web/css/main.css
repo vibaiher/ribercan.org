@@ -79,8 +79,10 @@ h4 + ul {
   display: flex;
 }
 
-.List--animals,
+.List--animal,
+.List--products,
 .List--animals .metadata,
+.List--products .metadata,
 .List--metadata,
 .List--thumbs,
 .MainFooter-listLegalStuff,
@@ -1115,14 +1117,16 @@ input[type=submit]:disabled {
   }
 }
 
-.List--animals {
+.List--animals,
+.List--products {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.List--animals .ListItem {
+.List--animals .ListItem,
+.List--products .ListItem {
   width: 30%;
   border: 1px solid #ccc;
   box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.25);
@@ -1130,51 +1134,61 @@ input[type=submit]:disabled {
 }
 
 @media (max-width: 1023px) {
-  .List--animals .ListItem {
+  .List--animals .ListItem,
+  .List--products .ListItem {
     width: 100%;
   }
 }
 
-.List--animals p {
+.List--animals p,
+.List--products p {
   margin-top: 0;
 }
 
-.List--animals .animal {
+.List--animals .animal,
+.List--products .product {
   font-family: sans-serif;
 }
 
-.List--animals .animal a {
+.List--animals .animal a,
+.List--products .product a {
   color: #333;
 }
 
-.List--animals .pic {
+.List--animals .pic,
+.List--products .pic {
   width: 100%;
   overflow: hidden;
 }
 
-.List--animals .pic img {
+.List--animals .pic img,
+.List--products .pic img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.List--animals .main {
+.List--animals .main,
+.List--products .main {
   padding: 1em;
 }
 
-.List--animals .name {
+.List--animals .name,
+.List--products .name {
   font-size: 3.2rem;
   border-bottom: 1px solid #ccc;
   padding-bottom: .25em;
   margin-bottom: .25em;
 }
 
-.List--animals .metadata {
+.List--animals .metadata,
+.List--products .metadata {
   display: flex;
   margin-top: 0;
 }
 
-.List--animals .metadata li {
+.List--animals .metadata li,
+.List--products .metadata li {
   flex: 1;
   text-align: center;
 }

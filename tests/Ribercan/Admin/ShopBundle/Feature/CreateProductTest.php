@@ -36,13 +36,14 @@ class CreateProductTest extends WebTestCase
     /**
      * @test
      */
-    function userCanPublishAnProduct()
+    function userCanPublishAProduct()
     {
         $this->page->go_to_new_product_page();
 
         $this->page->fill_title_with('Mi producto');
         $this->page->fill_description_with('<p>Descripción del producto</p>');
         $this->page->fill_price_with(1.5);
+        $this->page->markAsAvailable();
         $this->page->upload_image('dog.jpg');
 
         $this->page->click_on_publish();
@@ -66,6 +67,11 @@ class CreateProductTest extends WebTestCase
             'dog.jpg',
             $this->page->product_image(),
             'User can set the product\'s image'
+        );
+        $this->assertEquals(
+            'Yes',
+            $this->page->productAvailability(),
+            'Product is marked as available'
         );
     }
 

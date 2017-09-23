@@ -17,12 +17,16 @@
                 <th>Price</th>
                 <td id="product_price">{{ product.price }}</td>
             </tr>
+            <tr>
+                <th>Available</th>
+                <td id="product_available">{{ product.available ? 'Yes' : 'No' }}</td>
+            </tr>
         </tbody>
     </table>
 
     {% if product.description %}
       <div class="description" style="margin-bottom: 10px;">
-        <h3>Body</h3>
+        <h3>Description</h3>
         <div id="product_description">{{ product.description|raw }}</div>
       </div>
     {% endif %}

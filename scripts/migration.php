@@ -176,29 +176,28 @@ if ($noticias) {
      * | published_at | datetime     | NO   |     | NULL    |                |
      * +--------------+--------------+------+-----+---------+----------------+
      */
-*/
 
-$news = $old_connection->query(
-    'SELECT * FROM odec_noticias'
-);
-$insert_announcement = $connection->prepare(
-    'INSERT INTO news (title, summary, body, published_at) VALUES(:title, :summary, :body, :published_at)'
-);
-
-$connection->exec('DELETE FROM announcement_images');
-$connection->exec('DELETE FROM news');
-
-foreach ($news as $announcement) {
-    $result = $insert_announcement->execute(
-        array(
-            ':title' => utf8_decode($announcement['noticia_titulo']),
-            ':summary' => utf8_decode($announcement['noticia_breve']),
-            ':body' => utf8_decode($announcement['noticia_contenido']),
-            ':published_at' => "{$announcement['noticia_fecha_inicio']} 00:00:00"
-        )
+    $news = $old_connection->query(
+        'SELECT * FROM odec_noticias'
     );
-    echo "Inserted announcement: {$announcement['noticia_titulo']}\n";
-}
+    $insert_announcement = $connection->prepare(
+        'INSERT INTO news (title, summary, body, published_at) VALUES(:title, :summary, :body, :published_at)'
+    );
+
+    $connection->exec('DELETE FROM announcement_images');
+    $connection->exec('DELETE FROM news');
+
+    foreach ($news as $announcement) {
+        $result = $insert_announcement->execute(
+            array(
+                ':title' => utf8_decode($announcement['noticia_titulo']),
+                ':summary' => utf8_decode($announcement['noticia_breve']),
+                ':body' => utf8_decode($announcement['noticia_contenido']),
+                ':published_at' => "{$announcement['noticia_fecha_inicio']} 00:00:00"
+            )
+        );
+        echo "Inserted announcement: {$announcement['noticia_titulo']}\n";
+    }
 }
 
 if ($tienda) {
@@ -223,7 +222,7 @@ if ($tienda) {
         'SELECT * FROM tienda_productos'
     );
     $insert_product = $connection->prepare(
-        'INSERT INTO products (title, description, price) VALUES(:title, :description, :price)'
+        'INSERT INTO products (title, description, price, available) VALUES(:title, :description, :price, true)'
     );
     $insert_product_image = $connection->prepare(
         'INSERT INTO product_images (name, path, cover, product_id) VALUES(:name, :path, :cover, :product_id)'

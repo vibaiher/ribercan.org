@@ -1,0 +1,4 @@
+shop_index:
+    path:     /shop
+    defaults: { _controller: "RibercanShopBundle:Shop:index" }
+    methods:  GET

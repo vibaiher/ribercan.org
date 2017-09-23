@@ -51,6 +51,13 @@ class Product
     private $price;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="available", type="boolean", options={"default":false})
+     */
+    private $available;
+
+    /**
      * @ORM\OneToMany(targetEntity="ProductImage", mappedBy="product", cascade={"persist", "remove"})
      */
     private $images;
@@ -100,6 +107,16 @@ class Product
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getTitle();
+    }
+
+    /**
      * Set description
      *
      * @param string $description
@@ -143,6 +160,48 @@ class Product
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set available
+     *
+     * @param string $available
+     * @return Product
+     */
+    public function setAvailable($available)
+    {
+        $this->available = $available;
+
+        return $this;
+    }
+
+    /**
+     * Get available
+     *
+     * @return string
+     */
+    public function getAvailable()
+    {
+        return $this->available;
+    }
+
+    /**
+     * Get main image
+     *
+     * @return DogImage
+     */
+    public function getMainImage()
+    {
+        if (empty($this->images) || !isset($this->images[0])) {
+            return null;
+        }
+
+        foreach($this->images as $image)
+        {
+           if ($image->getCover() == true) return $image;
+        }
+
+        return $this->images[0];
     }
 
     /**

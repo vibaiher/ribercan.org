@@ -16,6 +16,7 @@
           <th>Id</th>
           <th>Title</th>
           <th>Price</th>
+          <th>Available</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -25,6 +26,7 @@
             <td><a href="{{ path('admin_product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
             <td>{{ product.title }}</td>
             <td>{{ product.price }}</td>
+            <td>{{ product.available }}</td>
             <td>
               <ul class="list-inline">
                 <li>
