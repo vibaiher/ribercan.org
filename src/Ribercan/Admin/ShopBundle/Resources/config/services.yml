@@ -1,0 +1,4 @@
+services:
+#    ribercan_admin_shop.example:
+#        class: Ribercan\Admin\ShopBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

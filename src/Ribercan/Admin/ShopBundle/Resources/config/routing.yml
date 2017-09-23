@@ -1,0 +1,23 @@
+admin_products_index:
+    path:     /admin/products
+    defaults: { _controller: RibercanAdminShopBundle:Product:index }
+
+admin_product_new:
+    path:     /admin/products/new
+    defaults: { _controller: "RibercanAdminShopBundle:Product:new" }
+    methods:  [GET, POST]
+
+admin_product_show:
+    path:     /admin/products/{id}/show
+    defaults: { _controller: "RibercanAdminShopBundle:Product:show" }
+    methods:  GET
+
+admin_product_edit:
+    path:     /admin/products/{id}/edit
+    defaults: { _controller: "RibercanAdminShopBundle:Product:edit" }
+    methods:  [GET, POST]
+
+admin_product_delete:
+    path:     /admin/products/{id}/delete
+    defaults: { _controller: "RibercanAdminShopBundle:Product:delete" }
+    methods:  DELETE

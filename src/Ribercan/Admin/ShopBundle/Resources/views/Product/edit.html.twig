@@ -1,0 +1,63 @@
+{% extends '::admin-base.html.twig' %}
+
+{% block header_javascripts %}
+  <script src="/assets/vendor/trix/dist/trix.js"></script>
+{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="/assets/vendor/trix/dist/trix.css">
+{% endblock %}
+
+{% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+
+{% block section_title %}Editar un producto{% endblock %}
+
+{% block body -%}
+  {{ form_start(edit_form) }}
+    <section class="product-information">
+      <header>
+        <h2>Información relevante</h2>
+      </header>
+      <div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(edit_form.title) }}
+            {{ form_widget(edit_form.title) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(edit_form.price) }}
+            {{ form_widget(edit_form.price) }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(edit_form.description) }}
+            <div class="hide">{{ form_widget(edit_form.description) }}</div>
+            <trix-editor input="product_description"></trix-editor>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-media">
+      <header>
+        <h2>Imágenes</h2>
+      </header>
+      <div>
+        <div class="row">
+          <div class="col-lg-12">
+            {{ form_label(edit_form.uploadedImages) }}
+            {{ form_widget(edit_form.uploadedImages) }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="pull-right">
+      <input type="submit" class="btn btn-primary" value="Update" />
+      <a href="{{ path('admin_product_show', { id: product.id }) }}" class="btn btn-warning">Cancelar</a>
+    </div>
+  {{ form_end(edit_form) }}
+{% endblock %}

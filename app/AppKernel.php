@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Ribercan\FrontpageBundle\RibercanFrontpageBundle(),
             new Ribercan\NewsBundle\RibercanNewsBundle(),
+            new Ribercan\ShopBundle\RibercanShopBundle(),
             new Ribercan\EventBundle\RibercanEventBundle(),
             new Ribercan\DogBundle\RibercanDogBundle(),
             new Ribercan\AboutUsBundle\RibercanAboutUsBundle(),
@@ -26,6 +27,7 @@ class AppKernel extends Kernel
             new Ribercan\Admin\AppBundle\RibercanAdminAppBundle(),
             new Ribercan\Admin\DogBundle\RibercanAdminDogBundle(),
             new Ribercan\Admin\NewsBundle\RibercanAdminNewsBundle(),
+            new Ribercan\Admin\ShopBundle\RibercanAdminShopBundle(),
             new Ribercan\Admin\EventBundle\RibercanAdminEventBundle()
         );
 

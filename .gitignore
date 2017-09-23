@@ -27,9 +27,13 @@ composer.phar
 !/web/images/dogs/.gitkeep
 !/web/images/news
 /web/images/news/*
+!/web/images/news/.gitkeep
 !/web/images/events
 /web/images/events/*
 !/web/images/events/.gitkeep
+!/web/images/products
+/web/images/products/*
+!/web/images/products/.gitkeep
 .vagrant/
 *.swp
 .DS_Store
