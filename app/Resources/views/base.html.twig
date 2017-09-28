@@ -7,6 +7,7 @@
     {% block stylesheets %}{% endblock %}
     <link href="{{ asset('css/main.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="http://fonts.googleapis.com/css?family=Lato:100,400" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width">
     {% block header_javascripts %}{% endblock %}
   </head>
   {% set body_class = body_class|default('page') %}
@@ -29,6 +30,7 @@
       </footer>
       <div class="overlay"></div>
     </div>
+    <script type="text/javascript" src="{{ asset('js/mobileMenu.js') }}"></script>
     {% block javascripts %}{% endblock %}
   </body>
 </html>

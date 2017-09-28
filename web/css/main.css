@@ -391,7 +391,6 @@ body {
 
 .MobileHeader {
   transition: all ease-in-out .3s;
-  height: 50px;
   padding: 0 1rem;
   border-bottom: 1px solid #1e3340;
   color: #fff;
@@ -433,6 +432,13 @@ body {
   vertical-align: middle;
   width: .1px;
   height: 100%;
+}
+
+.MobileHeader-openPrimaryMenu.mobile__open--primary-menu,
+.MobileHeader-openPrimaryMenu.mobile__open--primary-menu:hover {
+  margin-right: 10px;
+  border: 0;
+  background: url('/css/icons/menu.svg');
 }
 
 .MobileHeader .avatar {
