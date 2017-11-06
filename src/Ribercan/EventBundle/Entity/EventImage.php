@@ -47,7 +47,7 @@ class EventImage
     private $file;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Event", inversedBy="images")
+     * @ORM\OneToOne(targetEntity="Event", inversedBy="image")
      * @ORM\JoinColumn(name="event_id", referencedColumnName="id")
      */
     private $event;

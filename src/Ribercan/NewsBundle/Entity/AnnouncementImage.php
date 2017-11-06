@@ -47,7 +47,7 @@ class AnnouncementImage
     private $file;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Announcement", inversedBy="images")
+     * @ORM\OneToOne(targetEntity="Announcement", inversedBy="image")
      * @ORM\JoinColumn(name="announcement_id", referencedColumnName="id")
      */
     private $announcement;
