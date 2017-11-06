@@ -29,19 +29,17 @@
         {% for product in products %}
           <li class="ListItem">
             <article class="product">
-              <a href="{{ path('shop_index', { id: product.id }) }}">
-                {% if product.mainImage %}
-                  <figure class="pic">
-                    <img src="{{ product.mainImage.webPath }}">
-                  </figure>
-                {% endif %}
-                <div class="main">
-                  <p class="name" data-title="Nombre">{{ product.name }}</p>
-                  <ul class="metadata">
-                    <li class="price" data-title="Donativo">Donativo: {{ product.price }} &euro;</li>
-                  </ul>
-                </div>
-              </a>
+              {% if product.mainImage %}
+                <figure class="pic">
+                  <img src="{{ product.mainImage.webPath }}">
+                </figure>
+              {% endif %}
+              <div class="main">
+                <p class="name" data-title="Nombre">{{ product.name }}</p>
+                <ul class="metadata">
+                  <li class="price" data-title="Donativo">Donativo: {{ product.price }} &euro;</li>
+                </ul>
+              </div>
             </article>
           </li>
         {% endfor %}
