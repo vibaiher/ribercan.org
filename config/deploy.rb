@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:vibaiher/ribercan.org.git'
 set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml')
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('web/images/dogs', 'web/images/news')
+set :linked_dirs, fetch(:linked_dirs, []).push('web/images/dogs', 'web/images/news', 'web/images/products', 'web/images/events')
 
 # Default value for keep_releases is 5
 set :keep_releases, 1
