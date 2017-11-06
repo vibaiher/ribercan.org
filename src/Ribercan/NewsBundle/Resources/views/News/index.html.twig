@@ -7,31 +7,20 @@
     <div class="l__wrapper">
       <h1>Archivo de noticias</h1>
 
-      <ol class="list--news">
-        {% for announcement in news %}
-          <li class="ListItem">
-            <article class="announcement">
-              <h2><a href="/news/{{ announcement.id }}">{{ announcement.title }}</a></h2>
-              <p>{{ announcement.publishedAt|date('d/m/Y') }}</p>
-            </article>
-          </li>
-        {% endfor %}
-      </ol>
-
-      <div class="pager-wrapper">
-        <p>Viendo del 1 al 3 de 9</p>
-        <ul class="pager">
-          <li class="ListItem">
-            <a href="#">1</a>
-          </li>
-          <li class="ListItem">
-            <a href="#">2</a>
-          </li>
-          <li class="ListItem">
-            <a href="#">3</a>
-          </li>
-        </ul>
-      </div>
+      {% if news %}
+        <ol class="list--news">
+          {% for announcement in news %}
+            <li class="ListItem">
+              <article class="announcement">
+                <h2><a href="/news/{{ announcement.id }}">{{ announcement.title }}</a></h2>
+                <p>{{ announcement.publishedAt|date('d/m/Y') }}</p>
+              </article>
+            </li>
+          {% endfor %}
+        </ol>
+      {% else %}
+        <p>Lo sentimos, todavía no hemos publicado ninguna notícia.</p>
+      {% endif %}
     </div>
   </section>
 {% endblock %}

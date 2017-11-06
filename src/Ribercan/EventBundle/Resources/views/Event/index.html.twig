@@ -7,31 +7,20 @@
     <div class="l__wrapper">
       <h1>Eventos</h1>
 
-      <ol class="list--news">
-        {% for event in events %}
-          <li class="ListItem">
-            <article class="event">
-              <h2><a href="/events/{{ event.id }}">{{ event.title }}</a></h2>
-              <p>{{ event.publishedAt|date('d/m/Y') }}</p>
-            </article>
-          </li>
-        {% endfor %}
-      </ol>
-
-      <div class="pager-wrapper">
-        <p>Viendo del 1 al 3 de 9</p>
-        <ul class="pager">
-          <li class="ListItem">
-            <a href="#">1</a>
-          </li>
-          <li class="ListItem">
-            <a href="#">2</a>
-          </li>
-          <li class="ListItem">
-            <a href="#">3</a>
-          </li>
-        </ul>
-      </div>
+      {% if events %}
+        <ol class="list--news">
+          {% for event in events %}
+            <li class="ListItem">
+              <article class="event">
+                <h2><a href="/events/{{ event.id }}">{{ event.title }}</a></h2>
+                <p>{{ event.publishedAt|date('d/m/Y') }}</p>
+              </article>
+            </li>
+          {% endfor %}
+        </ol>
+      {% else %}
+        <p>Lo sentimos, ahora mismo no hay ningún evento planificado.</p>
+      {% endif %}
     </div>
   </section>
 {% endblock %}
