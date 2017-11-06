@@ -23,12 +23,13 @@ class DogFilterType extends AbstractType
                 'sex',
                 ChoiceType::class,
                 array(
+                    'label' => 'dog_filter.sex',
                     'required' => false,
                     'multiple' => false,
                     'choices' => array(
-                        'Cualquiera' => '',
-                        'Macho' => Dog::MALE,
-                        'Hembra' => Dog::FEMALE
+                        'dog_filter.any' => '',
+                        'dog_filter.male' => Dog::MALE,
+                        'dog_filter.female' => Dog::FEMALE
                     )
                 )
             )
@@ -36,12 +37,13 @@ class DogFilterType extends AbstractType
                 'age',
                 ChoiceType::class,
                 array(
+                    'label' => 'dog_filter.age',
                     'required' => false,
                     'multiple' => false,
                     'choices' => array(
-                        'Cualquiera' => '',
-                        'Cachorro' => Dog::PUPPY,
-                        'Adulto' => Dog::ADULT
+                        'dog_filter.any' => '',
+                        'dog_filter.puppy' => Dog::PUPPY,
+                        'dog_filter.adult' => Dog::ADULT
                     )
                 )
             )
@@ -49,13 +51,14 @@ class DogFilterType extends AbstractType
                 'size',
                 ChoiceType::class,
                 array(
+                    'label' => 'dog_filter.size',
                     'required' => false,
                     'multiple' => false,
                     'choices' => array(
-                        'Cualquiera' => '',
-                        'Pequeño' => Dog::SMALL,
-                        'Mediano' => Dog::MEDIUM,
-                        'Grande' => Dog::BIG,
+                        'dog_filter.any' => '',
+                        'dog_filter.small' => Dog::SMALL,
+                        'dog_filter.medium' => Dog::MEDIUM,
+                        'dog_filter.big' => Dog::BIG,
                     )
                 )
             )
@@ -63,7 +66,7 @@ class DogFilterType extends AbstractType
                 'submit',
                 SubmitType::class,
                 array(
-                    'label' => 'Filter',
+                    'label' => 'dog_filter.filter',
                     'attr' => array(
                         'class' => 'btn btn--primary'
                     )

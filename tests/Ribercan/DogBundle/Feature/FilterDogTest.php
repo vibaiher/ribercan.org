@@ -47,7 +47,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[size]'  => Dog::BIG
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
@@ -99,7 +99,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[age]'  => Dog::PUPPY
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
@@ -146,7 +146,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[sex]'  => Dog::FEMALE
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
@@ -208,7 +208,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[age]' => Dog::ADULT
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
@@ -266,7 +266,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[size]' => Dog::SMALL
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
@@ -328,7 +328,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[age]' => Dog::PUPPY
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
@@ -395,7 +395,7 @@ class FilterDogTest extends HandyTestCase
             'dog_filter[sex]' => Dog::FEMALE
         );
 
-        $form = $crawler->selectButton('Filter')->form($filterAttributes);
+        $form = $crawler->selectButton('Filtrar')->form($filterAttributes);
 
         $crawler = $this->client->submit($form);
 
