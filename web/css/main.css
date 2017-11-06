@@ -79,7 +79,7 @@ h4 + ul {
   display: flex;
 }
 
-.List--animal,
+.List--animals,
 .List--products,
 .List--animals .metadata,
 .List--products .metadata,
