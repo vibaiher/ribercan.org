@@ -1174,6 +1174,13 @@ input[type=submit]:disabled {
   height: auto;
 }
 
+@media only screen and (min-width: 1023px) {
+  .List--animals .pic img,
+  .List--products .pic img {
+    height: 187px;
+  }
+}
+
 .List--animals .main,
 .List--products .main {
   padding: 1em;
