@@ -12,4 +12,9 @@ abstract class PageObject
         $this->client = $client;
         $this->crawler = $crawler;
     }
+
+    public function debug()
+    {
+        print $this->client->getResponse()->getContent();
+    }
 }

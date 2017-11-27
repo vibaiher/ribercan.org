@@ -1,9 +1,9 @@
 {% extends '::admin-base.html.twig' %}
 
-{% block body %}
-    <h1>Imágenes de "{{ dog.name }}"</h1>
+{% block section_title %}Imágenes de "{{ dog.name }}"{% endblock %}
 
-    <table class="table">
+{% block body %}
+    <table class="table table--images">
         <thead>
             <tr>
                 <th>Id</th>
@@ -16,15 +16,17 @@
         <tbody>
         {% for image in images %}
             <tr>
-                <td><a href="{{ path('admin_dog_images_show', { 'dog_id': dog.id, 'id': image.id }) }}">{{ image.id }}</a></td>
+                <td><a href="path('admin_dog_images_show', { 'dog_id': dog.id, 'id': image.id })">{{ image.id }}</a></td>
                 <td>{{ image.name }}</td>
                 <td><a href="{{ image.webPath }}">{{ image.path }}</a></td>
                 <td>{% if image.firstImage %}Sí{% else %}No{% endif %}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('admin_dog_images_show', { 'dog_id': dog.id, 'id': image.id }) }}">Ver</a>
-                        </li>
+                        {% if image.firstImage == false %}
+                            <li>
+                                <a href="{{ path('admin_dog_images_mark_as_cover', { 'dog_id': dog.id, 'id': image.id }) }}">Poner como foto de perfil</a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </td>
             </tr>
@@ -32,6 +34,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_dog_images_new', { 'dog_id': dog.id }) }}">Añadir nuevas imágenes</a>
+    {{ form(image_form) }}
 
 {% endblock %}

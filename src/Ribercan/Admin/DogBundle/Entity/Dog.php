@@ -416,6 +416,12 @@ class Dog
             return null;
         }
 
+        foreach ($this->images as $image) {
+            if ($image->getFirstImage() == true) {
+                return $image;
+            }
+        }
+
         return $this->images[0];
     }
 
@@ -453,6 +459,7 @@ class Dog
             if ($uploadedImage) {
                 $dogImage = new DogImage($uploadedImage);
                 $dogImage->setDog($this);
+                $dogImage->setFirstImage(false);
 
                 $this->getImages()->add($dogImage);
 

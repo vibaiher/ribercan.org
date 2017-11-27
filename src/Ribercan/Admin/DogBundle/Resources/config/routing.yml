@@ -22,3 +22,13 @@ admin_dogs_delete:
     path:     /admin/dogs/{id}/delete
     defaults: { _controller: "RibercanAdminDogBundle:Dog:delete" }
     methods:  DELETE
+
+admin_dog_images_index:
+    path:     /admin/dogs/{id}/images
+    defaults: { _controller: "RibercanAdminDogBundle:DogImage:index" }
+    methods:  [GET, POST]
+
+admin_dog_images_mark_as_cover:
+    path:     /admin/dogs/{dog_id}/images/{id}
+    defaults: { _controller: "RibercanAdminDogBundle:DogImage:markAsCover" }
+    methods:  GET
