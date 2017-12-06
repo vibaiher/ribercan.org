@@ -32,3 +32,8 @@ admin_dog_images_mark_as_cover:
     path:     /admin/dogs/{dog_id}/images/{id}
     defaults: { _controller: "RibercanAdminDogBundle:DogImage:markAsCover" }
     methods:  GET
+
+admin_dog_images_delete:
+    path:     /admin/dogs/{dog_id}/images/{id}/delete
+    defaults: { _controller: "RibercanAdminDogBundle:DogImage:delete" }
+    methods:  GET

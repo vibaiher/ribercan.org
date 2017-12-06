@@ -95,4 +95,35 @@ class ManageDogImagesTest extends WebTestCase
             'Dog has a new cover image'
         );
     }
+
+    /**
+     * @test
+     */
+    function userShouldBeAbleToDeleteAnImage()
+    {
+        $dog = $this->factory->create(
+            array(
+                'name' => 'Small Dog',
+                'size' => Dog::SMALL
+            )
+        );
+
+        $this->page->goToImagesOf($dog);
+        $this->page->upload('dog.jpg', __DIR__ . '/images/dog.jpg');
+        $this->page->upload('dog2.jpg', __DIR__ . '/images/dog2.jpg');
+
+        $this->assertEquals(
+            2,
+            $this->page->imagesCount(),
+            'Dog has a new image'
+        );
+
+        $this->page->deleteSecondImage();
+
+        $this->assertEquals(
+            1,
+            $this->page->imagesCount(),
+            'Last dog image is deleted'
+        );
+    }
 }

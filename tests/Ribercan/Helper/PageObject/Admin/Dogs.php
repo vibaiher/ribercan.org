@@ -60,7 +60,16 @@ class Dogs extends PageObject
     {
         $secondPosition = 1;
         $link = $this->crawler->filter("a:contains('Poner como foto de perfil')")->eq($secondPosition)->link();
-        $this->crawler = $this->client->click($link);
+        $this->client->click($link);
+        $this->crawler = $this->client->followRedirect();
+    }
+
+    public function deleteSecondImage()
+    {
+        $secondPosition = 1;
+        $link = $this->crawler->filter("a:contains('Borrar')")->eq($secondPosition)->link();
+        $this->client->click($link);
+        $this->crawler = $this->client->followRedirect();
     }
 
     public function imagesCount()

@@ -55,4 +55,19 @@ class DogImageController extends Controller
             )
         );
     }
+
+    public function deleteAction(DogImage $dogImage)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($dogImage);
+        $entityManager->flush();
+
+        $dog = $dogImage->getDog();
+        return $this->redirectToRoute(
+            'admin_dog_images_index',
+            array(
+                'id' => $dog->getId()
+            )
+        );
+    }
 }

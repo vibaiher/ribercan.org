@@ -6,7 +6,6 @@
     <table class="table table--images">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nombre</th>
                 <th>Ruta</th>
                 <th>Imágen principal</th>
@@ -16,7 +15,6 @@
         <tbody>
         {% for image in images %}
             <tr>
-                <td><a href="path('admin_dog_images_show', { 'dog_id': dog.id, 'id': image.id })">{{ image.id }}</a></td>
                 <td>{{ image.name }}</td>
                 <td><a href="{{ image.webPath }}">{{ image.path }}</a></td>
                 <td>{% if image.firstImage %}Sí{% else %}No{% endif %}</td>
@@ -27,6 +25,9 @@
                                 <a href="{{ path('admin_dog_images_mark_as_cover', { 'dog_id': dog.id, 'id': image.id }) }}">Poner como foto de perfil</a>
                             </li>
                         {% endif %}
+                        <li>
+                            <a href="{{ path('admin_dog_images_delete', { 'dog_id': dog.id, 'id': image.id }) }}">Borrar</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
