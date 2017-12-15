@@ -1,5 +1,7 @@
 {% extends "RibercanHowToHelpBundle:StaticPages:base-how_to_help.html.twig" %}
 
+{% from "typeform.html.twig" import typeform %}
+
 {% block title %}Acoge | Ribercan{% endblock %}
 
 {% block title_body %}Acoge{% endblock %}
@@ -21,8 +23,9 @@
 
   <div class="cta">
     <h1>¿Ya tienes claro que quieres acoger a uno de nuestros peludos?</h1>
-    <p>¡Genial! Por favor, envía este formulario rellenado a <strong>adopciones@ribercan.org</strong>:</p>
-    <p><a href="{{ asset('docs/acogida.doc') }}" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Descargar formulario acogida</a></p>
+    <p>¡Genial! Por favor, rellena el formulario de acogida:</p>
+    <p>
+      {{ typeform('¡Quiero acoger!', 'https://ribercan.typeform.com/to/KiaXOd') }}
+    </p>
   </div>
-
 {% endblock %}

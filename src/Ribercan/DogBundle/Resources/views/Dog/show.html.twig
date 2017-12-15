@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% from "typeform.html.twig" import typeform_without_style %}
+
 {% block body %}
 <section class="section--animal" id="dog" style="background: url('{{ dog.mainImage }}') no-repeat; background-size: contain;">
   <header class="animal-hero"></header>
@@ -7,7 +9,7 @@
     <div class="animal-adopt">
       <h1 class="name">{{ dog.sex|raw }} {{ dog.name }}</h1>
       <p class="cta">
-        <a href="https://vibaiher.typeform.com/to/HAK5Rf" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Adóptame</a> <a href="{{ path('ribercan_how_to_help_adopt') }}"><i class="icon icon-info">Más info.</i></a> <a href="https://vibaiher.typeform.com/to/xQDq0d" class="btn btn-default typeform-share" role="button" data-mode="1" target="_blank">Apadríname</a> <a href="{{ path('ribercan_how_to_help_godfather') }}"><i class="icon icon-info">Más info.</i></a>
+        {{ typeform_without_style('Adóptame', 'https://ribercan.typeform.com/to/HAK5Rf', 'btn btn-primary') }} <a href="{{ path('ribercan_how_to_help_adopt') }}"><i class="icon icon-info">Más info.</i></a> {{ typeform_without_style('Apadríname', 'https://ribercan.typeform.com/to/xQDq0d', 'btn btn-default') }} <a href="{{ path('ribercan_how_to_help_godfather') }}"><i class="icon icon-info">Más info.</i></a>
       </p>
     </div><!-- .animal-adopt -->
     <p class="animal-entry">Entrada en la protectora <time>{{ dog.joinDate }}</time></p>

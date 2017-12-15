@@ -1,5 +1,7 @@
 {% extends "RibercanHowToHelpBundle:StaticPages:base-how_to_help.html.twig" %}
 
+{% from "typeform.html.twig" import typeform %}
+
 {% block title %}Como ayudar | Ribercan{% endblock %}
 
 {% block title_body %}Como ayudar{% endblock %}
@@ -59,6 +61,8 @@
 <div class="cta">
   <h1>¿Ya tienes claro que quieres adoptar?</h1>
   <p>¡Genial! Por favor, rellena el formulario de adopción:</p>
-  <p><a href="https://vibaiher.typeform.com/to/HAK5Rf" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Rellenar formulario adopción</a></p>
+  <p>
+    {{ typeform('¡Quiero adoptar!', 'https://ribercan.typeform.com/to/HAK5Rf') }}
+  </p>
 </div>
 {% endblock %}

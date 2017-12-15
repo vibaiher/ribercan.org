@@ -1307,6 +1307,7 @@ dialog .close:hover {
 
 .news__body .cta .typeform-share {
   text-transform: uppercase;
+  border: 1px solid #bbb;
   width: 50%;
 }
 

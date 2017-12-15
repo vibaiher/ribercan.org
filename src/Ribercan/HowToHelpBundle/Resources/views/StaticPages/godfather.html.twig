@@ -1,5 +1,7 @@
 {% extends "RibercanHowToHelpBundle:StaticPages:base-how_to_help.html.twig" %}
 
+{% from "typeform.html.twig" import typeform %}
+
 {% block title %}Apadrina | Ribercan{% endblock %}
 
 {% block title_body %}Apadrina{% endblock %}
@@ -11,7 +13,9 @@
 
   <div class="cta">
     <h1>¿Ya tienes claro que quieres apadrinar uno de nuestros peludos?</h1>
-    <p>¡Genial! Por favor, envía este formulario rellenado a <strong>socios@ribercan.org</strong>:</p>
-    <p><a href="{{ asset('docs/padrinos.doc') }}" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Descargar formulario padrinos</a></p>
+    <p>¡Genial! Por favor, rellena el formulario para apadrinar:</p>
+    <p>
+      {{ typeform('¡Quiero apadrinar!', 'https://ribercan.typeform.com/to/xQDq0d') }}
+    </p>
   </div>
 {% endblock %}

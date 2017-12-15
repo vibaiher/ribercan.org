@@ -1,3 +1,5 @@
+{% from "typeform.html.twig" import typeform_without_style %}
+
 <article class="animaladoptable">
   <a href="{{ path('dog_in_adoption', { id: dog.id }) }}">
     <img src="{{ dog.mainImage }}" alt="..." width="60" height="60">
@@ -11,15 +13,11 @@
     <p><time>{{ dog.age }}</time></p>
     <ul class="takeAction">
       <li>
-        <a href="https://vibaiher.typeform.com/to/HAK5Rf" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">
-          Adóptame
-        </a>
+        {{ typeform_without_style('Adóptame', 'https://ribercan.typeform.com/to/HAK5Rf', 'btn btn-primary') }}
         <a href="{{ path('ribercan_how_to_help_adopt') }}"><i class="icon icon-info">Más info.</i></a>
       </li>
       <li>
-        <a href="https://vibaiher.typeform.com/to/xQDq0d" class="btn btn-default typeform-share" role="button" data-mode="1" target="_blank">
-          Apadríname
-        </a>
+        {{ typeform_without_style('Apadríname', 'https://ribercan.typeform.com/to/xQDq0d', 'btn btn-default') }}
         <a href="{{ path('ribercan_how_to_help_godfather') }}"><i class="icon icon-info">Más info.</i></a>
       </li>
     </ul>

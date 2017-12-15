@@ -1,0 +1,7 @@
+{% macro typeform(text, url) %}
+  <a class="typeform-share button" href="{{ url }}" data-mode="drawer_right" style="display:inline-block;text-decoration:none;background-color:#b0d7ff;color:rgba(0,0,0,0.8);cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:5px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">{{ text }}</a>
+{% endmacro %}
+
+{% macro typeform_without_style(text, url, class) %}
+  <a class="{{ class }} typeform-share" href="{{ url }}" data-mode="drawer_right" target="_blank">{{ text }}</a>
+{% endmacro %}

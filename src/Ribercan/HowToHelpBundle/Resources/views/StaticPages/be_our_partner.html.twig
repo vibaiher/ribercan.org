@@ -1,5 +1,7 @@
 {% extends "RibercanHowToHelpBundle:StaticPages:base-how_to_help.html.twig" %}
 
+{% from "typeform.html.twig" import typeform %}
+
 {% block title %}Hazte socio | Ribercan{% endblock %}
 
 {% block title_body %}Hazte socio{% endblock %}
@@ -13,7 +15,9 @@
 
   <div class="cta">
     <h1>¿Ya tienes claro que quieres ser socio?</h1>
-    <p>¡Genial! Por favor, envía este formulario rellenado a <strong>socios@ribercan.org</strong>:</p>
-    <p><a href="{{ asset('docs/socios.doc') }}" class="btn btn-primary typeform-share" role="button" data-mode="1" target="_blank">Descargar formulario socios</a></p>
+    <p>¡Genial! Por favor, rellena el formulario de socio:</p>
+    <p>
+      {{ typeform('¡Quiero ser socio!', 'https://ribercan.typeform.com/to/VQJwHq') }}
+    </p>
   </div>
 {% endblock %}
