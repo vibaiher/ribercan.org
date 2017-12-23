@@ -10,6 +10,8 @@ use Ribercan\Admin\DogBundle\Entity\Dog;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+use Tests\Ribercan\Helper\Factory\Dog as DogCreator;
+
 class RegisterNewDogTest extends HandyTestCase
 {
     private $images;
@@ -22,6 +24,8 @@ class RegisterNewDogTest extends HandyTestCase
         );
         parent::setUp($auth);
         $this->truncateTables(['dogs', 'dog_images']);
+        $this->dogCreator = new DogCreator($this->em);
+        $this->repository = $this->em->getRepository('RibercanAdminDogBundle:Dog');
     }
 
     /**
@@ -69,6 +73,43 @@ class RegisterNewDogTest extends HandyTestCase
             1,
             $crawler->filter('img.img-thumbnail'),
             'Dog images were uploaded'
+        );
+    }
+
+    /**
+     * @test
+     */
+    function userShouldBeAbleToEditDogJoinDate()
+    {
+        $dog = $this->dogCreator->create(
+            array(
+                'name' => 'Small Dog',
+                'size' => Dog::SMALL
+            )
+        );
+
+        $crawler = $this->visit('admin_dogs_index');
+        $crawler = $this->client->click($crawler->selectLink('Editar')->link());
+
+        // Fill in the form and submit it
+        $form = $crawler->selectButton('Update')->form(array(
+            'dog[joinDate]' => array(
+                'year' => 2000,
+                'month' => 9,
+                'day' => 18
+            )
+        ));
+
+        $this->client->submit($form);
+        $crawler = $this->client->followRedirect();
+
+        $updatedDog = $this->repository->find($dog->getId());
+
+        $expectedDate = new \DateTime("2000/09/18");
+        $this->assertEquals(
+            $expectedDate->format("Y-m-d"),
+            $updatedDog->getJoinDate()->format("Y-m-d"),
+            'Dog join date was updated'
         );
     }
 }

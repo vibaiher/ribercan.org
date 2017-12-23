@@ -19,43 +19,52 @@
       <div>
         <div class="row">
           <div class="col-lg-2">
+            {{ form_errors(edit_form.urgent) }}
             {{ form_widget(edit_form.urgent) }}
           </div>
           <div class="col-lg-2">
+            {{ form_errors(edit_form.sterilized) }}
             {{ form_widget(edit_form.sterilized) }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-6">
             {{ form_label(edit_form.name) }}
+            {{ form_errors(edit_form.name) }}
             {{ form_widget(edit_form.name) }}
           </div>
           <div class="col-lg-3">
             {{ form_label(edit_form.birthday) }}
+            {{ form_errors(edit_form.birthday) }}
             {{ form_widget(edit_form.birthday) }}
           </div>
           <div class="col-lg-3">
             {{ form_label(edit_form.joinDate) }}
+            {{ form_errors(edit_form.joinDate) }}
             {{ form_widget(edit_form.joinDate) }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-3">
             {{ form_label(edit_form.sex) }}
+            {{ form_errors(edit_form.sex) }}
             {{ form_widget(edit_form.sex) }}
           </div>
           <div class="col-lg-3">
             {{ form_label(edit_form.size) }}
+            {{ form_errors(edit_form.size) }}
             {{ form_widget(edit_form.size) }}
           </div>
           <div class="col-lg-6">
             {{ form_label(edit_form.godfather) }}
+            {{ form_errors(edit_form.godfather) }}
             {{ form_widget(edit_form.godfather) }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(edit_form.health) }}
+            {{ form_errors(edit_form.health) }}
             <div class="hide">{{ form_widget(edit_form.health) }}</div>
             <trix-editor input="dog_health"></trix-editor>
           </div>
@@ -63,6 +72,7 @@
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(edit_form.description) }}
+            {{ form_errors(edit_form.description) }}
             <div class="hide">{{ form_widget(edit_form.description) }}</div>
             <trix-editor input="dog_description"></trix-editor>
           </div>
@@ -78,6 +88,7 @@
         <div class="row">
           <div class="col-lg-6">
             {{ form_label(edit_form.video) }}
+            {{ form_errors(edit_form.video) }}
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">https://www.youtube.com/watch?v=</span>
               {{ form_widget(edit_form.video, { 'attr': { 'aria-describedby': 'basic-addon3' } }) }}
@@ -87,6 +98,7 @@
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(edit_form.uploadedImages) }}
+            {{ form_errors(edit_form.uploadedImages) }}
             {{ form_widget(edit_form.uploadedImages) }}
           </div>
         </div>

@@ -21,43 +21,52 @@
       <div>
         <div class="row">
           <div class="col-lg-2">
+            {{ form_errors(form.urgent) }}
             {{ form_widget(form.urgent) }}
           </div>
           <div class="col-lg-2">
+            {{ form_errors(form.sterilized) }}
             {{ form_widget(form.sterilized) }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-6">
             {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
             {{ form_widget(form.name) }}
           </div>
           <div class="col-lg-3">
             {{ form_label(form.birthday) }}
+            {{ form_errors(form.birthday) }}
             {{ form_widget(form.birthday) }}
           </div>
           <div class="col-lg-3">
             {{ form_label(form.joinDate) }}
+            {{ form_errors(form.joinDate) }}
             {{ form_widget(form.joinDate) }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-3">
             {{ form_label(form.sex) }}
+            {{ form_errors(form.sex) }}
             {{ form_widget(form.sex) }}
           </div>
           <div class="col-lg-3">
             {{ form_label(form.size) }}
+            {{ form_errors(form.size) }}
             {{ form_widget(form.size) }}
           </div>
           <div class="col-lg-6">
             {{ form_label(form.godfather) }}
+            {{ form_errors(form.godfather) }}
             {{ form_widget(form.godfather) }}
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(form.health) }}
+            {{ form_errors(form.health) }}
             <div class="hide">{{ form_widget(form.health) }}</div>
             <trix-editor input="dog_health"></trix-editor>
           </div>
@@ -65,6 +74,7 @@
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(form.description) }}
+            {{ form_errors(form.description) }}
             <div class="hide">{{ form_widget(form.description) }}</div>
             <trix-editor input="dog_description"></trix-editor>
           </div>
@@ -80,6 +90,7 @@
         <div class="row">
           <div class="col-lg-6">
             {{ form_label(form.video) }}
+            {{ form_errors(form.video) }}
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">https://www.youtube.com/watch?v=</span>
               {{ form_widget(form.video, { 'attr': { 'aria-describedby': 'basic-addon3' } }) }}
@@ -89,6 +100,7 @@
         <div class="row">
           <div class="col-lg-12">
             {{ form_label(form.uploadedImages) }}
+            {{ form_errors(form.uploadedImages) }}
             {{ form_widget(form.uploadedImages) }}
           </div>
         </div>

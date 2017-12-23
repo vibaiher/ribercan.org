@@ -38,7 +38,7 @@ class DogType extends AbstractType
                 )
             )
             ->add('birthday', BirthdayType::class)
-            ->add('joinDate', DateType::class)
+            ->add('joinDate', BirthdayType::class)
             ->add('sterilized')
             ->add('health', TextareaType::class, array('required' => false, 'empty_data' => null))
             ->add('godfather', TextType::class, array('required' => false, 'empty_data' => null))
