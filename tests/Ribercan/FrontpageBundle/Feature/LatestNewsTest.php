@@ -39,12 +39,14 @@ class LatestNewsTest extends WebTestCase
         $announcementTwo = $this->factory->create(array('title' => 'Two'));
         $announcementThree = $this->factory->create(array('title' => 'Three'));
         $announcementFour = $this->factory->create(array('title' => 'Four'));
-        $announcementFive = $this->factory->create(array('title' => 'Four'));
+        $announcementFive = $this->factory->create(array('title' => 'Five'));
 
         $this->page->go_to_frontpage();
 
+        $fixed_video_announcement = 1;
+        $expected_news = 4 + $fixed_video_announcement;
         $this->assertCount(
-            4,
+            $expected_news,
             $this->page->latest_news(),
             'Only shows the four latest news in the frontpage'
         );

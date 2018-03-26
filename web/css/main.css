@@ -928,6 +928,10 @@ input[type=submit]:disabled {
   }
 }
 
+.list--news article.premium-announcement {
+  padding-left: 0;
+}
+
 .form--search {
   background: #fafafa;
   border: 1px solid #ccc;
