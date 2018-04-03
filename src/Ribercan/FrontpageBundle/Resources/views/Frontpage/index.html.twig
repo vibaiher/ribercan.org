@@ -18,6 +18,7 @@
         <div class=main>
           <div class=featured>
             {{ include('RibercanDogBundle:Dog:filter.html.twig', { 'form': filterForm }) }}
+
             <div class="urgent">
               {{ include('RibercanDogBundle:Dog:urgent_adoptions.html.twig', { 'dogs': urgent_adoptions }) }}
             </div>

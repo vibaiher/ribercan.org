@@ -766,7 +766,7 @@ input[type=submit]:disabled {
 }
 
 .animaladoptable img {
-  height: 160px;
+  height: auto;
   width: 160px;
   margin: 0;
 }
@@ -1176,13 +1176,6 @@ input[type=submit]:disabled {
   display: block;
   width: 100%;
   height: auto;
-}
-
-@media only screen and (min-width: 1023px) {
-  .List--animals .pic img,
-  .List--products .pic img {
-    height: 187px;
-  }
 }
 
 .List--animals .main,

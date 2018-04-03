@@ -2,10 +2,10 @@
   <h2>Adopciones urgentes ({{ dogs|length }})</h2>
 </header>
 <div class=main>
-  <ul class=list--urgent>
+  <ul class="List--animals">
     {% for dog in dogs %}
-      <li>
-        {{ include('RibercanDogBundle:Dog:urgent_adoption.html.twig', { 'dog': dog }) }}
+      <li class="ListItem">
+        {{ include('RibercanDogBundle:Dog:dog.html.twig', { 'dog': dog }) }}
       </li>
     {% endfor %}
   </ul>
