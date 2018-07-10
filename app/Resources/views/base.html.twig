@@ -32,6 +32,24 @@
     </div>
     <script type="text/javascript" src="{{ asset('js/mobileMenu.js') }}"></script>
     <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/es_ES/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+      attribution=install_email
+      page_id="10150145024000392"
+      theme_color="#44bec7"
+      logged_in_greeting="¡Hola! ¿En qué podemos ayudarte?"
+      logged_out_greeting="¡Hola! ¿En qué podemos ayudarte?">
+    </div>
     {% block javascripts %}{% endblock %}
   </body>
 </html>
